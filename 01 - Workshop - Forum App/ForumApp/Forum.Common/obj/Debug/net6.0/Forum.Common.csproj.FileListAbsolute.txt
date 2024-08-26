@@ -1,0 +1,12 @@
+C:\SoftUni_ASP.NET-Fundamentals\01 - Workshop - Forum App\ForumApp\Forum.Common\bin\Debug\net6.0\Forum.Common.deps.json
+C:\SoftUni_ASP.NET-Fundamentals\01 - Workshop - Forum App\ForumApp\Forum.Common\bin\Debug\net6.0\Forum.Common.dll
+C:\SoftUni_ASP.NET-Fundamentals\01 - Workshop - Forum App\ForumApp\Forum.Common\bin\Debug\net6.0\Forum.Common.pdb
+C:\SoftUni_ASP.NET-Fundamentals\01 - Workshop - Forum App\ForumApp\Forum.Common\obj\Debug\net6.0\Forum.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\SoftUni_ASP.NET-Fundamentals\01 - Workshop - Forum App\ForumApp\Forum.Common\obj\Debug\net6.0\Forum.Common.AssemblyInfoInputs.cache
+C:\SoftUni_ASP.NET-Fundamentals\01 - Workshop - Forum App\ForumApp\Forum.Common\obj\Debug\net6.0\Forum.Common.AssemblyInfo.cs
+C:\SoftUni_ASP.NET-Fundamentals\01 - Workshop - Forum App\ForumApp\Forum.Common\obj\Debug\net6.0\Forum.Common.csproj.CoreCompileInputs.cache
+C:\SoftUni_ASP.NET-Fundamentals\01 - Workshop - Forum App\ForumApp\Forum.Common\obj\Debug\net6.0\Forum.Common.sourcelink.json
+C:\SoftUni_ASP.NET-Fundamentals\01 - Workshop - Forum App\ForumApp\Forum.Common\obj\Debug\net6.0\Forum.Common.dll
+C:\SoftUni_ASP.NET-Fundamentals\01 - Workshop - Forum App\ForumApp\Forum.Common\obj\Debug\net6.0\refint\Forum.Common.dll
+C:\SoftUni_ASP.NET-Fundamentals\01 - Workshop - Forum App\ForumApp\Forum.Common\obj\Debug\net6.0\Forum.Common.pdb
+C:\SoftUni_ASP.NET-Fundamentals\01 - Workshop - Forum App\ForumApp\Forum.Common\obj\Debug\net6.0\ref\Forum.Common.dll
