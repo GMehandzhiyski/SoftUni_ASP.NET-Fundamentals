@@ -613,7 +613,10 @@
       },
       "Forum.Common/1.0.0": {
         "runtime": {
-          "Forum.Common.dll": {}
+          "Forum.Common.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "Forum.Infrastructure/1.0.0": {
@@ -623,7 +626,10 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.5"
         },
         "runtime": {
-          "Forum.Infrastructure.dll": {}
+          "Forum.Infrastructure.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

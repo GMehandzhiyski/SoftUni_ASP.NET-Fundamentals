@@ -6,9 +6,11 @@ namespace Forum.Core.Models.Post
     public class PostFormModel
     {
 
-        [Required]
-        [MinLength(MinTitleLenght)]
-        [MaxLength(MaxTitleLenght)]
+        //[Required]
+        //[MinLength(MinTitleLenght)]
+        //[MaxLength(MaxTitleLenght)]
+        [Required(ErrorMessage = "Name is requared")]
+        [StringLength(50, MinimumLength = 2 , ErrorMessage = "Name must be between 2 and 50 characters")]
         public string Title { get; set; } = null!;
 
         [Required]

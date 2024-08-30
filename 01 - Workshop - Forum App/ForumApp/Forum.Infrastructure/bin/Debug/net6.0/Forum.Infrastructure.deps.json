@@ -702,7 +702,10 @@
       },
       "Forum.Common/1.0.0": {
         "runtime": {
-          "Forum.Common.dll": {}
+          "Forum.Common.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

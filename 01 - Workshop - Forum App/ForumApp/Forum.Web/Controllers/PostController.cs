@@ -56,6 +56,7 @@ namespace Forum.Web.Controllers
 
         }
 
+        [HttpGet]
         public async Task<IActionResult> Edit(string id)
         {
             Post model = await _postService.GetByIdAsync(id);
