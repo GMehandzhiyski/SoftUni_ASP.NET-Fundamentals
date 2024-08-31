@@ -15,6 +15,7 @@ namespace MCVIntroDemo.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.Message = "Hello Word!";
             return View();
         }
 
@@ -23,10 +24,11 @@ namespace MCVIntroDemo.Controllers
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public IActionResult About()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            ViewBag.Message = "This is an ASP.NET Core MVC app.";
+            return View();
         }
+
     }
 }
