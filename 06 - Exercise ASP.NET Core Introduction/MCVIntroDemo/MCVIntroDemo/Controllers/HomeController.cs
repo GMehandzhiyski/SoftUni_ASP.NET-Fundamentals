@@ -30,9 +30,9 @@ namespace MCVIntroDemo.Controllers
             return View();
         }
 
-        public IActionResult Numbers()
+        public IActionResult Numbers(int count = 3)
         {
-
+            ViewBag.Count = count;
             return View();
         }
 
