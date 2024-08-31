@@ -30,5 +30,11 @@ namespace MCVIntroDemo.Controllers
             return View();
         }
 
+        public IActionResult Numbers()
+        {
+
+            return View();
+        }
+
     }
 }
