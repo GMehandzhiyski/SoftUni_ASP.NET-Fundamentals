@@ -1,5 +1,6 @@
 ﻿using MCVIntroDemo.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 
 namespace MCVIntroDemo.Controllers
 {
@@ -46,6 +47,15 @@ namespace MCVIntroDemo.Controllers
 				return BadRequest();
 			}
             return View(filtredProduct);
+        }
+
+        public IActionResult AllAsJson()
+        {
+			var options = new JsonSerializerOptions
+			{
+				WriteIndented = true,
+			};
+			return Json(products, options);
         }
     }
 }
