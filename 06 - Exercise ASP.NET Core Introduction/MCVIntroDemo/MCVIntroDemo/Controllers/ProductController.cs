@@ -1,5 +1,7 @@
 ﻿using MCVIntroDemo.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Net.Http.Headers;
+using System.Text;
 using System.Text.Json;
 
 namespace MCVIntroDemo.Controllers
@@ -68,5 +70,19 @@ namespace MCVIntroDemo.Controllers
 			}
 			return Content(text);
 		}
+
+        public IActionResult AllAsTextFile()
+        {
+           StringBuilder sb = new StringBuilder();
+            foreach (var product in products)
+            {
+				sb.AppendLine($"Product: {product.Id}: {product.Name} - {product.Price:f2} lv.");
+            }
+
+			Response.Headers.Add(HeaderNames.ContentDisposition,
+				@"attachment;filename=products.txt");
+
+            return File(Encoding.UTF8.GetBytes(sb.ToString().TrimEnd()), "text/plain");
+        }
     }
 }
