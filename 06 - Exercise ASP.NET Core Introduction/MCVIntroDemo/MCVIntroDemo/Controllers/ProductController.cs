@@ -88,7 +88,6 @@ namespace MCVIntroDemo.Controllers
 
         public IActionResult AllFilteredProduct(string keyword)
         {
-			//var keyword = string.Empty;
 
 			if (keyword == null)
             {

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MCVIntroDemo")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5d47b8bb8c772fae8b206239c9c17eb4e484cd87")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+73640d19cf48f2abd79aa995a8e9fa17731edbf6")]
 [assembly: System.Reflection.AssemblyProductAttribute("MCVIntroDemo")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MCVIntroDemo")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

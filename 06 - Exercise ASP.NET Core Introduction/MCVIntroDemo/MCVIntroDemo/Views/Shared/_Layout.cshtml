@@ -40,15 +40,25 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="ById">ById</a>
                         </li>
-                        <li class="nav-item">
+                      @*   <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="AllAsJson">AllAsJson</a>
-                        </li>
-                        <li class="nav-item">
+                        </li> *@
+                       @*  <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="AllAsText">AllAsText</a>
-                        </li>
-                        <li class="nav-item">
+                        </li> *@
+                        @* <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="AllAsTextFile">DownloadProductFile</a>
-                        </li>
+                        </li> *@
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Product Download
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" asp-controller="Product" asp-action="AllAsJson">All (JSON)</a></li>
+                                <li><a class="dropdown-item" asp-controller="Product" asp-action="AllAsText">All (Plain Text)</a></li>
+                                <li><a class="dropdown-item" asp-controller="Product" asp-action="AllAsTextFile">All (Text File)</a></li>
+                            </ul>
+                        </div>
                     </ul>
                 </div>
             </div>
