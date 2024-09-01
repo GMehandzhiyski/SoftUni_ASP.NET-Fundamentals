@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
+using static Microsoft.Extensions.Logging.EventSource.LoggingEventSource;
 
 namespace MCVIntroDemo.Controllers
 {
@@ -41,14 +42,14 @@ namespace MCVIntroDemo.Controllers
 		}
         public IActionResult ById(int id)
         {
-			var filtredProduct = products
-				.FirstOrDefault(x => x.Id == id);
+			var filteredProduct = products
+									.FirstOrDefault(x => x.Id == id);
 
-			if (filtredProduct == null)
+			if (filteredProduct == null)
 			{
 				return BadRequest();
 			}
-            return View(filtredProduct);
+            return View(filteredProduct);
         }
 
         public IActionResult AllAsJson()
@@ -83,6 +84,23 @@ namespace MCVIntroDemo.Controllers
 				@"attachment;filename=products.txt");
 
             return File(Encoding.UTF8.GetBytes(sb.ToString().TrimEnd()), "text/plain");
+        }
+
+        public IActionResult AllFilteredProduct(string keyword)
+        {
+			//var keyword = string.Empty;
+
+			if (keyword == null)
+            {
+                return View(products);
+            }
+
+            var model = products
+                    .Where(p => p.Name.ToLower().Contains(keyword.ToLower()));
+
+            return View(model);
+
+           
         }
     }
 }
