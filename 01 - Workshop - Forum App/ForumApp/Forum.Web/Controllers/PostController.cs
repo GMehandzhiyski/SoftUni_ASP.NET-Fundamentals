@@ -59,15 +59,8 @@ namespace Forum.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> Edit(string id)
         {
-            Post model = await _postService.GetByIdAsync(id);
-
-            PostFormModel formModel = new PostFormModel()
-            {
-                Title = model.Title,
-                Content = model.Content
-            };
-
-            return View(formModel);
+            PostFormModel postFormModel = await _postService.GetPostFormModel(id);
+            return View(postFormModel);
         }
 
         [HttpPost]
@@ -84,33 +77,28 @@ namespace Forum.Web.Controllers
                 if (success)
                 {
                     TempData["Message"] = "Post edited successfully";
-                    return View(post);
+                    return RedirectToAction("Index");
                 }
                 else
                 {
                     TempData["Message"] = "Post not found";
                     return View(post);
                 }
+
                 //return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
                 TempData["Error"] = ex.Message;
                 return View(ex.Message);
-            }      
+            }
         }
 
+        [HttpGet]
         public async Task<IActionResult> Delete(string id)
         {
-            Post model = await _postService.GetByIdAsync(id);
-
-            PostFormModel formModel = new PostFormModel()
-            {
-                Title = model.Title,
-                Content = model.Content
-            };
-
-            return View(formModel);
+            PostFormModel postFormModel = await _postService.GetPostFormModel(id);
+            return View(postFormModel);
         }
 
         [HttpPost]

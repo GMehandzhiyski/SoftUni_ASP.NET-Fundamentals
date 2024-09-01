@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Forum.Common.Validation
+﻿namespace Forum.Common.Validation
 {
     public class ValidationConstants
     {
@@ -12,8 +6,8 @@ namespace Forum.Common.Validation
         {
            public const int MinTitleLenght = 10;
            public const int MaxTitleLenght = 50;
-            public const int MinContentLength = 30;
-            public const int MaxContentLength = 1500;
+           public const int MinContentLength = 30;
+           public const int MaxContentLength = 1500;
         } 
     }
 }

@@ -18,5 +18,7 @@
         
         public Task<bool> Delete(string id);
 
+        public Task<PostFormModel> GetPostFormModel(string id);
+
     }
 }

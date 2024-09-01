@@ -10,7 +10,7 @@ namespace Forum.Core.Models.Post
         //[MinLength(MinTitleLenght)]
         //[MaxLength(MaxTitleLenght)]
         [Required(ErrorMessage = "Name is requared")]
-        [StringLength(50, MinimumLength = 2 , ErrorMessage = "Name must be between 2 and 50 characters")]
+        [StringLength(MaxTitleLenght, MinimumLength = MinTitleLenght, ErrorMessage = $"Name must be between 0 and 50 characters")]
         public string Title { get; set; } = null!;
 
         [Required]

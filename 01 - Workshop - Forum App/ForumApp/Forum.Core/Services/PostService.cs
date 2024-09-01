@@ -48,14 +48,6 @@ namespace Forum.Core.Services
             
         }
 
-        public async Task<Post> GetByIdAsync(string id)
-        {
-            
-            var getPost = await _context.Posts.FirstOrDefaultAsync(p => p.Id.ToString() == id);
-            return getPost;
-         
-        }
-
         public async Task<bool> UpdateAsync(string id, PostFormModel model)
         {
             var postToEdit = await GetByIdAsync(id);
@@ -86,6 +78,28 @@ namespace Forum.Core.Services
             }
            
             return false;
+        }
+
+        public async Task<Post> GetByIdAsync(string id)
+        {
+            
+            var getPost = await _context.Posts.FirstOrDefaultAsync(p => p.Id.ToString() == id);
+            return getPost;
+         
+        }
+
+        public async Task<PostFormModel> GetPostFormModel(string id)
+        {
+            Post model = await GetByIdAsync(id);
+
+            PostFormModel formModel = new PostFormModel()
+            {
+                Title = model.Title,
+                Content = model.Content
+            };
+
+            return formModel;
+
         }
     }
 }
