@@ -57,5 +57,16 @@ namespace MCVIntroDemo.Controllers
 			};
 			return Json(products, options);
         }
+
+		public IActionResult AllAsText()
+		{
+			var text = string.Empty;
+			foreach (var product in products)
+			{
+				text += $"Product {product.Id}: {product.Name} - {product.Price}.";
+				text += "\r\n";
+			}
+			return Content(text);
+		}
     }
 }
