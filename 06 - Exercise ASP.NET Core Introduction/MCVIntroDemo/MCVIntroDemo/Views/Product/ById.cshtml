@@ -1,0 +1,17 @@
+﻿@model ProductViewModel
+
+@{
+	ViewBag.Title = "Product N. " + Model.Id;
+}
+<form action="/Product/ById" method="POST">
+    <input type="number" id="id" name="id" required>
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+
+<div class="card" style="width: 18rem;">
+    <div class="@ViewBag.Title">@ViewBag.Title</div>
+    <div class="card-title">
+        <h5 class = "card-title">Product Name: @Model.Name</h5>
+        <p class="card-text">Price: @Model.Price lv.</p>
+    </div>
+</div>

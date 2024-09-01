@@ -1,15 +1,7 @@
 ﻿@{
-	ViewBag.Title = "Nums 1..." + ViewBag.Count;
+	ViewBag.Title = "Nums 1..." + (ViewBag.Count ?? 0) ;
 }
-<body>
-    <h2>Въведете число</h2>
-    <form action="process_number.php" method="POST">
-        <label for="number">Число:</label>
-        <input type="number" id="number" name="number" required>
-        <br><br>
-        <input type="submit" value="Submit">
-    </form>
-</body>
+
 
 <h2>@ViewBag.Title</h2>
 <ul>
@@ -19,3 +11,7 @@
 	
 	}
 </ul>
+<form action="/Home/Numbers" method="POST">
+		<input type="number" id="count" name="count" required>
+		<button class="btn btn-primary" type="submit">Submit</button>
+</form>
