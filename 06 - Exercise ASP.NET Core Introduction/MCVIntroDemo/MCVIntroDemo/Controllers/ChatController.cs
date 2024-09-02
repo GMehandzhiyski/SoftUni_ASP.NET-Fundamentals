@@ -7,11 +7,10 @@ namespace MCVIntroDemo.Controllers
     public class ChatController : Controller
     {
         private static List<KeyValuePair<string, string>> messages = new List<KeyValuePair<string, string>>();
-
     
         public IActionResult Show()
         {
-            if (messages.Count < 1)
+            if (messages.Count() < 1)
             {
               return View(new ChatViewModel());
             }
@@ -27,7 +26,7 @@ namespace MCVIntroDemo.Controllers
                             .ToList()
             };
 
-            return RedirectToAction("Show");
+            return View(chatModel);
         }
 
         [HttpPost]
