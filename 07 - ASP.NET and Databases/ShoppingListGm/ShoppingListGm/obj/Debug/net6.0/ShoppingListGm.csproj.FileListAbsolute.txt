@@ -1,0 +1,137 @@
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\ShoppingListGm.csproj.AssemblyReference.cache
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\ShoppingListGm.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\ShoppingListGm.AssemblyInfoInputs.cache
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\ShoppingListGm.AssemblyInfo.cs
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\ShoppingListGm.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\ShoppingListGm.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\ShoppingListGm.RazorAssemblyInfo.cache
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\ShoppingListGm.RazorAssemblyInfo.cs
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\appsettings.json
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\ShoppingListGm.staticwebassets.runtime.json
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\ShoppingListGm.exe
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\ShoppingListGm.deps.json
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\ShoppingListGm.runtimeconfig.json
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\ShoppingListGm.dll
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\ShoppingListGm.pdb
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\Humanizer.dll
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\Microsoft.Identity.Client.dll
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\System.Drawing.Common.dll
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\System.Runtime.Caching.dll
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\System.Security.Permissions.dll
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\System.Windows.Extensions.dll
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\staticwebassets\msbuild.ShoppingListGm.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\staticwebassets\msbuild.build.ShoppingListGm.props
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.ShoppingListGm.props
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.ShoppingListGm.props
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\scopedcss\bundle\ShoppingListGm.styles.css
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\scopedcss\projectbundle\ShoppingListGm.bundle.scp.css
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\Shopping.4EAE463D.Up2Date
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\ShoppingListGm.dll
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\refint\ShoppingListGm.dll
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\ShoppingListGm.pdb
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\ShoppingListGm.genruntimeconfig.cache
+C:\Users\user\source\repos\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\ref\ShoppingListGm.dll
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\ShoppingListGm.csproj.AssemblyReference.cache
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\ShoppingListGm.GeneratedMSBuildEditorConfig.editorconfig
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\ShoppingListGm.AssemblyInfoInputs.cache
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\ShoppingListGm.AssemblyInfo.cs
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\ShoppingListGm.csproj.CoreCompileInputs.cache
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\ShoppingListGm.MvcApplicationPartsAssemblyInfo.cache
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\ShoppingListGm.RazorAssemblyInfo.cache
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\ShoppingListGm.RazorAssemblyInfo.cs
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\ShoppingListGm.sourcelink.json
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\ShoppingListGm.dll
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\refint\ShoppingListGm.dll
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\ShoppingListGm.pdb
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\appsettings.Development.json
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\appsettings.json
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\ShoppingListGm.staticwebassets.runtime.json
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\ShoppingListGm.exe
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\ShoppingListGm.deps.json
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\ShoppingListGm.runtimeconfig.json
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\ShoppingListGm.dll
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\ShoppingListGm.pdb
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\Humanizer.dll
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\Microsoft.Identity.Client.dll
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\System.Drawing.Common.dll
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\System.Runtime.Caching.dll
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\System.Security.Permissions.dll
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\System.Windows.Extensions.dll
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\staticwebassets.build.json
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\staticwebassets.development.json
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\staticwebassets\msbuild.ShoppingListGm.Microsoft.AspNetCore.StaticWebAssets.props
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\staticwebassets\msbuild.build.ShoppingListGm.props
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.ShoppingListGm.props
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.ShoppingListGm.props
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\staticwebassets.pack.json
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\scopedcss\bundle\ShoppingListGm.styles.css
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\scopedcss\projectbundle\ShoppingListGm.bundle.scp.css
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\Shopping.4EAE463D.Up2Date
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\ShoppingListGm.genruntimeconfig.cache
+C:\SoftUni_ASP.NET-Fundamentals\07 - ASP.NET and Databases\ShoppingListGm\ShoppingListGm\obj\Debug\net6.0\ref\ShoppingListGm.dll
