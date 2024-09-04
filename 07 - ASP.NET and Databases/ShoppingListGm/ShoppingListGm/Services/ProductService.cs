@@ -19,12 +19,12 @@ namespace ShoppingListGm.Services
         public async Task<IEnumerable<ProductViewModel>> GetAllAsync()
 		{
 			return await context.Products
-				.Select(p => new ProductViewModel
+                .AsNoTracking()
+                .Select(p => new ProductViewModel()
 				{ 
 					Id = p.Id,
 					ProductName = p.ProductName
 				})
-				.AsNoTracking()
 				.ToListAsync();
 			
 		}

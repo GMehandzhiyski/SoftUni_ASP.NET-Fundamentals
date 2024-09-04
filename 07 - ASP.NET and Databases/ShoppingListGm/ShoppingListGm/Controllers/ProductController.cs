@@ -19,7 +19,8 @@ namespace ShoppingListGm.Controllers
         public async Task<IActionResult> Index()
 		{
 			var model = await productService.GetAllAsync();
-			return View();
+
+			return View(model);
 		}
 	}
 }
