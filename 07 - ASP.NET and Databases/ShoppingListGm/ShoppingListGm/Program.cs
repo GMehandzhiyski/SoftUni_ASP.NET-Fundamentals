@@ -1,10 +1,13 @@
 using Microsoft.EntityFrameworkCore;
+using ShoppingListGm.Contrcats;
 using ShoppingListGm.Data;
+using ShoppingListGm.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IProductService, ProductService>();
 
 
 //EF Core Context

@@ -28,23 +28,61 @@ namespace ShoppingListGm.Services
 				.ToListAsync();
 			
 		}
-		public Task<ProductViewModel> GetByIdAsync(int id)
+		public async Task AddProductAsync(ProductViewModel model)
 		{
-			throw new NotImplementedException();
+			var entity = new Product()
+			{
+				ProductName = model.ProductName
+			};
+
+			await context.Products.AddAsync(entity);
+			await context.SaveChangesAsync();
 		}
 
-		public Task AddProductAsync(ProductViewModel model)
+		public async Task<ProductViewModel> GetByIdAsync(int id)
 		{
-			throw new NotImplementedException();
-		}
-		public Task UpdateProductAsync(ProductViewModel model)
-		{
-			throw new NotImplementedException();
-		}
+			var returnProduct = await context
+				.Products.FindAsync(id);
 
-		public Task DeleteProductAsync(ProductViewModel model)
+			if (returnProduct == null)
+			{
+				throw new ArgumentException("Invalid Product");
+			}
+
+			return new ProductViewModel()
+			{
+				Id = id,
+				ProductName = returnProduct.ProductName
+            };
+			
+
+        }
+
+		public async Task UpdateProductAsync(ProductViewModel model)
 		{
-			throw new NotImplementedException();
+            var entity = await context.Products.FindAsync(model.Id);
+
+            if (entity == null)
+            {
+                throw new ArgumentException("Invalid Product");
+            }
+
+            entity.ProductName = model.ProductName;
+            await context.SaveChangesAsync();
+
+        }
+
+        public async Task DeleteProductAsync(int id)
+		{
+			var removeProduct = await context.Products.FindAsync(id);
+
+			if (removeProduct == null)
+			{
+				throw new ArgumentException("Invalid Product");
+			}
+
+			context.Products.Remove(removeProduct);
+			await context.SaveChangesAsync();
 		}
 
 	}

@@ -13,5 +13,7 @@ namespace ShoppingListGm.Data.Models
 		[MaxLength(ValidationConstants.MaxLengthProductName)]
         public string ProductName { get; set; } = string.Empty;
 
-	}
+        public List<ProductNote> ProductNotes { get; set; } = new List<ProductNote>();
+
+    }
 }

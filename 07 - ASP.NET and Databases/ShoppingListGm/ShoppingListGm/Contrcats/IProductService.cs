@@ -12,7 +12,7 @@ namespace ShoppingListGm.Contrcats
 
 		Task UpdateProductAsync(ProductViewModel model);
 
-		Task DeleteProductAsync(ProductViewModel model);	
+		Task DeleteProductAsync(int id);	
 
 	}
 }
