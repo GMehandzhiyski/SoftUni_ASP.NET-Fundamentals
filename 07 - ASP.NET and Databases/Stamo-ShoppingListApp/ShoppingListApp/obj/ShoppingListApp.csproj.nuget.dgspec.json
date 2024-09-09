@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\SoftUni_ASP.NET-Fundamentals\\07 - ASP.NET and Databases\\Stamo-ShoppingListApp\\ShoppingListApp\\ShoppingListApp.csproj": {}
+    "D:\\SoftUni_ASP.NET-Fundamentals\\07 - ASP.NET and Databases\\Stamo-ShoppingListApp\\ShoppingListApp\\ShoppingListApp.csproj": {}
   },
   "projects": {
-    "C:\\SoftUni_ASP.NET-Fundamentals\\07 - ASP.NET and Databases\\Stamo-ShoppingListApp\\ShoppingListApp\\ShoppingListApp.csproj": {
+    "D:\\SoftUni_ASP.NET-Fundamentals\\07 - ASP.NET and Databases\\Stamo-ShoppingListApp\\ShoppingListApp\\ShoppingListApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\SoftUni_ASP.NET-Fundamentals\\07 - ASP.NET and Databases\\Stamo-ShoppingListApp\\ShoppingListApp\\ShoppingListApp.csproj",
+        "projectUniqueName": "D:\\SoftUni_ASP.NET-Fundamentals\\07 - ASP.NET and Databases\\Stamo-ShoppingListApp\\ShoppingListApp\\ShoppingListApp.csproj",
         "projectName": "ShoppingListApp",
-        "projectPath": "C:\\SoftUni_ASP.NET-Fundamentals\\07 - ASP.NET and Databases\\Stamo-ShoppingListApp\\ShoppingListApp\\ShoppingListApp.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\SoftUni_ASP.NET-Fundamentals\\07 - ASP.NET and Databases\\Stamo-ShoppingListApp\\ShoppingListApp\\obj\\",
+        "projectPath": "D:\\SoftUni_ASP.NET-Fundamentals\\07 - ASP.NET and Databases\\Stamo-ShoppingListApp\\ShoppingListApp\\ShoppingListApp.csproj",
+        "packagesPath": "C:\\Users\\bggemeh\\.nuget\\packages\\",
+        "outputPath": "D:\\SoftUni_ASP.NET-Fundamentals\\07 - ASP.NET and Databases\\Stamo-ShoppingListApp\\ShoppingListApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\bggemeh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -75,7 +75,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }
