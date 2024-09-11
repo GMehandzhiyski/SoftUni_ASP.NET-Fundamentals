@@ -6,13 +6,13 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "ForumAppGm/1.0.0": {
+      "ForumAppGm.Web/1.0.0": {
         "dependencies": {
           "ForumAppGm.Core": "1.0.0",
           "Microsoft.EntityFrameworkCore.Design": "6.0.33"
         },
         "runtime": {
-          "ForumAppGm.dll": {}
+          "ForumAppGm.Web.dll": {}
         }
       },
       "Humanizer.Core/2.8.26": {
@@ -474,7 +474,7 @@
     }
   },
   "libraries": {
-    "ForumAppGm/1.0.0": {
+    "ForumAppGm.Web/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

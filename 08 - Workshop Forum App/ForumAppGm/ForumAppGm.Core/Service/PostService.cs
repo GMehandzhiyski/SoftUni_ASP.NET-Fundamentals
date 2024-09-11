@@ -1,4 +1,5 @@
 ﻿using ForumApp.Infrastructure.Data;
+using ForumApp.Infrastructure.Data.Models;
 using ForumAppGm.Core.Contract;
 using ForumAppGm.Core.Models;
 using Microsoft.EntityFrameworkCore;
@@ -14,6 +15,7 @@ namespace ForumAppGm.Core.Service
             context = _context; 
         }
 
+
         public async Task<IEnumerable<PostModel>> GetAllPostsAsync()
         {
           return await context.Posts
@@ -25,6 +27,17 @@ namespace ForumAppGm.Core.Service
                 })
                 .AsNoTracking()
                 .ToListAsync();
+        }
+        public async Task CreateAsync(PostModel model)
+        {
+            Post post = new Post()
+            {
+                Title = model.Title,
+                Content = model.Content,
+            };
+
+            await context.Posts.AddAsync(post);
+            await context.SaveChangesAsync();
         }
     }
 }

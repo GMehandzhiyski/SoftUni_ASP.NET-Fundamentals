@@ -2033,9 +2033,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumAppGm\\ForumAppGm.Web.csproj",
-      "projectName": "ForumAppGm.Web",
-      "projectPath": "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumAppGm\\ForumAppGm.Web.csproj",
+      "projectUniqueName": "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumAppGm\\ForumAppGm.csproj",
+      "projectName": "ForumAppGm",
+      "projectPath": "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumAppGm\\ForumAppGm.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
       "outputPath": "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumAppGm\\obj\\",
       "projectStyle": "PackageReference",

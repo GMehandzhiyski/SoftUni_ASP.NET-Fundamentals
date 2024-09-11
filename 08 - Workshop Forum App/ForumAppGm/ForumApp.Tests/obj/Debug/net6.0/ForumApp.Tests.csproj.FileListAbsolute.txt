@@ -1,11 +1,5 @@
 C:\SoftUni_ASP.NET-Fundamentals\08 - Workshop Forum App\ForumAppGm\ForumApp.Tests\bin\Debug\net6.0\CoverletSourceRootsMapping
 C:\SoftUni_ASP.NET-Fundamentals\08 - Workshop Forum App\ForumAppGm\ForumApp.Tests\bin\Debug\net6.0\testhost.dll
-C:\SoftUni_ASP.NET-Fundamentals\08 - Workshop Forum App\ForumAppGm\ForumApp.Tests\bin\Debug\net6.0\ForumAppGm.deps.json
-C:\SoftUni_ASP.NET-Fundamentals\08 - Workshop Forum App\ForumAppGm\ForumApp.Tests\bin\Debug\net6.0\ForumAppGm.runtimeconfig.json
-C:\SoftUni_ASP.NET-Fundamentals\08 - Workshop Forum App\ForumAppGm\ForumApp.Tests\bin\Debug\net6.0\appsettings.Development.json
-C:\SoftUni_ASP.NET-Fundamentals\08 - Workshop Forum App\ForumAppGm\ForumApp.Tests\bin\Debug\net6.0\appsettings.json
-C:\SoftUni_ASP.NET-Fundamentals\08 - Workshop Forum App\ForumAppGm\ForumApp.Tests\bin\Debug\net6.0\ForumAppGm.staticwebassets.runtime.json
-C:\SoftUni_ASP.NET-Fundamentals\08 - Workshop Forum App\ForumAppGm\ForumApp.Tests\bin\Debug\net6.0\ForumAppGm.exe
 C:\SoftUni_ASP.NET-Fundamentals\08 - Workshop Forum App\ForumAppGm\ForumApp.Tests\bin\Debug\net6.0\testhost.exe
 C:\SoftUni_ASP.NET-Fundamentals\08 - Workshop Forum App\ForumAppGm\ForumApp.Tests\bin\Debug\net6.0\NUnit3.TestAdapter.dll
 C:\SoftUni_ASP.NET-Fundamentals\08 - Workshop Forum App\ForumAppGm\ForumApp.Tests\bin\Debug\net6.0\NUnit3.TestAdapter.pdb
@@ -130,11 +124,9 @@ C:\SoftUni_ASP.NET-Fundamentals\08 - Workshop Forum App\ForumAppGm\ForumApp.Test
 C:\SoftUni_ASP.NET-Fundamentals\08 - Workshop Forum App\ForumAppGm\ForumApp.Tests\bin\Debug\net6.0\ForumApp.Common.dll
 C:\SoftUni_ASP.NET-Fundamentals\08 - Workshop Forum App\ForumAppGm\ForumApp.Tests\bin\Debug\net6.0\ForumApp.Infrastructure.dll
 C:\SoftUni_ASP.NET-Fundamentals\08 - Workshop Forum App\ForumAppGm\ForumApp.Tests\bin\Debug\net6.0\ForumAppGm.Core.dll
-C:\SoftUni_ASP.NET-Fundamentals\08 - Workshop Forum App\ForumAppGm\ForumApp.Tests\bin\Debug\net6.0\ForumAppGm.dll
 C:\SoftUni_ASP.NET-Fundamentals\08 - Workshop Forum App\ForumAppGm\ForumApp.Tests\bin\Debug\net6.0\ForumApp.Common.pdb
 C:\SoftUni_ASP.NET-Fundamentals\08 - Workshop Forum App\ForumAppGm\ForumApp.Tests\bin\Debug\net6.0\ForumApp.Infrastructure.pdb
 C:\SoftUni_ASP.NET-Fundamentals\08 - Workshop Forum App\ForumAppGm\ForumApp.Tests\bin\Debug\net6.0\ForumAppGm.Core.pdb
-C:\SoftUni_ASP.NET-Fundamentals\08 - Workshop Forum App\ForumAppGm\ForumApp.Tests\bin\Debug\net6.0\ForumAppGm.pdb
 C:\SoftUni_ASP.NET-Fundamentals\08 - Workshop Forum App\ForumAppGm\ForumApp.Tests\obj\Debug\net6.0\ForumApp.Tests.csproj.AssemblyReference.cache
 C:\SoftUni_ASP.NET-Fundamentals\08 - Workshop Forum App\ForumAppGm\ForumApp.Tests\obj\Debug\net6.0\ForumApp.Tests.GeneratedMSBuildEditorConfig.editorconfig
 C:\SoftUni_ASP.NET-Fundamentals\08 - Workshop Forum App\ForumAppGm\ForumApp.Tests\obj\Debug\net6.0\ForumApp.Tests.AssemblyInfoInputs.cache

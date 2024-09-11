@@ -1,4 +1,5 @@
-﻿using ForumAppGm.Core.Contract;
+﻿using ForumApp.Infrastructure.Data.Models;
+using ForumAppGm.Core.Contract;
 using ForumAppGm.Core.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,5 +21,24 @@ namespace ForumAppGm.Web.Controllers
             return View(allPosts);
         }
 
+        [HttpGet]
+        public IActionResult Add()
+        {
+            return View(new PostModel());
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> Add(PostModel model)
+        {
+            PostModel post = new PostModel()
+            {
+                Title = model.Title,
+                Content = model.Content,
+            };
+
+            await postService.CreateAsync(post);
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
