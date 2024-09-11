@@ -39,5 +39,38 @@ namespace ForumAppGm.Core.Service
             await context.Posts.AddAsync(post);
             await context.SaveChangesAsync();
         }
+
+
+        public async Task<PostModel> GetPostModel(string id)
+        {
+           Post model = await GetPostByIdAsync(id);
+
+            PostModel postModel = new PostModel()
+            {
+                Title = model.Title,
+                Content = model.Content
+            };
+
+            return postModel;
+        }
+
+        public async Task<Post> GetPostByIdAsync(string id)
+        {
+            Post currPost = await context.Posts.FirstOrDefaultAsync(p => p.Id.ToString() == id);
+            return currPost;
+        }
+
+        public async Task<bool> Delete(string id)
+        {
+            Post postModel = await GetPostByIdAsync(id);
+
+            if (postModel != null)
+            {
+                context.Posts.Remove(postModel);
+                context.SaveChanges();
+                return true;
+            }
+            return false;
+        }
     }
 }

@@ -1,7 +1,8 @@
 ﻿@using ForumAppGm.Core.Models
 @model PostModel
+
 @{
-	ViewBag.Title = "Add Post";
+    ViewBag.Title = "Edit Post";
 }
 
 <h2 class="text-center">@ViewBag.Title</h2>
@@ -21,10 +22,10 @@
                 <span asp-validation-for="@Model.Content" class="small text-danger"></span>
             </div>
         </div>
-        <input class="btn btn-primary mt-3" type="submit" value="Create" />
+        <input class="btn btn-primary mt-3" type="submit" value="Edit" />
     </form>
 </div>
 
-@section Scripts{
+@section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }

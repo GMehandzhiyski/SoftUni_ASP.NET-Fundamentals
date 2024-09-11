@@ -1,4 +1,5 @@
-﻿using ForumAppGm.Core.Models;
+﻿using ForumApp.Infrastructure.Data.Models;
+using ForumAppGm.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,9 @@ namespace ForumAppGm.Core.Contract
     {
         Task<IEnumerable<PostModel>> GetAllPostsAsync();
         Task CreateAsync(PostModel model);
+        Task<PostModel> GetPostModel(string id);
+
+        Task<Post> GetPostByIdAsync(string id);
+        Task<bool> Delete(string id);
     }
 }
