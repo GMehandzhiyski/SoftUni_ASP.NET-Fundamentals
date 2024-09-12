@@ -40,6 +40,18 @@ namespace ForumAppGm.Core.Service
             await context.SaveChangesAsync();
         }
 
+        public async Task<bool> Delete(string id)
+        {
+            Post postModel = await GetPostByIdAsync(id);
+
+            if (postModel != null)
+            {
+                context.Posts.Remove(postModel);
+                context.SaveChanges();
+                return true;
+            }
+            return false;
+        }
 
         public async Task<PostModel> GetPostModel(string id)
         {
@@ -60,17 +72,5 @@ namespace ForumAppGm.Core.Service
             return currPost;
         }
 
-        public async Task<bool> Delete(string id)
-        {
-            Post postModel = await GetPostByIdAsync(id);
-
-            if (postModel != null)
-            {
-                context.Posts.Remove(postModel);
-                context.SaveChanges();
-                return true;
-            }
-            return false;
-        }
     }
 }
