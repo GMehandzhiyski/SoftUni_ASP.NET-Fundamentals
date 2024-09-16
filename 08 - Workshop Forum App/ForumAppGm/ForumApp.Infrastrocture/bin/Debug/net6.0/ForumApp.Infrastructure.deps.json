@@ -491,10 +491,7 @@
       },
       "ForumApp.Common/1.0.0": {
         "runtime": {
-          "ForumApp.Common.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "ForumApp.Common.dll": {}
         }
       }
     }

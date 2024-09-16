@@ -441,10 +441,7 @@
       },
       "ForumApp.Common/1.0.0": {
         "runtime": {
-          "ForumApp.Common.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "ForumApp.Common.dll": {}
         }
       },
       "ForumApp.Infrastructure/1.0.0": {
@@ -453,10 +450,7 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.33"
         },
         "runtime": {
-          "ForumApp.Infrastructure.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "ForumApp.Infrastructure.dll": {}
         }
       },
       "ForumAppGm.Core/1.0.0": {
@@ -465,10 +459,7 @@
           "ForumApp.Infrastructure": "1.0.0"
         },
         "runtime": {
-          "ForumAppGm.Core.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "ForumAppGm.Core.dll": {}
         }
       }
     }
