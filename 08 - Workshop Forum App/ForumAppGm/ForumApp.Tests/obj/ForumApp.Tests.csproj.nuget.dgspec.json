@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Tests\\ForumApp.Tests.csproj": {}
+    "D:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Tests\\ForumApp.Tests.csproj": {}
   },
   "projects": {
-    "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Common\\ForumApp.Common.csproj": {
+    "D:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Common\\ForumApp.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Common\\ForumApp.Common.csproj",
+        "projectUniqueName": "D:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Common\\ForumApp.Common.csproj",
         "projectName": "ForumApp.Common",
-        "projectPath": "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Common\\ForumApp.Common.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Common\\obj\\",
+        "projectPath": "D:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Common\\ForumApp.Common.csproj",
+        "packagesPath": "C:\\Users\\bggemeh\\.nuget\\packages\\",
+        "outputPath": "D:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\bggemeh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -60,21 +60,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Infrastrocture\\ForumApp.Infrastructure.csproj": {
+    "D:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Infrastrocture\\ForumApp.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Infrastrocture\\ForumApp.Infrastructure.csproj",
+        "projectUniqueName": "D:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Infrastrocture\\ForumApp.Infrastructure.csproj",
         "projectName": "ForumApp.Infrastructure",
-        "projectPath": "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Infrastrocture\\ForumApp.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Infrastrocture\\obj\\",
+        "projectPath": "D:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Infrastrocture\\ForumApp.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\bggemeh\\.nuget\\packages\\",
+        "outputPath": "D:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Infrastrocture\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\bggemeh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -88,8 +88,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Common\\ForumApp.Common.csproj": {
-                "projectPath": "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Common\\ForumApp.Common.csproj"
+              "D:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Common\\ForumApp.Common.csproj": {
+                "projectPath": "D:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Common\\ForumApp.Common.csproj"
               }
             }
           }
@@ -136,21 +136,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Tests\\ForumApp.Tests.csproj": {
+    "D:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Tests\\ForumApp.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Tests\\ForumApp.Tests.csproj",
+        "projectUniqueName": "D:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Tests\\ForumApp.Tests.csproj",
         "projectName": "ForumApp.Tests",
-        "projectPath": "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Tests\\ForumApp.Tests.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Tests\\obj\\",
+        "projectPath": "D:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Tests\\ForumApp.Tests.csproj",
+        "packagesPath": "C:\\Users\\bggemeh\\.nuget\\packages\\",
+        "outputPath": "D:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\bggemeh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -164,17 +164,17 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Common\\ForumApp.Common.csproj": {
-                "projectPath": "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Common\\ForumApp.Common.csproj"
+              "D:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Common\\ForumApp.Common.csproj": {
+                "projectPath": "D:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Common\\ForumApp.Common.csproj"
               },
-              "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Infrastrocture\\ForumApp.Infrastructure.csproj": {
-                "projectPath": "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Infrastrocture\\ForumApp.Infrastructure.csproj"
+              "D:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Infrastrocture\\ForumApp.Infrastructure.csproj": {
+                "projectPath": "D:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Infrastrocture\\ForumApp.Infrastructure.csproj"
               },
-              "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumAppGm.Core\\ForumAppGm.Core.csproj": {
-                "projectPath": "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumAppGm.Core\\ForumAppGm.Core.csproj"
+              "D:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumAppGm.Core\\ForumAppGm.Core.csproj": {
+                "projectPath": "D:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumAppGm.Core\\ForumAppGm.Core.csproj"
               },
-              "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumAppGm\\ForumAppGm.csproj": {
-                "projectPath": "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumAppGm\\ForumAppGm.csproj"
+              "D:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumAppGm\\ForumAppGm.csproj": {
+                "projectPath": "D:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumAppGm\\ForumAppGm.csproj"
               }
             }
           }
@@ -231,21 +231,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumAppGm.Core\\ForumAppGm.Core.csproj": {
+    "D:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumAppGm.Core\\ForumAppGm.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumAppGm.Core\\ForumAppGm.Core.csproj",
+        "projectUniqueName": "D:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumAppGm.Core\\ForumAppGm.Core.csproj",
         "projectName": "ForumAppGm.Core",
-        "projectPath": "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumAppGm.Core\\ForumAppGm.Core.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumAppGm.Core\\obj\\",
+        "projectPath": "D:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumAppGm.Core\\ForumAppGm.Core.csproj",
+        "packagesPath": "C:\\Users\\bggemeh\\.nuget\\packages\\",
+        "outputPath": "D:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumAppGm.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\bggemeh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -259,11 +259,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Common\\ForumApp.Common.csproj": {
-                "projectPath": "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Common\\ForumApp.Common.csproj"
+              "D:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Common\\ForumApp.Common.csproj": {
+                "projectPath": "D:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Common\\ForumApp.Common.csproj"
               },
-              "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Infrastrocture\\ForumApp.Infrastructure.csproj": {
-                "projectPath": "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Infrastrocture\\ForumApp.Infrastructure.csproj"
+              "D:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Infrastrocture\\ForumApp.Infrastructure.csproj": {
+                "projectPath": "D:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Infrastrocture\\ForumApp.Infrastructure.csproj"
               }
             }
           }
@@ -306,82 +306,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumAppGm\\ForumAppGm.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumAppGm\\ForumAppGm.csproj",
-        "projectName": "ForumAppGm",
-        "projectPath": "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumAppGm\\ForumAppGm.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumAppGm\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net6.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
-            "projectReferences": {
-              "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumAppGm.Core\\ForumAppGm.Core.csproj": {
-                "projectPath": "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumAppGm.Core\\ForumAppGm.Core.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        }
-      },
-      "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
-          "dependencies": {
-            "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[6.0.33, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }
