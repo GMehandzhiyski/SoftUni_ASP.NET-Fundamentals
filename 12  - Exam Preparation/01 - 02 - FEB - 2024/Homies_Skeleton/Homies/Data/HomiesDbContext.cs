@@ -1,5 +1,6 @@
 ﻿using Homies.Data.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Homies.Data
@@ -15,30 +16,35 @@ namespace Homies.Data
             modelBuilder.Entity<EventParticipant>()
              .HasKey(ep => new { ep.EventId, ep.HelperId });
 
-            //modelBuilder
-            //    .Entity<Type>()
-            //    .HasData(new Type()
-            //    {
-            //        Id = 1,
-            //        Name = "Animals"
-            //    },
-            //    new Type()
-            //    {
-            //        Id = 2,
-            //        Name = "Fun"
-            //    },
-            //    new Type()
-            //    {
-            //        Id = 3,
-            //        Name = "Discussion"
-            //    },
-            //    new Type()
-            //    {
-            //        Id = 4,
-            //        Name = "Work"
-            //    });
+            modelBuilder.Entity<EventParticipant>()
+                .HasOne(e => e.Event)
+                .WithMany(e => e.EventParticipants)
+                .OnDelete(DeleteBehavior.Restrict);
 
-            //base.OnModelCreating(modelBuilder);
+            modelBuilder
+                .Entity<Models.Type>()
+                .HasData(new Models.Type()
+                {
+                    Id = 1,
+                    Name = "Animals"
+                },
+                new Models.Type()
+                {
+                    Id = 2,
+                    Name = "Fun"
+                },
+                new Models.Type()
+                {
+                    Id = 3,
+                    Name = "Discussion"
+                },
+                new Models.Type()
+                {
+                    Id = 4,
+                    Name = "Work"
+                });
+
+            base.OnModelCreating(modelBuilder);
         }
 
         public DbSet<Event> Events { get; set; } = null!;
