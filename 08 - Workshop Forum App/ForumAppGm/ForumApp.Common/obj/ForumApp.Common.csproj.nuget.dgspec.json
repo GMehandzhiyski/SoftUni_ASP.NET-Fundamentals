@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Common\\ForumApp.Common.csproj": {}
+    "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Common\\ForumApp.Common.csproj": {}
   },
   "projects": {
-    "D:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Common\\ForumApp.Common.csproj": {
+    "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Common\\ForumApp.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Common\\ForumApp.Common.csproj",
+        "projectUniqueName": "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Common\\ForumApp.Common.csproj",
         "projectName": "ForumApp.Common",
-        "projectPath": "D:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Common\\ForumApp.Common.csproj",
-        "packagesPath": "C:\\Users\\bggemeh\\.nuget\\packages\\",
-        "outputPath": "D:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Common\\obj\\",
+        "projectPath": "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Common\\ForumApp.Common.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\SoftUni_ASP.NET-Fundamentals\\08 - Workshop Forum App\\ForumAppGm\\ForumApp.Common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\bggemeh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -60,7 +61,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
