@@ -15,8 +15,15 @@ namespace Homies.Controllers
             data = _data;
         }
 
-        //[HttpGet]
+        [HttpGet]
 
+        public async Task<IActionResult> All()
+        {
+            var allEnevts = await data.GetAllEventAsync();
 
+            return View(allEnevts);
+        }
+      
+       
     }
 }

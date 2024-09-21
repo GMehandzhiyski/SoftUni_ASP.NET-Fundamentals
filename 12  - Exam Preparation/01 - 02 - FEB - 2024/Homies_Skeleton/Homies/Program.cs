@@ -1,4 +1,6 @@
+using Homies.Contract;
 using Homies.Data;
+using Homies.Service;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,6 +11,8 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<HomiesDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+builder.Services.AddScoped<IHomiesService, HomiesService>();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 {
