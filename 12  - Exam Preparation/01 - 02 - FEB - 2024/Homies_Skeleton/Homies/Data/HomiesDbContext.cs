@@ -1,6 +1,6 @@
-﻿using Homies.Data.Models;
+﻿using Homies.Configuration;
+using Homies.Data.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Homies.Data
@@ -43,6 +43,8 @@ namespace Homies.Data
                     Id = 4,
                     Name = "Work"
                 });
+
+           modelBuilder.ApplyConfiguration(new HomiesConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }
