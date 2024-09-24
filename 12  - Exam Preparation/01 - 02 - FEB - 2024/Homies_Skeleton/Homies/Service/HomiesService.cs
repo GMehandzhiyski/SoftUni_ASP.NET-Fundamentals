@@ -5,9 +5,6 @@ using Homies.Data.Models;
 using Homies.Models;
 using Microsoft.EntityFrameworkCore;
 
-
-using System.Security.Claims;
-
 namespace Homies.Service
 {
     public class HomiesService : IHomiesService
@@ -17,6 +14,24 @@ namespace Homies.Service
         public HomiesService(HomiesDbContext _context)
         { 
             context = _context;
+        }
+
+
+        public async Task<AddViewModel?> EditAsync(int Id)
+        {
+            return await context.Events
+                .Where(e => e.Id == Id)
+                .Select(e => new AddViewModel()
+                { 
+                    Name = e.Name,
+                    Description = e.Description,    
+                    Start = e.Start.ToString(DataConstants.DateFormat),
+                    End = e.End.ToString(DataConstants.DateFormat),
+                    TypeId = e.TypeId,  
+                })
+                .FirstOrDefaultAsync();
+                
+
         }
 
         public async Task AddAsync(AddViewModel viewModel, DateTime end, DateTime start, string organiserID )
@@ -32,7 +47,9 @@ namespace Homies.Service
                 End = end,
                 TypeId = viewModel.TypeId
             };
-            
+
+            await context.Events.AddAsync(newEvent);
+            await context.SaveChangesAsync();
 
         }
 
@@ -52,7 +69,30 @@ namespace Homies.Service
                  .ToListAsync();     
         }
 
-     
-      
+        public async Task<IEnumerable<TypeViewModel>> GetTypesAsync()
+        {
+            return await context.Types
+                .AsNoTracking()
+                .Select(t => new TypeViewModel 
+                { 
+                    Id = t.Id,
+                    Name = t.Name,  
+                } )
+                .ToListAsync();
+        }
+
+        public async Task<bool> IsTypeValid(int  typeId)
+        {
+            return await context.Types
+                .AnyAsync(t => t.Id == typeId);
+        }
+
+        public async Task<bool> IsOrganiserEventOwnerAsync(int eventId, string userId)
+        {
+            return await context.Events
+                .AnyAsync(e => e.Id == eventId
+                               && e.OrganiserId == userId);
+
+        }
     }
 }

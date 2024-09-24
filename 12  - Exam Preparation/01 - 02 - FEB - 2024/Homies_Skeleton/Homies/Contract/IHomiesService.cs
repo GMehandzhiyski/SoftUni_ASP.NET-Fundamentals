@@ -10,5 +10,11 @@ namespace Homies.Contract
         Task<IEnumerable<AllViewModel>> GetAllEventAsync();
 
         Task AddAsync(AddViewModel viewModel, DateTime end, DateTime start, string organiserID);
+
+        Task<IEnumerable<TypeViewModel>> GetTypesAsync();
+
+        Task<bool> IsTypeValid(int typeId);
+        Task<AddViewModel?> EditAsync(int Id);
+        Task<bool> IsOrganiserEventOwnerAsync(int eventId, string userId);
     }
 }

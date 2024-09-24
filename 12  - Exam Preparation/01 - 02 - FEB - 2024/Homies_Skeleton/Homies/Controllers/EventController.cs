@@ -2,9 +2,11 @@
 using Homies.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 using System.Globalization;
 using System.Security.Claims;
 using static Homies.Common.DataConstants;
+using static Homies.Extensions.ClaimsPrincipalExtensions;
 
 namespace Homies.Controllers
 {
@@ -28,50 +30,126 @@ namespace Homies.Controllers
             return View(allEnevts);
         }
 
-        [HttpPost]
+        [HttpGet]
+        public async Task<ActionResult> Add()
+        {
+            try
+            {
+                var model = new AddViewModel();
+                model.Types = await data.GetTypesAsync();
 
+                return View(model);
+            }
+            catch (Exception)
+            {
+
+                return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
+            }
+
+        }
+
+        [HttpPost]
         public async Task<IActionResult> Add(AddViewModel viewModel)
         {
 
             DateTime start = DateTime.Now;
             DateTime end = DateTime.Now;
 
-            //if (!ModelState.IsValid)
-            //{
-            //    viewModel.Types = await GetTypes();
-
-            //    return View(model);
-            //}
-
-            if (!DateTime.TryParseExact(
-                viewModel.Start,
-                DateFormat,
-                CultureInfo.InvariantCulture,
-                DateTimeStyles.None,
-                out start))
+            try
             {
-                ModelState.AddModelError(nameof(viewModel.Start), $"Invalid date! Format must be: {DateFormat}");
+                if (!ModelState.IsValid)
+                {
+                   
+                    var types = await data.GetTypesAsync();
+                    viewModel.Types = types;
+                    return View(viewModel);
+                }
+
+                bool IsTypeIdValid = await data.IsTypeValid(viewModel.TypeId);
+
+                if (!IsTypeIdValid)
+                {
+                    var types = await data.GetTypesAsync();
+                    viewModel.Types = types;
+                    ModelState.AddModelError("Type", "The selected event type is invalid");
+                    return View(viewModel);
+                }
+
+
+                DateTime.TryParseExact(
+                       viewModel.Start,
+                        DateFormat,
+                        CultureInfo.InvariantCulture,
+                        DateTimeStyles.None,
+                        out start);
+
+                if (start == DateTime.MinValue)
+                {
+                    var types = await data.GetTypesAsync();
+                    viewModel.Types = types;
+                    ModelState.AddModelError(nameof(viewModel.Start), $"Invalid date! Format must be: {DateFormat}");
+                    viewModel.Start = string.Empty;
+                    return View(viewModel);
+                }
+
+                DateTime.TryParseExact(
+                    viewModel.End,
+                    DateFormat,
+                    CultureInfo.InvariantCulture,
+                    DateTimeStyles.None,
+                    out end);
+
+                if (end == DateTime.MinValue)
+                {
+                    var types = await data.GetTypesAsync();
+                    viewModel.Types = types;
+                    ModelState.AddModelError(nameof(viewModel.End), $"Invalid date! Format must be: {DateFormat}");
+                    viewModel.End = string.Empty;
+                    return View(viewModel);
+                }
+
+
+
+                await data.AddAsync(viewModel, end, start, User.GetUserId());
+                return RedirectToAction(nameof(All));
             }
 
-            if (!DateTime.TryParseExact(
-                viewModel.End,
-                DateFormat,
-                CultureInfo.InvariantCulture,
-                DateTimeStyles.None,
-                out end))
+            catch (Exception)
             {
-                ModelState.AddModelError(nameof(viewModel.Start), $"Invalid date! Format must be: {DateFormat}");
+
+                return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
             }
-
-
-
-            await data.AddAsync(viewModel, end, start, GetUserId());
-            return View(viewModel);
         }
 
-        private string GetUserId()
+
+        [HttpGet]
+
+        public async Task<IActionResult> Edit(int id)
         {
-            return User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? string.Empty;
+            try
+            {
+                bool IsOrganiserIsOwner = await data.IsOrganiserEventOwnerAsync(id, User.GetUserId());
+
+                if (!IsOrganiserIsOwner)
+                {
+                    return RedirectToAction(nameof(All));
+                }
+
+                var viewModel = await data.EditAsync(id);
+
+                if (viewModel == null)
+                {
+                    return RedirectToAction(nameof(All));
+                }
+
+                return View(viewModel); 
+
+            }
+            catch (Exception)
+            {
+
+                return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
+            }        
         }
 
 

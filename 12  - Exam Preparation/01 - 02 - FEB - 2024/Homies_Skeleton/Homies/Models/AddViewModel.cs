@@ -31,5 +31,7 @@ namespace Homies.Models
 
         public IEnumerable<TypeViewModel> Types { get; set; } = new List<TypeViewModel>();
 
+        public string? OrganiserId { get; set; }
+
     }
 }

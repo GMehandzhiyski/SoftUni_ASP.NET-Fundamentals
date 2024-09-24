@@ -132,12 +132,14 @@ public class EventController : Controller
             {
                 return RedirectToAction("All", "Event");
             }
+
             FormEventViewModel? model = await eventService.GetFormModelByIdAsync(id);
 
             if(model == null) 
             {
                 return RedirectToAction("All", "Event");
             }
+
             ICollection<TypeViewModel> types = await typeService.GetAllAsync();
             model.Types = types;
             return View(model);

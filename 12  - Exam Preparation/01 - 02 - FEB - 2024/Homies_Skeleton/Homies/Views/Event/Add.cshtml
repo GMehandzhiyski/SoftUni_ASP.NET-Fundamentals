@@ -27,7 +27,7 @@
             </div>
             <div class="mb-3">
                 <label asp-for="@Model.End" class="form-label-add-edit">End</label>
-                <input asp-for="@Model.End" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd H:mm")" />
+                <input asp-for="@Model.End" class="form-control" aria-required="true" value="@DateTime.Now.ToString("yyyy-MM-dd H:mm")" />
                 <span asp-validation-for="@Model.End" class="text-danger"></span>
             </div>
             <div class="mb-3">
