@@ -1,9 +1,12 @@
 ﻿using Homies.Common;
 using Homies.Contract;
 using Homies.Data;
+using Homies.Data.Models;
 using Homies.Models;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+
+
+using System.Security.Claims;
 
 namespace Homies.Service
 {
@@ -15,6 +18,24 @@ namespace Homies.Service
         { 
             context = _context;
         }
+
+        public async Task AddAsync(AddViewModel viewModel, DateTime end, DateTime start, string organiserID )
+        {
+
+            Event newEvent = new Event()
+            {
+                Name = viewModel.Name,
+                Description = viewModel.Description,
+                OrganiserId = organiserID,
+                CreatedOn = DateTime.Now,
+                Start = start,
+                End = end,
+                TypeId = viewModel.TypeId
+            };
+            
+
+        }
+
 
         public async Task<IEnumerable<AllViewModel>> GetAllEventAsync()
         {
@@ -28,9 +49,10 @@ namespace Homies.Service
 
                  })
                  .AsNoTracking()
-                 .ToListAsync();
-                
-
+                 .ToListAsync();     
         }
+
+     
+      
     }
 }

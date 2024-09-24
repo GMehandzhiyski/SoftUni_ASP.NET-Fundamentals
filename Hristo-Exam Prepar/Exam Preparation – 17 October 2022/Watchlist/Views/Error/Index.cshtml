@@ -1,0 +1,9 @@
+﻿@model ErrorStatusViewModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Whoops something went wrong! @Model.StatusCode </h1>
+    <h2>@Model.Message</h2>
+</div>
