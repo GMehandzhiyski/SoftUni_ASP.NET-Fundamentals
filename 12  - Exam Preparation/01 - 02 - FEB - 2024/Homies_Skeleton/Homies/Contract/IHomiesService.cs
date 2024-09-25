@@ -1,7 +1,4 @@
-﻿using Homies.Data.Models;
-using Homies.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Migrations.Operations;
+﻿using Homies.Models;
 
 namespace Homies.Contract
 {
@@ -14,7 +11,10 @@ namespace Homies.Contract
         Task<IEnumerable<TypeViewModel>> GetTypesAsync();
 
         Task<bool> IsTypeValid(int typeId);
-        Task<AddViewModel?> EditAsync(int Id);
+
         Task<bool> IsOrganiserEventOwnerAsync(int eventId, string userId);
+        Task<AddViewModel?> EditGetAsync(int Id);
+
+        Task EditPostAsync(int eventId, AddViewModel viewModel, DateTime start, DateTime end);
     }
 }

@@ -6,6 +6,7 @@ namespace Homies.Models
 {
     public class AddViewModel
     {
+        
         [Required(ErrorMessage = ErrorMessageName)]
         [StringLength(
             EventNameMaxLenght,
@@ -26,10 +27,10 @@ namespace Homies.Models
         [Required(ErrorMessage = ErrorMessageEnd)]
         public string End { get; set; } = null!;
 
+        public IEnumerable<TypeViewModel> Types { get; set; } = new List<TypeViewModel>();
+
         [Required(ErrorMessage = ErrorMessageTypeId)]
         public int TypeId { get; set; }
-
-        public IEnumerable<TypeViewModel> Types { get; set; } = new List<TypeViewModel>();
 
         public string? OrganiserId { get; set; }
 

@@ -123,8 +123,7 @@ namespace Homies.Controllers
 
 
         [HttpGet]
-
-        public async Task<IActionResult> Edit(int id)
+        public async Task<IActionResult> EditAsync(int id)
         {
             try
             {
@@ -135,13 +134,14 @@ namespace Homies.Controllers
                     return RedirectToAction(nameof(All));
                 }
 
-                var viewModel = await data.EditAsync(id);
+                var viewModel = await data.EditGetAsync(id);
 
                 if (viewModel == null)
                 {
                     return RedirectToAction(nameof(All));
                 }
 
+                viewModel.Types = await data.GetTypesAsync();   
                 return View(viewModel); 
 
             }
@@ -152,6 +152,85 @@ namespace Homies.Controllers
             }        
         }
 
+        [HttpPost]
+
+        public async Task<IActionResult> EditAsync(int id, AddViewModel viewModel)
+        { 
+            try
+            {
+                bool IsOrganiserIsOwner = await data.IsOrganiserEventOwnerAsync(id, User.GetUserId());
+
+                if (!IsOrganiserIsOwner)
+                {
+                    return RedirectToAction(nameof(All));
+                }
+
+                if (!ModelState.IsValid)
+                {
+
+                    var types = await data.GetTypesAsync();
+                    viewModel.Types = types;
+                    return View(viewModel);
+                }
+
+                bool IsTypeIdValid = await data.IsTypeValid(viewModel.TypeId);
+
+                if (!IsTypeIdValid)
+                {
+                    var types = await data.GetTypesAsync();
+                    viewModel.Types = types;
+                    ModelState.AddModelError("Type", "The selected event type is invalid");
+                    return View(viewModel);
+                }
+
+                DateTime start;
+                DateTime.TryParseExact(
+                   viewModel.Start,
+                   DateFormat,
+                   CultureInfo.InvariantCulture,
+                   DateTimeStyles.None,
+                   out start);
+
+                if (start == DateTime.MinValue)
+                {
+                    var types = await data.GetTypesAsync();
+                    viewModel.Types = types;
+                    ModelState.AddModelError(nameof(viewModel.Start), $"Invalid date! Format must be: {DateFormat}");
+                    viewModel.Start = string.Empty;
+                    return View(viewModel);
+                }
+
+                DateTime end;
+                DateTime.TryParseExact(
+                    viewModel.End,
+                    DateFormat,
+                    CultureInfo.InvariantCulture,
+                    DateTimeStyles.None,
+                    out end);
+
+                if (end == DateTime.MinValue)
+                {
+                    var types = await data.GetTypesAsync();
+                    viewModel.Types = types;
+                    ModelState.AddModelError(nameof(viewModel.End), $"Invalid date! Format must be: {DateFormat}");
+                    viewModel.End = string.Empty;
+                    return View(viewModel);
+                }
+
+
+
+                await data.EditPostAsync(id, viewModel, start, end);
+                return RedirectToAction(nameof(All));
+            }
+
+            catch (Exception)
+            {
+
+                return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
+            }
+
+
+        }
 
     }
 }
