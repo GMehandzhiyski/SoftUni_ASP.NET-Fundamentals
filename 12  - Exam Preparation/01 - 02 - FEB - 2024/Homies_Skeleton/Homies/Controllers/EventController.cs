@@ -153,9 +153,8 @@ namespace Homies.Controllers
         }
 
         [HttpPost]
-
         public async Task<IActionResult> EditAsync(int id, AddViewModel viewModel)
-        { 
+        {
             try
             {
                 bool IsOrganiserIsOwner = await data.IsOrganiserEventOwnerAsync(id, User.GetUserId());
@@ -183,15 +182,15 @@ namespace Homies.Controllers
                     return View(viewModel);
                 }
 
-                DateTime start;
+                DateTime startEdit;
                 DateTime.TryParseExact(
                    viewModel.Start,
                    DateFormat,
                    CultureInfo.InvariantCulture,
                    DateTimeStyles.None,
-                   out start);
+                   out startEdit);
 
-                if (start == DateTime.MinValue)
+                if (startEdit == DateTime.MinValue)
                 {
                     var types = await data.GetTypesAsync();
                     viewModel.Types = types;
@@ -200,15 +199,15 @@ namespace Homies.Controllers
                     return View(viewModel);
                 }
 
-                DateTime end;
+                DateTime endEdit;
                 DateTime.TryParseExact(
                     viewModel.End,
                     DateFormat,
                     CultureInfo.InvariantCulture,
                     DateTimeStyles.None,
-                    out end);
+                    out endEdit);
 
-                if (end == DateTime.MinValue)
+                if (endEdit == DateTime.MinValue)
                 {
                     var types = await data.GetTypesAsync();
                     viewModel.Types = types;
@@ -217,9 +216,9 @@ namespace Homies.Controllers
                     return View(viewModel);
                 }
 
+                viewModel.OrganiserId = User.GetUserId();
 
-
-                await data.EditPostAsync(id, viewModel, start, end);
+                await data.EditPostAsync(id, viewModel, startEdit, endEdit);
                 return RedirectToAction(nameof(All));
             }
 

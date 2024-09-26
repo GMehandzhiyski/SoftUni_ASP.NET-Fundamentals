@@ -18,9 +18,9 @@ namespace Homies.Service
 
         public async Task EditPostAsync(int eventId, AddViewModel viewModel, DateTime start, DateTime end)
         { 
-            var currentModel = context.Events
+            Event currentModel = await context.Events
                 .Where(e => e.Id == eventId)
-                .FirstOrDefault();
+                .FirstOrDefaultAsync();
 
             if (currentModel != null)
             {
