@@ -82,6 +82,7 @@ namespace Homies.Service
                      Name = e.Name, 
                      Start = e.Start.ToString(DataConstants.DateFormat),
                      Type = e.Type.Name,
+                     Organiser = e.Organiser.UserName,
 
                  })
                  .AsNoTracking()
