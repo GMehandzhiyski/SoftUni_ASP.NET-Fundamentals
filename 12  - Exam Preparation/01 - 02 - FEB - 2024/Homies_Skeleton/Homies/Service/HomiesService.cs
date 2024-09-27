@@ -16,6 +16,24 @@ namespace Homies.Service
             context = _context;
         }
 
+        public async Task<DetailsViewModel> DetailsAsync(int id)
+        { 
+            return await context.Events
+                .Where(e => e.Id == id)
+                .Select(e => new DetailsViewModel()
+                {
+                    Id = e.Id,
+                    Name = e.Name,
+                    Description = e.Description,
+                    Start = e.Start.ToString(DataConstants.DateFormat),
+                    End = e.End.ToString(DataConstants.DateFormat),
+                    Organiser = e.Organiser.UserName,
+                    CreatedOn = e.CreatedOn.ToString(DataConstants.DateFormat),
+                    Type = e.Type.Name,
+                })
+                .FirstOrDefaultAsync();
+        }
+
         public async Task EditPostAsync(int eventId, AddViewModel viewModel, DateTime start, DateTime end)
         { 
             Event currentModel = await context.Events

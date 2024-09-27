@@ -16,5 +16,6 @@ namespace Homies.Contract
         Task<AddViewModel?> EditGetAsync(int Id);
 
         Task EditPostAsync(int eventId, AddViewModel viewModel, DateTime start, DateTime end);
+        Task<DetailsViewModel> DetailsAsync(int id);
     }
 }

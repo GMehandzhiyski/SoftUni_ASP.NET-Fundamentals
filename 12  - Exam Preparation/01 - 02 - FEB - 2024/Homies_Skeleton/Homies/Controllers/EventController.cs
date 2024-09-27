@@ -231,5 +231,28 @@ namespace Homies.Controllers
 
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Details(int id)
+        {
+            try
+            {
+                var viewModel = await data.DetailsAsync(id);
+
+                if (viewModel == null)
+                {
+                    return View("All", "Event");
+                }
+
+                return View(viewModel);
+            }
+            catch (Exception)
+            {
+
+                return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
+            }
+
+            
+        }
+
     }
 }
