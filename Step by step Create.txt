@@ -1,0 +1,40 @@
+1. Добавяне на всички нови Папки
+2. Scaffold на Identity
+3. Избираме - Login, Register, Logout
+4. Почистваме View-то за Login
+5. Почистваме View-то за Register
+6. Почистваме View-то за Logout
+7. Почистваме View-то за Login.cs
+	- public IList<AuthenticationScheme> ExternalLogins { get; set; }
+	- public bool RememberMe { get; set; }	
+	- Input.RememberMe ==> true
+8.Почистваме View-то за Register.cs
+	- private readonly IEmailSender _emailSender;
+	- IEmailSender emailSende
+	- private readonly IUserEmailStore<IdentityUser> _emailStore;
+	- public IList<AuthenticationScheme> ExternalLogins { get; set; }
+	- var userId = await _userManager.GetUserIdAsync(user);
+	  var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+	  code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+	  var callbackUrl = Url.Page(
+    	  "/Account/ConfirmEmail",
+    	  pageHandler: null,
+    	  values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
+    	  protocol: Request.Scheme);
+	-  if (_userManager.Options.SignIn.RequireConfirmedAccount)
+ 	   {
+   		  return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
+	   }
+
+	- private IUserEmailStore<IdentityUser> GetEmailStore()
+ 	  {
+     	    if (!_userManager.SupportsUserEmail)
+     	    {
+              throw new NotSupportedException("The default UI requires a user store with email support.");
+            }
+     	   return (IUserEmailStore<IdentityUser>)_userStore;
+ 	  }
+9.Оправяме паролите
+	- options.SignIn.RequireConfirmedAccount = true ==> {}
+	
+10.Добавяме Connection Srring
