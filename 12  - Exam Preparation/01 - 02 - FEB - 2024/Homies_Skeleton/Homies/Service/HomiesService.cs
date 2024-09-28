@@ -16,6 +16,49 @@ namespace Homies.Service
             context = _context;
         }
 
+        public async Task LeaveEventAsync(int eventId)
+        {
+            EventParticipant? removeEvent = await context.EventParticipants
+                .Where(ep => ep.EventId == eventId)
+                .FirstOrDefaultAsync();
+           
+            if (removeEvent != null)
+            {
+                context.EventParticipants.Remove(removeEvent);
+                await context.SaveChangesAsync();
+
+            }
+
+        }
+
+        public async Task<ICollection<AllViewModel>> AllJoinedEventsAsync(string userId)
+        {
+            return await context.EventParticipants
+                .Where(ep => ep.HelperId == userId)
+                .Select(e => new AllViewModel()
+                {
+                    Id = e.Event.Id,
+                    Name = e.Event.Name,
+                    Start = e.Event.Start.ToString(DataConstants.DateFormat),
+                    Type = e.Event.Type.Name,
+                    Organiser = e.Event.OrganiserId,
+
+                })
+                .ToListAsync();
+        
+        }
+
+        public async Task JoinEvent(string helperId, int eventId)
+        {
+            var participant = new EventParticipant()
+            { 
+                HelperId = helperId,
+                EventId = eventId
+            };
+
+            await context.EventParticipants.AddAsync(participant);
+            await context.SaveChangesAsync();
+        }
         public async Task<DetailsViewModel> DetailsAsync(int id)
         { 
             return await context.Events
@@ -131,6 +174,14 @@ namespace Homies.Service
                 .AnyAsync(e => e.Id == eventId
                                && e.OrganiserId == userId);
 
+        }
+
+        public async Task<bool> IsUserAlreadyJoined(string userId, int eventId)
+        {
+            return await context.EventParticipants
+                .AnyAsync(ep => ep.HelperId == userId
+                              && ep.EventId == eventId);
+        
         }
     }
 }

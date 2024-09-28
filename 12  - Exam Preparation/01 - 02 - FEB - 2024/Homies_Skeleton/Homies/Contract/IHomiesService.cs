@@ -17,5 +17,12 @@ namespace Homies.Contract
 
         Task EditPostAsync(int eventId, AddViewModel viewModel, DateTime start, DateTime end);
         Task<DetailsViewModel> DetailsAsync(int id);
+        Task JoinEvent(string helperId, int eventId);
+        Task<bool> IsUserAlreadyJoined(string userId, int eventId);
+        Task<ICollection<AllViewModel>> AllJoinedEventsAsync(string userId);
+        Task LeaveEventAsync(int eventId);
+
+
+
     }
 }

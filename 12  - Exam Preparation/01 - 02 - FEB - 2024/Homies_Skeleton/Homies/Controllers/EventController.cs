@@ -1,4 +1,5 @@
 ﻿using Homies.Contract;
+using Homies.Extensions;
 using Homies.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -59,7 +60,7 @@ namespace Homies.Controllers
             {
                 if (!ModelState.IsValid)
                 {
-                   
+
                     var types = await data.GetTypesAsync();
                     viewModel.Types = types;
                     return View(viewModel);
@@ -141,15 +142,15 @@ namespace Homies.Controllers
                     return RedirectToAction(nameof(All));
                 }
 
-                viewModel.Types = await data.GetTypesAsync();   
-                return View(viewModel); 
+                viewModel.Types = await data.GetTypesAsync();
+                return View(viewModel);
 
             }
             catch (Exception)
             {
 
                 return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
-            }        
+            }
         }
 
         [HttpPost]
@@ -251,8 +252,48 @@ namespace Homies.Controllers
                 return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
             }
 
-            
+
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Join(int id)
+        {
+            try
+            {
+                bool isUserIsJoined = await data.IsUserAlreadyJoined(User.GetUserId(),id);
+
+                if (isUserIsJoined)
+                {
+                    return RedirectToAction(nameof(Joined));
+                }
+
+                await data.JoinEvent(User.GetUserId(), id);
+               
+                return RedirectToAction(nameof(Joined));
+
+            }
+            catch (Exception)
+            {
+
+                return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Joined()
+        {
+            var allJoinedEvent = await data.AllJoinedEventsAsync(User.GetUserId());
+
+            return View(allJoinedEvent);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Leave(int id)
+        {
+            await data.LeaveEventAsync(id);
+
+            return RedirectToAction(nameof(Joined));
+
+        }
     }
 }
