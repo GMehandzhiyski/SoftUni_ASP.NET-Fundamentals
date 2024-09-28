@@ -282,17 +282,35 @@ namespace Homies.Controllers
         [HttpGet]
         public async Task<IActionResult> Joined()
         {
-            var allJoinedEvent = await data.AllJoinedEventsAsync(User.GetUserId());
+            try
+            {
+                var allJoinedEvent = await data.AllJoinedEventsAsync(User.GetUserId());
 
-            return View(allJoinedEvent);
+                return View(allJoinedEvent);
+            }
+            catch (Exception)
+            {
+
+                return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
+            }
+           
         }
 
         [HttpPost]
         public async Task<IActionResult> Leave(int id)
         {
-            await data.LeaveEventAsync(id);
+            try
+            {
+                await data.LeaveEventAsync(id);
 
-            return RedirectToAction(nameof(Joined));
+                return RedirectToAction(nameof(Joined));
+            }
+            catch (Exception)
+            {
+
+                return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
+            }
+    
 
         }
     }
