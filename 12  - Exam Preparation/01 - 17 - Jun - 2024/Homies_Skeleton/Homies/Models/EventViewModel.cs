@@ -1,6 +1,6 @@
 ﻿namespace Homies.Models
 {
-    public class AllViewModel
+    public class EventViewModel
     {
 
         public int Id { get; set; }

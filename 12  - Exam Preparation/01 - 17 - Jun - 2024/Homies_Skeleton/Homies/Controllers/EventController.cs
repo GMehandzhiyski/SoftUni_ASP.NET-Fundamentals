@@ -3,9 +3,7 @@ using Homies.Extensions;
 using Homies.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 using System.Globalization;
-using System.Security.Claims;
 using static Homies.Common.DataConstants;
 using static Homies.Extensions.ClaimsPrincipalExtensions;
 

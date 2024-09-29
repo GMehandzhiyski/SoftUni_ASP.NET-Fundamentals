@@ -1,6 +1,6 @@
 ﻿namespace Homies.Models
 {
-    public class TypeViewModel
+    public class EventTypeViewModel
     {
         public int Id { get; set; }
 

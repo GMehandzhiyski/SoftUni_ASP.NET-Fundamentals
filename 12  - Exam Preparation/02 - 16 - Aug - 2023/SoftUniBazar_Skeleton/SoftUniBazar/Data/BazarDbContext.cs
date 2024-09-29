@@ -16,8 +16,6 @@ namespace SoftUniBazar.Data
             modelBuilder.Entity<AdBuyer>()
                 .HasKey(ab => new { ab.BuyerId, ab.AdId });
 
-
-
             modelBuilder.Entity<AdBuyer>()
                 .HasOne(ab => ab.Ad)
                 .WithMany()  // Ако няма колекция от AdBuyers в Buye
@@ -60,5 +58,9 @@ namespace SoftUniBazar.Data
 
             base.OnModelCreating(modelBuilder);
         }
+
+        public DbSet<Ad> Ads { get; set; }
+        public DbSet<AdBuyer> AdBuyers {get;set;}
+        public DbSet<Category> Categories { get; set; }
     }
 }

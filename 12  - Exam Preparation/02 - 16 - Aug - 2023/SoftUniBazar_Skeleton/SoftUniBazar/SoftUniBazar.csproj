@@ -29,9 +29,7 @@
 
   <ItemGroup>
     <Folder Include="Configuration\" />
-    <Folder Include="Contract\" />
     <Folder Include="Data\Configurator\" />
-    <Folder Include="Service\" />
   </ItemGroup>
 
 </Project>

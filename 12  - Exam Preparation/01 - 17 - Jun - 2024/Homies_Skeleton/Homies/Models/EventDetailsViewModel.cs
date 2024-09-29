@@ -2,7 +2,7 @@
 
 namespace Homies.Models
 {
-    public class DetailsViewModel
+    public class EventDetailsViewModel
     {
       
         public int Id { get; set; }

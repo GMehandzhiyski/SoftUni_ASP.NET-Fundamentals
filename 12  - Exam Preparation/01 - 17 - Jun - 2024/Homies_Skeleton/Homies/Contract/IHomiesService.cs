@@ -4,11 +4,11 @@ namespace Homies.Contract
 {
     public interface IHomiesService
     {
-        Task<IEnumerable<AllViewModel>> GetAllEventAsync();
+        Task<IEnumerable<EventViewModel>> GetAllEventAsync();
 
         Task AddAsync(AddViewModel viewModel, DateTime end, DateTime start, string organiserID);
 
-        Task<IEnumerable<TypeViewModel>> GetTypesAsync();
+        Task<IEnumerable<EventTypeViewModel>> GetTypesAsync();
 
         Task<bool> IsTypeValid(int typeId);
 
@@ -16,10 +16,10 @@ namespace Homies.Contract
         Task<AddViewModel?> EditGetAsync(int Id);
 
         Task EditPostAsync(int eventId, AddViewModel viewModel, DateTime start, DateTime end);
-        Task<DetailsViewModel> DetailsAsync(int id);
+        Task<EventDetailsViewModel> DetailsAsync(int id);
         Task JoinEvent(string helperId, int eventId);
         Task<bool> IsUserAlreadyJoined(string userId, int eventId);
-        Task<ICollection<AllViewModel>> AllJoinedEventsAsync(string userId);
+        Task<ICollection<EventViewModel>> AllJoinedEventsAsync(string userId);
         Task LeaveEventAsync(int eventId);
 
 

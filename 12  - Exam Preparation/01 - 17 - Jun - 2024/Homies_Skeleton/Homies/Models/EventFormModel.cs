@@ -27,12 +27,11 @@ namespace Homies.Models
         [Required(ErrorMessage = ErrorMessageEnd)]
         public string End { get; set; } = null!;
 
-        public IEnumerable<TypeViewModel> Types { get; set; } = new List<TypeViewModel>();
+        public string? OrganiserId { get; set; }
+
+        public IEnumerable<EventTypeViewModel> Types { get; set; } = new List<EventTypeViewModel>();
 
         [Required(ErrorMessage = ErrorMessageTypeId)]
         public int TypeId { get; set; }
-
-        public string? OrganiserId { get; set; }
-
     }
 }

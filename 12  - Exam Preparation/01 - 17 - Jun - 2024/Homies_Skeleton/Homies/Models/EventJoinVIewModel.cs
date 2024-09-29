@@ -1,6 +1,6 @@
 ﻿namespace Homies.Models
 {
-    public class JoinVIewModel
+    public class EventJoinVIewModel
     {
         public int Id { get; set; } 
 

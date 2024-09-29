@@ -31,11 +31,11 @@ namespace Homies.Service
 
         }
 
-        public async Task<ICollection<AllViewModel>> AllJoinedEventsAsync(string userId)
+        public async Task<ICollection<EventViewModel>> AllJoinedEventsAsync(string userId)
         {
             return await context.EventParticipants
                 .Where(ep => ep.HelperId == userId)
-                .Select(e => new AllViewModel()
+                .Select(e => new EventViewModel()
                 {
                     Id = e.Event.Id,
                     Name = e.Event.Name,
@@ -59,11 +59,11 @@ namespace Homies.Service
             await context.EventParticipants.AddAsync(participant);
             await context.SaveChangesAsync();
         }
-        public async Task<DetailsViewModel> DetailsAsync(int id)
+        public async Task<EventDetailsViewModel> DetailsAsync(int id)
         { 
             return await context.Events
                 .Where(e => e.Id == id)
-                .Select(e => new DetailsViewModel()
+                .Select(e => new EventDetailsViewModel()
                 {
                     Id = e.Id,
                     Name = e.Name,
@@ -134,10 +134,10 @@ namespace Homies.Service
         }
 
 
-        public async Task<IEnumerable<AllViewModel>> GetAllEventAsync()
+        public async Task<IEnumerable<EventViewModel>> GetAllEventAsync()
         {
             return await context.Events
-                 .Select(e => new AllViewModel
+                 .Select(e => new EventViewModel
                  {  
                      Id = e.Id, 
                      Name = e.Name, 
@@ -150,11 +150,11 @@ namespace Homies.Service
                  .ToListAsync();     
         }
 
-        public async Task<IEnumerable<TypeViewModel>> GetTypesAsync()
+        public async Task<IEnumerable<EventTypeViewModel>> GetTypesAsync()
         {
             return await context.Types
                 .AsNoTracking()
-                .Select(t => new TypeViewModel 
+                .Select(t => new EventTypeViewModel 
                 { 
                     Id = t.Id,
                     Name = t.Name,  
