@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Homies.Extensions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SoftUniBazar.Contract;
 using SoftUniBazar.Data.Models;
@@ -16,6 +17,23 @@ namespace SoftUniBazar.Controllers
         public AdController(IAdService _data)
         {
             data = _data;
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> All()
+        {
+            try
+            {
+                var viewModel = await data.GetAllAdAsync();
+
+                return View(viewModel);
+            }
+            catch (Exception)
+            {
+
+                return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
+            }
         }
 
         [HttpGet]
@@ -38,20 +56,39 @@ namespace SoftUniBazar.Controllers
 
         }
 
-        [HttpGet]
-        public async Task<IActionResult> All()
+
+        [HttpPost]
+        public async Task<IActionResult> Add(AdFormModel model)
         {
             try
             {
-                var viewModel = await data.GetAllAdAsync();
+                if (!ModelState.IsValid)
+                {
+                    var category = await data.GetCategoriesAsync();
+                    model.Categories = category;
+                    return View(model);
+                }
 
-                return View(viewModel);
+                bool isCategoryValid = await data.isCategoryValid(model.CategoryId);
+
+                if (!isCategoryValid)
+                {
+                    var category = await data.GetCategoriesAsync();
+                    model.Categories = category;
+                    ModelState.AddModelError("Category", "The selected event type is invalid");
+                    return View(model);
+                }
+
+
+                await data.AddAsync(model, User.GetId());
+                return RedirectToAction(nameof(All));
             }
             catch (Exception)
             {
 
                 return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
             }
+        
         }
 
     }

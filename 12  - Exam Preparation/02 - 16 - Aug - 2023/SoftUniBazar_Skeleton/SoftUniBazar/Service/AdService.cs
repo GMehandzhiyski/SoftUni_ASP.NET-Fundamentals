@@ -5,6 +5,8 @@ using SoftUniBazar.Models.Ad;
 using SoftUniBazar.Models.Category;
 using SoftUniBazar.Common;
 using Homies.Common;
+using Microsoft.EntityFrameworkCore.Diagnostics;
+using SoftUniBazar.Data.Models;
 
 namespace SoftUniBazar.Service
 {
@@ -51,6 +53,29 @@ namespace SoftUniBazar.Service
 
         }
 
+        public async Task AddAsync(AdFormModel formModel, string creatorId)
+        {
+            Ad model = new Ad()
+            {
+                Name = formModel.Name,
+                Description=formModel.Description,
+                Price = formModel.Price,
+                OwnerId = creatorId,
+                ImageUrl=formModel.ImageUrl,
+                CreatedOn = DateTime.Now,
+                CategoryId = formModel.CategoryId
+            };
+
+            await context.Ads.AddAsync(model);
+            await context.SaveChangesAsync();
+        
+        }
+
+        public async Task<bool> isCategoryValid(int categoryId)
+        {
+            return await context.Categories
+                .AnyAsync(c => c.Id == categoryId);
+        }
     }
 
 }

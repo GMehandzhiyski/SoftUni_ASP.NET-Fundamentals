@@ -31,6 +31,12 @@ namespace SoftUniBazar.Models.Ad
         [Comment("Price")]
         public decimal Price { get; set; }
 
+        [Comment("OwnerId")]
+        public string OwnerId { get; set; } = string.Empty;
+
+        [Comment("CreatedOn")]
+        public DateTime CreatedOn { get; set; }
+
         [Required]
         [Comment("CategotyId")]
         public int CategoryId { get; set; }
