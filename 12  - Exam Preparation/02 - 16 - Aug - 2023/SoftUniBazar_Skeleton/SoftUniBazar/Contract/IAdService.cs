@@ -11,5 +11,11 @@ namespace SoftUniBazar.Contract
 
         Task AddAsync(AdFormModel formModel, string creatorId);
         Task<bool> isCategoryValid(int categoryId);
+
+        Task<bool> IsOwnerAdOwenAsync(int id, string userId);
+
+        Task<AdFormModel> EditGetAsync(int id);
+
+        Task EditPostAsync(AdFormModel model, int id);
     }
 }

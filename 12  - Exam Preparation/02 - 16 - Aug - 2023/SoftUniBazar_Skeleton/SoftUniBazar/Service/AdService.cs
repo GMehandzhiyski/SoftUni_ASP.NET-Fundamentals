@@ -7,6 +7,7 @@ using SoftUniBazar.Common;
 using Homies.Common;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using SoftUniBazar.Data.Models;
+using Microsoft.CodeAnalysis.FlowAnalysis.DataFlow;
 
 namespace SoftUniBazar.Service
 {
@@ -76,6 +77,50 @@ namespace SoftUniBazar.Service
             return await context.Categories
                 .AnyAsync(c => c.Id == categoryId);
         }
+
+        public async Task<bool> IsOwnerAdOwenAsync(int id, string userId)
+        {
+            return await context.Ads
+                .AnyAsync(a => a.Id == id
+                                && a.OwnerId == userId);
+
+        }
+
+        public async Task<AdFormModel> EditGetAsync(int id)
+        {
+            return await context.Ads
+                .Where(a => a.Id == id)
+                .Select(a => new AdFormModel()
+                {
+                    Name = a.Name,
+                    Description = a.Description,
+                    ImageUrl = a.ImageUrl,
+                    Price = a.Price,
+                    CategoryId = a.CategoryId
+
+                })
+                .FirstOrDefaultAsync();
+        }
+
+        public async Task EditPostAsync(AdFormModel model, int id)
+        {
+            Ad currentAd = await context.Ads
+                .Where(a => a.Id == id)
+                .FirstOrDefaultAsync();
+
+            if (currentAd != null)
+            { 
+                currentAd.Name = model.Name;
+                currentAd.Description = model.Description;
+                currentAd.Price = model.Price;
+                currentAd.ImageUrl = model.ImageUrl;
+                currentAd.CategoryId = model.CategoryId;
+
+                await context.SaveChangesAsync();
+            }
+        }
+
     }
+
 
 }
