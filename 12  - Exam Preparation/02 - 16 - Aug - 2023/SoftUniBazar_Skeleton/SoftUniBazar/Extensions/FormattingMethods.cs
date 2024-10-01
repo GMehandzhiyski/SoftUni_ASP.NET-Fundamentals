@@ -1,4 +1,4 @@
-﻿namespace Homies.Extensions;
+﻿namespace SoftUniBazar.Extensions;
 
 using static Common.DateTimeParseFormats;
 public static class FormattingMethods

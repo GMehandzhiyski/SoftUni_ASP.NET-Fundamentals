@@ -1,13 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SoftUniBazar.Contract;
 using SoftUniBazar.Data;
+using SoftUniBazar.Data.Models;
 using SoftUniBazar.Models.Ad;
 using SoftUniBazar.Models.Category;
 using SoftUniBazar.Common;
-using Homies.Common;
-using Microsoft.EntityFrameworkCore.Diagnostics;
-using SoftUniBazar.Data.Models;
-using Microsoft.CodeAnalysis.FlowAnalysis.DataFlow;
 
 namespace SoftUniBazar.Service
 {
@@ -120,7 +117,49 @@ namespace SoftUniBazar.Service
             }
         }
 
+
+        public async Task<IEnumerable<AdViewModel>> AllAdInMyCard(string userId)
+        {
+            return await context.AdBuyers
+                .AsNoTracking()
+                .Where(a => a.BuyerId == userId)
+                .Select(a => new AdViewModel()
+                {
+                    Id = a.Ad.Id,
+                    Name= a.Ad.Name,
+                    ImageUrl= a.Ad.ImageUrl,
+                    CreatedOn = a.Ad.CreatedOn.ToString(DateTimeParseFormats.DefaultTimeFormat),
+                    Category = a.Ad.Category.Name,
+                    Description = a.Ad.Description,
+                    Price = a.Ad.Price,
+                    Owner = a.Ad.Owner.ToString(),
+                })
+                .ToListAsync();
+        }
+
+        public async Task<bool> IsAdIsAlreadyAdToCart(string userId, int adId)
+        {
+            return await context.AdBuyers
+                .AnyAsync(ab => ab.BuyerId == userId
+                            && ab.AdId == adId);
+        }
+
+        public async Task AddAdToCartAsync(string userId, int adId)
+        {
+            AdBuyer newBuyers = new AdBuyer()
+            {
+                BuyerId = userId,
+                AdId = adId
+            };
+
+            await context.AdBuyers.AddAsync(newBuyers);
+            await context.SaveChangesAsync();
+
+        }
+
+        
     }
+
 
 
 }

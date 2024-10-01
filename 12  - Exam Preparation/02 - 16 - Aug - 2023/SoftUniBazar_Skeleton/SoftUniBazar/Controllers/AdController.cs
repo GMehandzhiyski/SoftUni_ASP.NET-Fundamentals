@@ -1,12 +1,8 @@
-﻿using Homies.Extensions;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis.FlowAnalysis.DataFlow;
 using SoftUniBazar.Contract;
-using SoftUniBazar.Data.Models;
 using SoftUniBazar.Models.Ad;
-using SoftUniBazar.Models.Category;
-using System.Xml.Linq;
+using SoftUniBazar.Extensions;
 
 namespace SoftUniBazar.Controllers
 {
@@ -44,7 +40,7 @@ namespace SoftUniBazar.Controllers
             {
                 AdFormModel viewModel = new AdFormModel();
                 viewModel.Categories = await data.GetCategoriesAsync();
-                
+
                 return View(viewModel);
 
             }
@@ -89,7 +85,7 @@ namespace SoftUniBazar.Controllers
 
                 return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
             }
-        
+
         }
 
         [HttpGet]
@@ -100,14 +96,14 @@ namespace SoftUniBazar.Controllers
                 bool IsOwenerIsOwner = await data.IsOwnerAdOwenAsync(id, User.GetUserId());
                 if (!IsOwenerIsOwner)
                 {
-                    return RedirectToAction("Ad","All");
+                    return RedirectToAction("All", "Ad");
                 }
 
-               AdFormModel model = await data.EditGetAsync(id);
+                AdFormModel model = await data.EditGetAsync(id);
 
                 if (model == null)
                 {
-                    return RedirectToAction("Ad", "All");
+                    return RedirectToAction("All", "Ad");
                 }
 
                 model.Categories = await data.GetCategoriesAsync();
@@ -118,7 +114,7 @@ namespace SoftUniBazar.Controllers
 
                 return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
             }
-        
+
         }
 
         [HttpPost]
@@ -127,15 +123,64 @@ namespace SoftUniBazar.Controllers
             try
             {
                 await data.EditPostAsync(model, id);
-                return RedirectToAction("Ad", "All");
+                return RedirectToAction("All", "Ad");
             }
             catch (Exception)
             {
 
-                throw;
+                return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
             }
 
         }
+
+        [HttpGet]
+        public async Task<IActionResult> CartAsync()/// with MeCartAsync is not working, ask Ico
+        {
+            try
+            {
+                var allAdMyCart = await data.AllAdInMyCard(User.GetUserId());
+
+                //if (allAdMyCart != null)
+                //{
+                //    return RedirectToAction("All", "Ad");
+                //}
+
+                return View(allAdMyCart);
+            }
+            catch (Exception)
+            {
+
+                return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
+            }
+
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> AddToCart(int id)
+        {
+            try
+            {
+                bool isBayerAddToCart = await data.IsAdIsAlreadyAdToCart(User.GetUserId(), id);
+
+                if (isBayerAddToCart)
+                {
+                    return RedirectToAction("All", "Ad");
+                }
+
+                await data.AddAdToCartAsync(User.GetUserId(), id);
+
+                return RedirectToAction("Cart", "Ad");
+            }
+            catch (Exception)
+            {
+
+                return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
+            }
+
+        }
+
+
+
 
     }
 }

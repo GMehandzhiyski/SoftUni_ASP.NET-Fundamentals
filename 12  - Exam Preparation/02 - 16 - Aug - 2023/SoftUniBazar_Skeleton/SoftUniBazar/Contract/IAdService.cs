@@ -17,5 +17,11 @@ namespace SoftUniBazar.Contract
         Task<AdFormModel> EditGetAsync(int id);
 
         Task EditPostAsync(AdFormModel model, int id);
+
+        Task<IEnumerable<AdViewModel>> AllAdInMyCard(string userId);
+
+        Task<bool> IsAdIsAlreadyAdToCart(string userId, int adId);
+
+        Task AddAdToCartAsync(string userId, int adId);
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Homies.Common;
+﻿namespace SoftUniBazar.Common;
 
 public class DateTimeParseFormats
 {
