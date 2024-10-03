@@ -23,5 +23,7 @@ namespace SoftUniBazar.Contract
         Task<bool> IsAdIsAlreadyAdToCart(string userId, int adId);
 
         Task AddAdToCartAsync(string userId, int adId);
+
+        Task RemoveFromAdFromCart(int id, string userId);
     }
 }

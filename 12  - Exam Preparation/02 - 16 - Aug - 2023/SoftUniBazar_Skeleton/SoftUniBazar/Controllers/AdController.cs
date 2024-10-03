@@ -134,7 +134,7 @@ namespace SoftUniBazar.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> CartAsync()/// with MeCartAsync is not working, ask Ico
+        public async Task<IActionResult> CartAsync()/// with MyCartAsync is not working, ask Ico
         {
             try
             {
@@ -155,7 +155,7 @@ namespace SoftUniBazar.Controllers
 
         }
 
-        [HttpGet]
+       [HttpPost]
         public async Task<IActionResult> AddToCart(int id)
         {
             try
@@ -164,7 +164,7 @@ namespace SoftUniBazar.Controllers
 
                 if (isBayerAddToCart)
                 {
-                    return RedirectToAction("All", "Ad");
+                    return RedirectToAction("Cart", "Ad");
                 }
 
                 await data.AddAdToCartAsync(User.GetUserId(), id);
@@ -179,7 +179,21 @@ namespace SoftUniBazar.Controllers
 
         }
 
+        [HttpPost]
+        public async Task<IActionResult> RemoveFromCart(int id)
+        {
+            try
+            {
+                await data.RemoveFromAdFromCart(id, User.GetUserId());
 
+                return RedirectToAction("Cart", "Ad");
+            }
+            catch (Exception)
+            {
+
+                return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
+            }
+        }
 
 
     }

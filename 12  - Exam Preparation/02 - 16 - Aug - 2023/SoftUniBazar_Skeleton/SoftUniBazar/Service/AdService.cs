@@ -5,6 +5,7 @@ using SoftUniBazar.Data.Models;
 using SoftUniBazar.Models.Ad;
 using SoftUniBazar.Models.Category;
 using SoftUniBazar.Common;
+using Microsoft.CodeAnalysis.FlowAnalysis.DataFlow;
 
 namespace SoftUniBazar.Service
 {
@@ -157,7 +158,20 @@ namespace SoftUniBazar.Service
 
         }
 
-        
+        public async Task RemoveFromAdFromCart(int id, string userId)
+        {
+            AdBuyer currAdBauer =  await context.AdBuyers
+                .Where(ab => ab.BuyerId == userId
+                                && ab.AdId == id)
+                .FirstOrDefaultAsync();
+
+            if (currAdBauer != null)
+            {
+                context.Remove(currAdBauer);
+                await context.SaveChangesAsync();
+            }
+        }
+
     }
 
 
