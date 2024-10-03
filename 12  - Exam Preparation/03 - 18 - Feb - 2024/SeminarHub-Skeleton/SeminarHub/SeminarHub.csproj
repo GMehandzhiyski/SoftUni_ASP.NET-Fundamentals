@@ -21,10 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Common\" />
     <Folder Include="Configuration\" />
     <Folder Include="Contract\" />
-    <Folder Include="Data\Models\" />
     <Folder Include="Service\" />
   </ItemGroup>
 
