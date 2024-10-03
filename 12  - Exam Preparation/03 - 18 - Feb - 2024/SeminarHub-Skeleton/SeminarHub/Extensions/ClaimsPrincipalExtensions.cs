@@ -1,6 +1,6 @@
 ﻿using System.Security.Claims;
 
-namespace Homies.Extensions
+namespace SeminarHub.Extensions
 {
     public static class ClaimsPrincipalExtensions
     {
