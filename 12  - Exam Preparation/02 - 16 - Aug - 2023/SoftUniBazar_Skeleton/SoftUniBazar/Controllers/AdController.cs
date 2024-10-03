@@ -140,11 +140,6 @@ namespace SoftUniBazar.Controllers
             {
                 var allAdMyCart = await data.AllAdInMyCard(User.GetUserId());
 
-                //if (allAdMyCart != null)
-                //{
-                //    return RedirectToAction("All", "Ad");
-                //}
-
                 return View(allAdMyCart);
             }
             catch (Exception)
