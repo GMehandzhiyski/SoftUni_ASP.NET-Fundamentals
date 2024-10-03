@@ -11,12 +11,11 @@
 using System;
 using System.Reflection;
 
-[assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap5")]
 [assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("aspnet-SoftUniBazar-3c828dbf-3f72-40aa-87cc-d3b0aa7f2981")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("SoftUniBazar")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+24f1391463276b21d24e5e87120909baf4f039b1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6716b6ce17cb534bd618774f2e18be7f1de3a297")]
 [assembly: System.Reflection.AssemblyProductAttribute("SoftUniBazar")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SoftUniBazar")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
