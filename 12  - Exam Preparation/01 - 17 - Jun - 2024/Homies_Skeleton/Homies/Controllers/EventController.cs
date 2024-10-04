@@ -4,7 +4,7 @@ using Homies.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Globalization;
-using static Homies.Common.DataConstants;
+using static Homies.Common.DateConstants;
 using static Homies.Extensions.ClaimsPrincipalExtensions;
 
 namespace Homies.Controllers

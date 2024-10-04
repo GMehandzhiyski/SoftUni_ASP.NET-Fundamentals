@@ -39,7 +39,7 @@ namespace Homies.Service
                 {
                     Id = e.Event.Id,
                     Name = e.Event.Name,
-                    Start = e.Event.Start.ToString(DataConstants.DateFormat),
+                    Start = e.Event.Start.ToString(DateConstants.DateFormat),
                     Type = e.Event.Type.Name,
                     Organiser = e.Event.OrganiserId,
 
@@ -68,10 +68,10 @@ namespace Homies.Service
                     Id = e.Id,
                     Name = e.Name,
                     Description = e.Description,
-                    Start = e.Start.ToString(DataConstants.DateFormat),
-                    End = e.End.ToString(DataConstants.DateFormat),
+                    Start = e.Start.ToString(DateConstants.DateFormat),
+                    End = e.End.ToString(DateConstants.DateFormat),
                     Organiser = e.Organiser.UserName,
-                    CreatedOn = e.CreatedOn.ToString(DataConstants.DateFormat),
+                    CreatedOn = e.CreatedOn.ToString(DateConstants.DateFormat),
                     Type = e.Type.Name,
                 })
                 .FirstOrDefaultAsync();
@@ -105,8 +105,8 @@ namespace Homies.Service
                 { 
                     Name = e.Name,
                     Description = e.Description,    
-                    Start = e.Start.ToString(DataConstants.DateFormat),
-                    End = e.End.ToString(DataConstants.DateFormat),
+                    Start = e.Start.ToString(DateConstants.DateFormat),
+                    End = e.End.ToString(DateConstants.DateFormat),
                     TypeId = e.TypeId,  
                 })
                 .FirstOrDefaultAsync();
@@ -141,7 +141,7 @@ namespace Homies.Service
                  {  
                      Id = e.Id, 
                      Name = e.Name, 
-                     Start = e.Start.ToString(DataConstants.DateFormat),
+                     Start = e.Start.ToString(DateConstants.DateFormat),
                      Type = e.Type.Name,
                      Organiser = e.Organiser.UserName,
 
