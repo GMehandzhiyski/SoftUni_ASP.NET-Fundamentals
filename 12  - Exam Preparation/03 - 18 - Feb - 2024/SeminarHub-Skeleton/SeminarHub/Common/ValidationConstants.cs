@@ -1,6 +1,6 @@
 ﻿namespace  SeminarHub.Common
 {
-    public static class ValidationConstant
+    public static class ValidationConstants
     {
         //Seminar class
         public const int SeminarTopicMinLength = 3;

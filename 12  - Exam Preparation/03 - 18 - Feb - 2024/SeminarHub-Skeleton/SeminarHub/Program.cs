@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using SeminarHub.Contract;
 using SeminarHub.Data;
+using SeminarHub.Service;
 
 namespace SeminarHub
 {
@@ -15,6 +17,8 @@ namespace SeminarHub
             builder.Services.AddDbContext<SeminarHubDbContext>(options =>
                 options.UseSqlServer(connectionString));
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+            builder.Services.AddScoped<ISeminarService, SeminarService>();
 
             builder.Services.AddDefaultIdentity<IdentityUser>(options =>
             {

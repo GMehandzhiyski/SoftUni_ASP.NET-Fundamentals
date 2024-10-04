@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using static SeminarHub.Common.ValidationConstant;
+using static SeminarHub.Common.ValidationConstants;
 
 namespace SeminarHub.Data.Models
 {

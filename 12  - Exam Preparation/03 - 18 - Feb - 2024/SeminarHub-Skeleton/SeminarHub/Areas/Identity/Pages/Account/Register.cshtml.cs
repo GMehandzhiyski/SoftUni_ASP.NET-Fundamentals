@@ -13,6 +13,7 @@ namespace SeminarHub.Areas.Identity.Pages.Account
     {
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
+        private readonly IUserStore<IdentityUser> _userStore;
         private readonly ILogger<RegisterModel> _logger;
 
         public RegisterModel(
@@ -22,6 +23,7 @@ namespace SeminarHub.Areas.Identity.Pages.Account
             ILogger<RegisterModel> logger)
         {
             _userManager = userManager;
+            _userStore = userStore;
             _signInManager = signInManager;
             _logger = logger;
         }
@@ -92,6 +94,8 @@ namespace SeminarHub.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
+
+
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     return LocalRedirect(returnUrl);
                     
