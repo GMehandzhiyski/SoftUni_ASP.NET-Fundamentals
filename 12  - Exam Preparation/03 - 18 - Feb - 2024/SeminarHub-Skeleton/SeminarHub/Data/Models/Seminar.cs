@@ -27,12 +27,11 @@ namespace SeminarHub.Data.Models
         [MaxLength(SeminarDetailsMaxLength)]
         public string Details { get; set; } = string.Empty;
 
-
         [Required]
         [Comment("OrganizerId")]
         public string OrganizerId { get; set; } = string.Empty;
 
-        [Required]
+        
         [Comment("Organizer")]
         public IdentityUser Organizer { get; set; } = null!;
 

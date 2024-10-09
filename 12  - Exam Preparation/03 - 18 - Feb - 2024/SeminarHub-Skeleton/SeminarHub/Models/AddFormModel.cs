@@ -10,9 +10,9 @@ namespace SeminarHub.Models
 {
     public class AddFormModel
     {
-        [Key]
-        [Comment("Id")]
-        public int Id { get; set; }
+        //[Key]
+        //[Comment("Id")]
+        //public int Id { get; set; }
 
         [Required(ErrorMessage = ErrorMessageTopic)]
         [Comment("Topic")]
@@ -36,17 +36,18 @@ namespace SeminarHub.Models
         public string Details { get; set; } = string.Empty;
 
 
-        [Required]
+       
         [Comment("OrganizerId")]
         public string OrganizerId { get; set; } = string.Empty;
 
         [Required(ErrorMessage = ErrorMessageDateAndTime)]
+        [Display(Name ="Date of Seminar")]
         [Comment("DateAndTime")]
         public string DateAndTime { get; set; } = string.Empty;
 
         [Comment("Duration")]
-        [StringLength(SeminarDurationMaxLength,
-                       MinimumLength = SeminarDurationMinLength,
+        [Range(SeminarDurationMinLength,
+                SeminarDurationMaxLength,
                         ErrorMessage = ErrorMessageDurationLength)]
         public int Duration { get; set; }
 

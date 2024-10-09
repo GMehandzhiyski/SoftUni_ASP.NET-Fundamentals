@@ -1,5 +1,5 @@
 1. Добавяне на всички нови Папки
-2. Scaffold на Identity
+2. Scaffold на Identity(Areas десен бутон > Add)
 3. Избираме - Login, Register, Logout
 4. Почистваме View-то за Login
 5. Почистваме View-то за Register
@@ -10,7 +10,7 @@
 	- Input.RememberMe ==> true
 8.Почистваме View-то за Register.cs
 	- private readonly IEmailSender _emailSender;
-	- IEmailSender emailSende
+	- IEmailSender emailSender
 	- private readonly IUserEmailStore<IdentityUser> _emailStore;
 	- public IList<AuthenticationScheme> ExternalLogins { get; set; }
 	- var userId = await _userManager.GetUserIdAsync(user);
@@ -37,4 +37,20 @@
 9.Оправяме паролите
 	- options.SignIn.RequireConfirmedAccount = true ==> {}
 	
-10.Добавяме Connection Srring
+10.Добавяме Connection String
+11.Add Models
+12.DB Sets -DBContext
+13.DB Sets Keys
+14.Uncoment Seeds
+15.Add Delate Restriction
+16.Add Migration
+17.Update Database
+18.Interface
+19.Service
+20. в Service : I.....Service
+21. Add program Container
+20. Ctor
+21.Add Controler
+22. public class ............. : Controller
+23. [Authorize]
+24.

@@ -1,6 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using SeminarHub.Contract;
+using SeminarHub.Controllers;
 using SeminarHub.Data;
+using SeminarHub.Data.Models;
+using SeminarHub.Models;
+using static SeminarHub.Common.DateConstants;
 
 namespace SeminarHub.Service
 {
@@ -12,5 +17,59 @@ namespace SeminarHub.Service
         {
             context = _contex;
         }
+
+        public async Task<IEnumerable<CategoryViewModel>> GetCategoryAsync()
+        {
+            return await context.Categories
+                .AsNoTracking()
+                .Select(c => new CategoryViewModel()
+                {
+                   Id = c.Id,
+                   Name = c.Name,
+                })
+                .ToListAsync();
+        }
+
+        public async Task<bool>IsCategoryValidAsync(int categoryId)
+        {
+            return await context.Categories
+                .AnyAsync(c => c.Id == categoryId);
+        }
+
+        public async Task AddAsync(AddFormModel model, DateTime dateAndTime, string organizerId)
+        {
+            Seminar newSeminar = new Seminar()
+            {
+                //Id= model.Id,
+                Topic = model.Topic,
+                Lecturer = model.Lecturer,
+                Details = model.Details,
+                OrganizerId = organizerId,
+                DateAndTime = dateAndTime,
+                Duration = model.Duration,
+                CategoryId = model.CategoryId,
+            };
+
+            await context.Seminars.AddAsync(newSeminar);    
+            await context.SaveChangesAsync();
+
+        }
+
+        public async Task<IEnumerable<AllViewModel>> GetAllSeminarsAsync()
+        {
+            return await context.Seminars
+                .AsNoTracking()
+                .Select(c => new AllViewModel()
+                { 
+                    Id = c.Id,
+                    Topic = c.Topic,
+                    Lecturer = c.Lecturer,
+                    Category = c.Category.Name,
+                    DateAndTime = c.DateAndTime.ToString(DateFormatConst), 
+                    Organizer = c.Organizer.UserName
+                })
+                .ToListAsync();
+        }
+
     }
 }

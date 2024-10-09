@@ -2,6 +2,6 @@
 {
     public static class DateConstants
     {
-        public const string DateFormat = "dd / MM / yyyy HH:mm";
+        public const string DateFormatConst = "dd/MM/yyyy HH:mm";
     }
 }

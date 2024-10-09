@@ -8,7 +8,7 @@
 
         //Lecturer
         public const int SeminarLecturerMinLength = 5;
-        public const int SeminarLecturerMaxLength = 5;
+        public const int SeminarLecturerMaxLength = 60;
 
         //Details
         public const int SeminarDetailsMinLength = 10;
