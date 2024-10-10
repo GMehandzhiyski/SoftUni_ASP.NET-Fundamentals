@@ -11,7 +11,7 @@ namespace SeminarHub.Controllers
     [Authorize]
     public class SeminarController : Controller
     {
-       private readonly ISeminarService data;
+        private readonly ISeminarService data;
 
         public SeminarController(ISeminarService _data)
         {
@@ -19,7 +19,7 @@ namespace SeminarHub.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Add() 
+        public async Task<IActionResult> Add()
         {
 
             try
@@ -34,7 +34,7 @@ namespace SeminarHub.Controllers
 
                 return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
             }
-            
+
         }
 
         [HttpPost]
@@ -44,10 +44,10 @@ namespace SeminarHub.Controllers
             try
             {
                 if (!ModelState.IsValid)
-                { 
+                {
                     var category = await data.GetCategoryAsync();
                     model.Categories = category;
-                    return View(model); 
+                    return View(model);
                 }
 
                 bool isCategoryValid = await data.IsCategoryValidAsync(model.CategoryId);
@@ -59,7 +59,7 @@ namespace SeminarHub.Controllers
                     ModelState.AddModelError("Category", "The selected event type is invalid");
                     return View(model);
                 }
-                
+
 
                 DateTime.TryParseExact(
                     model.DateAndTime,
@@ -81,14 +81,14 @@ namespace SeminarHub.Controllers
                 return RedirectToAction(nameof(Index));
 
 
-;            }
+                ; }
             catch (Exception)
             {
 
                 return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
             }
 
-            
+
 
         }
 
@@ -106,7 +106,7 @@ namespace SeminarHub.Controllers
 
                 return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
             }
-          
+
         }
 
         [HttpPost]
@@ -115,17 +115,24 @@ namespace SeminarHub.Controllers
         {
             try
             {
-                ///chek if already have the same seminar with same practicant
+                bool isHaveSameSeminar = await data.IsHaveSeminar(id, User.GetUserId());
+
+                if (isHaveSameSeminar)
+                {
+                    return RedirectToAction(nameof(Joined));
+                }
+
                 await data.JoinToCurrentSeminar(id, User.GetUserId());
-                return RedirectToAction(nameof(All));
+
+                return RedirectToAction(nameof(Joined));
             }
             catch (Exception)
             {
 
                 return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
             }
-        
-        
+
+
         }
 
         [HttpGet]
@@ -141,8 +148,56 @@ namespace SeminarHub.Controllers
 
                 return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
             }
-            
 
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Leave(int id)
+        {
+            try
+            {
+                await data.LeaveSeminarAsync(id, User.GetUserId());
+
+                return RedirectToAction(nameof(Joined));
+            }
+            catch (Exception)
+            {
+
+                return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
+            }
+
+        }
+
+        [HttpGet]
+
+        public async Task<IActionResult> Edit(int id)
+        {
+            try
+            {
+                bool isUserIsOwner = await data.IsUserIsOwnerAsync( id, User.GetUserId());
+
+                if (!isUserIsOwner)
+                {
+                   return RedirectToAction(nameof(All)); 
+                }
+
+                var currModel = await data.EditGetSeminatAsync(id);
+
+                if (currModel == null)
+                {
+                    return RedirectToAction(nameof(All));
+                }
+
+                currModel.Categories = await data.GetCategoryAsync();
+
+                return View(currModel);
+            }
+            catch (Exception)
+            {
+
+                return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
+            }
         }
     }
 }

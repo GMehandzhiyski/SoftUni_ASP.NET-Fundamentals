@@ -15,5 +15,12 @@ namespace SeminarHub.Contract
         Task JoinToCurrentSeminar(int seminarId, string organiserId);
 
         Task<IEnumerable<JoinedVIewModel>> JoinedAsync(string userId);
+
+        Task LeaveSeminarAsync(int seminarId, string organiserId);
+
+        Task<bool> IsHaveSeminar(int seminarId, string userId);
+
+        Task<bool> IsUserIsOwnerAsync(int seminarId, string userId);
+        Task<AddFormModel> EditGetSeminatAsync(int seminarId);
     }
 }

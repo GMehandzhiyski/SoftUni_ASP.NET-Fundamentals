@@ -96,8 +96,54 @@ namespace SeminarHub.Service
                     Organizer = sp.Seminar.Organizer.UserName
                 })
                 .ToListAsync();
+        }
 
+        public async Task<bool> IsHaveSeminar(int seminarId, string userId)
+        {
+            return await context.SeminarParticipants
+                         .AnyAsync(sp => sp.SeminarId == seminarId
+                                        && sp.ParticipantId == userId);
+        }
 
+        public async Task LeaveSeminarAsync(int seminarId, string userId)
+        {
+
+            var currSeminar = await context.SeminarParticipants
+                .Where(sp => sp.SeminarId == seminarId
+                              && sp.ParticipantId == userId)
+                .FirstOrDefaultAsync();
+
+            if (currSeminar != null)
+            {
+                context.SeminarParticipants.Remove(currSeminar);
+                await context.SaveChangesAsync();   
+            }
+        
+        }
+
+        public async Task<bool> IsUserIsOwnerAsync(int seminarId, string userId)
+        {
+            return await context.Seminars
+                .AnyAsync(s => s.Id == seminarId
+                                && s.OrganizerId == userId);
+        }
+
+        public async Task<AddFormModel> EditGetSeminatAsync(int seminarId)
+        {
+            return await context.Seminars
+                .AsNoTracking()
+                .Where(s => s.Id == seminarId)
+                .Select(s => new AddFormModel()
+                {
+                  Topic = s.Topic,
+                  Lecturer = s.Lecturer,
+                  Details = s.Details,
+                  DateAndTime = s.DateAndTime.ToString(DateFormatConst),
+                  Duration = s.Duration,
+                  CategoryId = s.CategoryId,
+                })
+                .FirstOrDefaultAsync();
+        
         }
     }
 }
