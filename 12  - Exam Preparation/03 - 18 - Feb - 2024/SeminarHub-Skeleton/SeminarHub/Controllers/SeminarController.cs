@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.VisualBasic;
 using SeminarHub.Contract;
+using SeminarHub.Data.Models;
 using SeminarHub.Extensions;
 using SeminarHub.Models;
 using System.Globalization;
@@ -198,6 +200,69 @@ namespace SeminarHub.Controllers
 
                 return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
             }
+        }
+
+        [HttpPost]
+
+        public async Task<IActionResult> Edit(int id, AddFormModel model)
+        {
+            try
+            {
+                bool isUserIsOwner = await data.IsUserIsOwnerAsync(id, User.GetUserId());
+
+                if (!isUserIsOwner)
+                {
+                    return RedirectToAction(nameof(All));   
+                }
+
+                if (!ModelState.IsValid)
+                {
+                    var category = await data.GetCategoryAsync();
+                    model.Categories = category;
+                    return View(model);
+
+                }
+
+                bool isCategoryValid = await data.IsCategoryValidAsync(model.CategoryId);
+
+                if (!isCategoryValid)
+                {
+                    var category = await data.GetCategoryAsync();
+                    model.Categories = category;
+                    ModelState.AddModelError("Category", "The selected event type is invalid");
+                    return View(model);
+                }
+
+                DateTime dataAndTime  = DateTime.Now;
+                DateTime.TryParseExact(
+                    model.DateAndTime,
+                    DateFormatConst,
+                    CultureInfo.InvariantCulture,
+                    DateTimeStyles.None,
+                    out dataAndTime);
+
+                if (dataAndTime == DateTime.MinValue)
+                {
+                    var category = await data.GetCategoryAsync();
+                    model.Categories = category;
+                    ModelState.AddModelError(nameof(model.DateAndTime), $"Invalid date! Format must be: {DateFormatConst}");
+                    model.DateAndTime = string .Empty;  
+                    return View(model);
+                }
+
+                model.OrganizerId = User.GetUserId();
+
+                await data.EditSeminarAsync(id, model, dataAndTime);
+
+                return RedirectToAction(nameof(All));
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
         }
     }
 }

@@ -22,5 +22,6 @@ namespace SeminarHub.Contract
 
         Task<bool> IsUserIsOwnerAsync(int seminarId, string userId);
         Task<AddFormModel> EditGetSeminatAsync(int seminarId);
+        Task EditSeminarAsync(int seminarId, AddFormModel model, DateTime dateTime);
     }
 }

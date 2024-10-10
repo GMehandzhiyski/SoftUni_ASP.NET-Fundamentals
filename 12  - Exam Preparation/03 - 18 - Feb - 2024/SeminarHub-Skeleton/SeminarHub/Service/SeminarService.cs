@@ -145,5 +145,28 @@ namespace SeminarHub.Service
                 .FirstOrDefaultAsync();
         
         }
+
+        public async Task EditSeminarAsync(int seminarId, AddFormModel model, DateTime dateTime)
+        {
+            var currSeminar = await context.Seminars
+                .Where(s => s.Id == seminarId)
+                .FirstOrDefaultAsync();
+
+
+            if (currSeminar != null)
+            {
+                currSeminar.Id = seminarId;
+                currSeminar.Topic = model.Topic;
+                currSeminar.Lecturer = model.Lecturer;
+                currSeminar.Details = model.Details;
+                currSeminar.OrganizerId = model.OrganizerId;
+                currSeminar.DateAndTime = dateTime;
+                currSeminar.Duration = model.Duration;
+                currSeminar.CategoryId = model.CategoryId;
+
+                await context.SaveChangesAsync();
+            }
+
+        }
     }
 }
