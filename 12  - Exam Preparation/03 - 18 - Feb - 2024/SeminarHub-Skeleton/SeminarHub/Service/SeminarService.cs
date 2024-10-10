@@ -71,5 +71,33 @@ namespace SeminarHub.Service
                 .ToListAsync();
         }
 
+        public async Task JoinToCurrentSeminar(int seminarId, string organiserId)
+        {
+            SeminarParticipant newPracticant = new SeminarParticipant()
+            {
+                SeminarId = seminarId,
+                ParticipantId = organiserId,
+            };
+
+            await context.AddRangeAsync(newPracticant);
+            await context.SaveChangesAsync();   
+        }
+
+        public async Task<IEnumerable<JoinedVIewModel>> JoinedAsync(string userId)
+        {
+            return await context.SeminarParticipants
+                .Where(sp => sp.ParticipantId == userId)
+                .Select(sp => new JoinedVIewModel()
+                {
+                    Id = sp.Seminar.Id,
+                    Topic = sp.Seminar.Topic,
+                    Lecturer = sp.Seminar.Lecturer,
+                    DateAndTime = sp.Seminar.DateAndTime.ToString(DateFormatConst),
+                    Organizer = sp.Seminar.Organizer.UserName
+                })
+                .ToListAsync();
+
+
+        }
     }
 }

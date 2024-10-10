@@ -11,5 +11,9 @@ namespace SeminarHub.Contract
         Task AddAsync(AddFormModel model, DateTime dateAndTime, string organizerId);
 
         Task<IEnumerable<AllViewModel>> GetAllSeminarsAsync();
+
+        Task JoinToCurrentSeminar(int seminarId, string organiserId);
+
+        Task<IEnumerable<JoinedVIewModel>> JoinedAsync(string userId);
     }
 }

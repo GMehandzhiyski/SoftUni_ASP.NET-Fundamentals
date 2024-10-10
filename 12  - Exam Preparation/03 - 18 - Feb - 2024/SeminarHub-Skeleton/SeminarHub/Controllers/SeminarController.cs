@@ -109,6 +109,40 @@ namespace SeminarHub.Controllers
           
         }
 
-       
+        [HttpPost]
+
+        public async Task<IActionResult> Join(int id)
+        {
+            try
+            {
+                ///chek if already have the same seminar with same practicant
+                await data.JoinToCurrentSeminar(id, User.GetUserId());
+                return RedirectToAction(nameof(All));
+            }
+            catch (Exception)
+            {
+
+                return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
+            }
+        
+        
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Join()
+        {
+            try
+            {
+                var allJoinedSeminar = await data.JoinedAsync(User.GetUserId());
+                return View(allJoinedSeminar);
+            }
+            catch (Exception)
+            {
+
+                return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
+            }
+            
+
+        }
     }
 }
