@@ -129,7 +129,7 @@ namespace SeminarHub.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Join()
+        public async Task<IActionResult> Joined()
         {
             try
             {
