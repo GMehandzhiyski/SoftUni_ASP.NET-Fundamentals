@@ -168,5 +168,26 @@ namespace SeminarHub.Service
             }
 
         }
+
+        public async Task<DetailsViewModel> GetSeminarDetails(int seminarId)
+        {
+            return await context.Seminars
+                .Where(s => s.Id == seminarId)
+                .Select(s => new DetailsViewModel()
+                {
+                    Id = s.Id,
+                    Topic = s.Topic,
+                    DateAndTime = s.DateAndTime.ToString(DateFormatConst),
+                    Duration = s.Duration.ToString(),
+                    Lecturer = s.Lecturer,
+                    Category = s.Category.Name,
+                    Details = s.Details,
+                    Organizer = s.Organizer.UserName
+                }
+                )
+                .FirstOrDefaultAsync();
+                
+            
+        }
     }
 }

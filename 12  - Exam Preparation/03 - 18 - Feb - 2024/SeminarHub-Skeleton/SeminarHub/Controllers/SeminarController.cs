@@ -6,6 +6,7 @@ using SeminarHub.Data.Models;
 using SeminarHub.Extensions;
 using SeminarHub.Models;
 using System.Globalization;
+using System.Runtime.InteropServices;
 using static SeminarHub.Common.DateConstants;
 
 namespace SeminarHub.Controllers
@@ -259,10 +260,18 @@ namespace SeminarHub.Controllers
             catch (Exception)
             {
 
-                throw;
+                return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
             }
 
 
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Details(int id)
+        {
+            var model = await data.GetSeminarDetails(id);
+            
+            return View(model);
         }
     }
 }
