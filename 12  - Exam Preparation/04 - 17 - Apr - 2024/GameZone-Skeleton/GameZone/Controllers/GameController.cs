@@ -92,7 +92,7 @@ namespace GameZone.Controllers
         {
             try
             {
-                var allGames = data.GetAllGamesAsync();
+                var allGames = await data.GetAllGamesAsync();
 
                 return View(allGames);
             }
