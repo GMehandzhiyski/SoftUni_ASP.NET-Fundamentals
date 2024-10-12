@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MCVUnAgsnNE=",
+  "dgSpecHash": "azg66kbbZ5A=",
   "success": true,
-  "projectFilePath": "C:\\SoftUni_ASP.NET-Fundamentals\\12  - Exam Preparation\\01 - 17 - Jun - 2024\\Homies_Skeleton\\Homies\\Homies.csproj",
+  "projectFilePath": "C:\\SoftUni_ASP.NET-Fundamentals\\12  - Exam Preparation\\01 - 17 - Jun - 2023\\Homies_Skeleton\\Homies\\Homies.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

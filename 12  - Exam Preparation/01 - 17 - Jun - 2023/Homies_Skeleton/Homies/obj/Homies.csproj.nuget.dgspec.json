@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\SoftUni_ASP.NET-Fundamentals\\12  - Exam Preparation\\01 - 17 - Jun - 2024\\Homies_Skeleton\\Homies\\Homies.csproj": {}
+    "C:\\SoftUni_ASP.NET-Fundamentals\\12  - Exam Preparation\\01 - 17 - Jun - 2023\\Homies_Skeleton\\Homies\\Homies.csproj": {}
   },
   "projects": {
-    "C:\\SoftUni_ASP.NET-Fundamentals\\12  - Exam Preparation\\01 - 17 - Jun - 2024\\Homies_Skeleton\\Homies\\Homies.csproj": {
+    "C:\\SoftUni_ASP.NET-Fundamentals\\12  - Exam Preparation\\01 - 17 - Jun - 2023\\Homies_Skeleton\\Homies\\Homies.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\SoftUni_ASP.NET-Fundamentals\\12  - Exam Preparation\\01 - 17 - Jun - 2024\\Homies_Skeleton\\Homies\\Homies.csproj",
+        "projectUniqueName": "C:\\SoftUni_ASP.NET-Fundamentals\\12  - Exam Preparation\\01 - 17 - Jun - 2023\\Homies_Skeleton\\Homies\\Homies.csproj",
         "projectName": "Homies",
-        "projectPath": "C:\\SoftUni_ASP.NET-Fundamentals\\12  - Exam Preparation\\01 - 17 - Jun - 2024\\Homies_Skeleton\\Homies\\Homies.csproj",
+        "projectPath": "C:\\SoftUni_ASP.NET-Fundamentals\\12  - Exam Preparation\\01 - 17 - Jun - 2023\\Homies_Skeleton\\Homies\\Homies.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\SoftUni_ASP.NET-Fundamentals\\12  - Exam Preparation\\01 - 17 - Jun - 2024\\Homies_Skeleton\\Homies\\obj\\",
+        "outputPath": "C:\\SoftUni_ASP.NET-Fundamentals\\12  - Exam Preparation\\01 - 17 - Jun - 2023\\Homies_Skeleton\\Homies\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
