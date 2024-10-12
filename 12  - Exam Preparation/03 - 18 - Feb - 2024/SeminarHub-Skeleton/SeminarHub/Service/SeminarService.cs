@@ -5,6 +5,7 @@ using SeminarHub.Controllers;
 using SeminarHub.Data;
 using SeminarHub.Data.Models;
 using SeminarHub.Models;
+using System.Runtime.InteropServices;
 using static SeminarHub.Common.DateConstants;
 
 namespace SeminarHub.Service
@@ -169,7 +170,7 @@ namespace SeminarHub.Service
 
         }
 
-        public async Task<DetailsViewModel> GetSeminarDetails(int seminarId)
+        public async Task<DetailsViewModel> GetSeminarDetailsAsync(int seminarId)
         {
             return await context.Seminars
                 .Where(s => s.Id == seminarId)
@@ -188,6 +189,26 @@ namespace SeminarHub.Service
                 .FirstOrDefaultAsync();
                 
             
+        }
+
+        public async Task<Seminar> FindSeminarAsync(int id)
+        { 
+            return await context.Seminars.FirstAsync(s => s.Id == id);
+        }
+
+        public async Task DeleteSeminarAsync(Seminar currSeminar)
+        {
+            var allSeminarWithSameId = await context.SeminarParticipants
+                 .Where(sp => sp.SeminarId == currSeminar.Id)
+                 .ToListAsync();
+            if (allSeminarWithSameId.Any())
+            { 
+                context.SeminarParticipants.RemoveRange(allSeminarWithSameId);
+                await context.SaveChangesAsync();
+            }
+
+            context.Seminars.Remove(currSeminar);
+            await context.SaveChangesAsync();
         }
     }
 }

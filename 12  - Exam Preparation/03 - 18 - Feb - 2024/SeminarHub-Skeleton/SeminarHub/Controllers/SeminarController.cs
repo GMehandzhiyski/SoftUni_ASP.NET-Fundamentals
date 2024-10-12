@@ -269,9 +269,63 @@ namespace SeminarHub.Controllers
         [HttpGet]
         public async Task<IActionResult> Details(int id)
         {
-            var model = await data.GetSeminarDetails(id);
-            
-            return View(model);
+            try
+            {
+                var model = await data.GetSeminarDetailsAsync(id);
+
+                if (model == null)
+                { 
+                    return View(nameof(All));
+                }
+
+                return View(model);
+            }
+            catch (Exception)
+            {
+
+                return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
+            }
+           
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var currSeminar = await data.FindSeminarAsync(id);
+
+            if (currSeminar == null
+                && currSeminar.OrganizerId != User.GetUserId())
+            { 
+                return RedirectToAction(nameof(All));
+            }
+
+            DeleteVIewModel model = new DeleteVIewModel()
+            {
+                Id = currSeminar.Id,
+                Topic = currSeminar.Topic,
+                DateAndTime = currSeminar.DateAndTime,
+            };
+
+            return View(model); 
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+
+            var currSeminar = await data.FindSeminarAsync(id);
+
+            if (currSeminar == null
+                && currSeminar.OrganizerId != User.GetUserId())
+            {
+                return RedirectToAction(nameof(All));
+            }
+
+            await data.DeleteSeminarAsync(currSeminar);
+
+            return RedirectToAction(nameof(All));
+        }
+
     }
 }

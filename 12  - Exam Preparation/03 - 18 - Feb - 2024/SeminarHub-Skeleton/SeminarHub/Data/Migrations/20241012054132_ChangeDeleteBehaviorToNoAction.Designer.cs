@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SeminarHub.Data;
 
@@ -11,9 +12,10 @@ using SeminarHub.Data;
 namespace SeminarHub.Data.Migrations
 {
     [DbContext(typeof(SeminarHubDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241012054132_ChangeDeleteBehaviorToNoAction")]
+    partial class ChangeDeleteBehaviorToNoAction
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -410,7 +412,7 @@ namespace SeminarHub.Data.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "Participant")
                         .WithMany()
                         .HasForeignKey("ParticipantId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("SeminarHub.Data.Models.Seminar", "Seminar")

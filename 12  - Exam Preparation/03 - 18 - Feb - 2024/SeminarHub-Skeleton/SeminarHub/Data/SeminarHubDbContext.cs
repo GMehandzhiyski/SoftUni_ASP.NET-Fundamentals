@@ -18,9 +18,16 @@ namespace SeminarHub.Data
                 .HasKey(sp => new { sp.SeminarId, sp.ParticipantId });
 
             builder.Entity<SeminarParticipant>()
-                .HasOne(sp => sp.Seminar)
-                .WithMany(sp => sp.SeminarsParticipants)
-                .OnDelete(DeleteBehavior.Restrict);
+               .HasOne(e => e.Seminar)
+               .WithMany(e => e.SeminarsParticipants)
+               .HasForeignKey(e => e.SeminarId)
+               .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<SeminarParticipant>()
+                .HasOne(e => e.Participant)
+                .WithMany()
+                .HasForeignKey(e => e.ParticipantId)
+                .OnDelete(DeleteBehavior.NoAction);
 
 
             builder

@@ -10,13 +10,13 @@ namespace SeminarHub.Data.Models
         public int SeminarId { get; set; }
 
         [ForeignKey(nameof(SeminarId))]
-        public Seminar Seminar { get; set; } = null!;
+        public virtual Seminar Seminar { get; set; } = null!;
 
         [Required]
         public string ParticipantId { get; set; } = string.Empty;
 
         [ForeignKey(nameof(ParticipantId))]
-        public IdentityUser Participant { get; set; } = null!;
+        public virtual IdentityUser Participant { get; set; } = null!;
     }
 }
 

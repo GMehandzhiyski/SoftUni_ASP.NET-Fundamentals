@@ -1,4 +1,5 @@
-﻿using SeminarHub.Models;
+﻿using SeminarHub.Data.Models;
+using SeminarHub.Models;
 
 namespace SeminarHub.Contract
 {
@@ -24,6 +25,8 @@ namespace SeminarHub.Contract
         Task<AddFormModel> EditGetSeminatAsync(int seminarId);
         Task EditSeminarAsync(int seminarId, AddFormModel model, DateTime dateTime);
 
-        Task<DetailsViewModel> GetSeminarDetails(int seminarId);
+        Task<DetailsViewModel> GetSeminarDetailsAsync(int seminarId);
+        Task<Seminar> FindSeminarAsync(int id);
+        Task DeleteSeminarAsync(Seminar currSeminar);
     }
 }

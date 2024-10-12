@@ -31,7 +31,7 @@ namespace SeminarHub.Data.Models
         [Comment("OrganizerId")]
         public string OrganizerId { get; set; } = string.Empty;
 
-        
+
         [Comment("Organizer")]
         public IdentityUser Organizer { get; set; } = null!;
 
@@ -50,10 +50,10 @@ namespace SeminarHub.Data.Models
         [Required]
         [Comment("ForeingKey CategoryId")]
         [ForeignKey(nameof(CategoryId))]
-        public Category Category { get; set; } = null!;
+        public virtual Category Category { get; set; } = null!;
 
         [Comment("SeminarsParticipants")]
-        public IEnumerable<SeminarParticipant> SeminarsParticipants = new List<SeminarParticipant>();
+        public virtual IEnumerable<SeminarParticipant> SeminarsParticipants { get; set; }
     }
 }
 
