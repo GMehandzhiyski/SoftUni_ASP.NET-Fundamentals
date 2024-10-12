@@ -81,7 +81,7 @@ namespace SeminarHub.Controllers
                 }
 
                 await data.AddAsync(model, start, User.GetUserId());
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(All));
 
 
                 ; }

@@ -77,7 +77,7 @@ namespace Homies.Controllers
 
                 DateTime.TryParseExact(
                        viewModel.Start,
-                        DateFormat,
+                        DateFormatType,
                         CultureInfo.InvariantCulture,
                         DateTimeStyles.None,
                         out start);
@@ -86,14 +86,14 @@ namespace Homies.Controllers
                 {
                     var types = await data.GetTypesAsync();
                     viewModel.Types = types;
-                    ModelState.AddModelError(nameof(viewModel.Start), $"Invalid date! Format must be: {DateFormat}");
+                    ModelState.AddModelError(nameof(viewModel.Start), $"Invalid date! Format must be: {DateFormatType}");
                     viewModel.Start = string.Empty;
                     return View(viewModel);
                 }
 
                 DateTime.TryParseExact(
                     viewModel.End,
-                    DateFormat,
+                    DateFormatType,
                     CultureInfo.InvariantCulture,
                     DateTimeStyles.None,
                     out end);
@@ -102,7 +102,7 @@ namespace Homies.Controllers
                 {
                     var types = await data.GetTypesAsync();
                     viewModel.Types = types;
-                    ModelState.AddModelError(nameof(viewModel.End), $"Invalid date! Format must be: {DateFormat}");
+                    ModelState.AddModelError(nameof(viewModel.End), $"Invalid date! Format must be: {DateFormatType}");
                     viewModel.End = string.Empty;
                     return View(viewModel);
                 }
@@ -184,7 +184,7 @@ namespace Homies.Controllers
                 DateTime startEdit;
                 DateTime.TryParseExact(
                    viewModel.Start,
-                   DateFormat,
+                   DateFormatType,
                    CultureInfo.InvariantCulture,
                    DateTimeStyles.None,
                    out startEdit);
@@ -193,7 +193,7 @@ namespace Homies.Controllers
                 {
                     var types = await data.GetTypesAsync();
                     viewModel.Types = types;
-                    ModelState.AddModelError(nameof(viewModel.Start), $"Invalid date! Format must be: {DateFormat}");
+                    ModelState.AddModelError(nameof(viewModel.Start), $"Invalid date! Format must be: {DateFormatType}");
                     viewModel.Start = string.Empty;
                     return View(viewModel);
                 }
@@ -201,7 +201,7 @@ namespace Homies.Controllers
                 DateTime endEdit;
                 DateTime.TryParseExact(
                     viewModel.End,
-                    DateFormat,
+                    DateFormatType,
                     CultureInfo.InvariantCulture,
                     DateTimeStyles.None,
                     out endEdit);
@@ -210,7 +210,7 @@ namespace Homies.Controllers
                 {
                     var types = await data.GetTypesAsync();
                     viewModel.Types = types;
-                    ModelState.AddModelError(nameof(viewModel.End), $"Invalid date! Format must be: {DateFormat}");
+                    ModelState.AddModelError(nameof(viewModel.End), $"Invalid date! Format must be: {DateFormatType}");
                     viewModel.End = string.Empty;
                     return View(viewModel);
                 }

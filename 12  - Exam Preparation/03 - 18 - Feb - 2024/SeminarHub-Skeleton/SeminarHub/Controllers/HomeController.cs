@@ -15,6 +15,10 @@ namespace SeminarHub.Controllers
 
         public IActionResult Index()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("All", "Seminar");
+            }
             return View();
         }
 

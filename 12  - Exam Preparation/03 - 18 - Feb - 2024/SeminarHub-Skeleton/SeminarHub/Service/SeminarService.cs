@@ -201,6 +201,7 @@ namespace SeminarHub.Service
             var allSeminarWithSameId = await context.SeminarParticipants
                  .Where(sp => sp.SeminarId == currSeminar.Id)
                  .ToListAsync();
+
             if (allSeminarWithSameId.Any())
             { 
                 context.SeminarParticipants.RemoveRange(allSeminarWithSameId);
