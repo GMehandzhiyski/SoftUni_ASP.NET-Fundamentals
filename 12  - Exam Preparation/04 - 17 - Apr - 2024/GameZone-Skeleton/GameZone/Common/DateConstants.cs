@@ -1,6 +1,7 @@
 ﻿namespace GameZone.Common
 {
-    public class DateConstants
+    public static class DateConstants
     {
+        public const string DataFormatType = "yyyy-MM-dd";
     }
 }
