@@ -10,9 +10,7 @@ namespace SeminarHub.Models
 {
     public class AddFormModel
     {
-        //[Key]
-        //[Comment("Id")]
-        //public int Id { get; set; }
+    
 
         [Required(ErrorMessage = ErrorMessageTopic)]
         [Comment("Topic")]

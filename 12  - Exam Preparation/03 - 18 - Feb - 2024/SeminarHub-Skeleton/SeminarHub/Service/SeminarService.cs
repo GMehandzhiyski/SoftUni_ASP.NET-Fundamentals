@@ -41,7 +41,7 @@ namespace SeminarHub.Service
         {
             Seminar newSeminar = new Seminar()
             {
-                //Id= model.Id,
+             
                 Topic = model.Topic,
                 Lecturer = model.Lecturer,
                 Details = model.Details,

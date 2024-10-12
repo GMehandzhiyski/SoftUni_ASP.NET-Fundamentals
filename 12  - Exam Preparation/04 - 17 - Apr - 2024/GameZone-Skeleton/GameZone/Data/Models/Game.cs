@@ -25,7 +25,7 @@ namespace GameZone.Data.Models
         public string Description { get; set; } = string.Empty;
 
         [Comment("ImageUrl")]
-        public string ImageUrl { get; set; }
+        public string ImageUrl { get; set; } = string.Empty;
 
         [Required]
         [Comment("PublisherId")]
