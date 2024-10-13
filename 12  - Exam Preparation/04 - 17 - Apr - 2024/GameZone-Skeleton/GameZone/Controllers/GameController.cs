@@ -3,6 +3,7 @@ using GameZone.Extensions;
 using GameZone.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 using System.Globalization;
 using static GameZone.Common.DateConstants;
 
@@ -233,7 +234,7 @@ namespace GameZone.Controllers
 
         }
 
-        [HttpPost]
+        [HttpGet]
         public async Task<IActionResult> AddToMyZone(int id)
         {
             try
@@ -257,7 +258,80 @@ namespace GameZone.Controllers
             }
         }
 
-  
+        [HttpGet]
+        public async Task<IActionResult> StrikeOut(int id)
+        {
+            try
+            {
+                bool isUserHaveSameGame = await data.IsUserHaveSameGame(id, User.GetUserId());
 
+                if (isUserHaveSameGame == false)
+                {
+                    return RedirectToAction(nameof(All));
+                }
+
+                await data.LeaveThisGame(id, User.GetUserId());
+
+                return RedirectToAction(nameof(MyZone));
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            try
+            {
+                var currGame = await data.GetGameByIdAsync(id);
+
+                if (currGame == null
+                    && currGame.PublisherId != User.GetUserId())
+                {
+                    return RedirectToAction(nameof(All));
+                }
+
+                GameDeleteViewModel model = new GameDeleteViewModel()
+                {
+                    Id = currGame.Id,
+                    Title = currGame.Title,
+                    Publisher = User.GetUserName()
+                };
+
+                return View(model);
+            }
+            catch (Exception)
+            {
+
+                return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            try
+            {
+                var currGame = await data.GetGameByIdAsync(id);
+
+                if (currGame == null
+                    && currGame.PublisherId != User.GetUserId())
+                {
+                    return RedirectToAction(nameof(All));
+                }
+
+                await data.DeleteGameAsync(currGame);
+
+                return RedirectToAction(nameof(All));
+            }
+            catch (Exception)
+            {
+
+                return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
+            }
+        }
     }
 }

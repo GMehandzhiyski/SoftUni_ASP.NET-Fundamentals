@@ -17,6 +17,34 @@ namespace GameZone.Service
             context = _context;
         }
 
+        public async Task DeleteGameAsync(Game currGame)
+        {
+            var allGamersWithThisGame = await context.GamersGames
+                .Where(gg => gg.GameId == currGame.Id)
+                .ToListAsync();
+
+            if (allGamersWithThisGame != null)
+            {
+                context.GamersGames.RemoveRange(allGamersWithThisGame);
+            }
+
+            context.Games.Remove(currGame);
+            await context.SaveChangesAsync();
+        }
+        public async Task LeaveThisGame(int gameId, string userId)
+        { 
+            var currGame = await context.GamersGames
+                .Where(gg => gg.GameId == gameId
+                             && gg.GamerId == userId)
+                .FirstOrDefaultAsync();
+
+            if (currGame != null)
+            {
+                context.RemoveRange(currGame);
+                await context.SaveChangesAsync();   
+            }
+        }
+
         public async Task JoinUserToGame(int gameId, string userId)
         {
             GamersGame newUserToGame = new GamersGame()
@@ -163,6 +191,13 @@ namespace GameZone.Service
                 .AnyAsync(gg => gg.GameId == gameId
                               && gg.GamerId == userId);
 
+        }
+
+        public async Task<Game> GetGameByIdAsync(int gameId)
+        {
+            return await context.Games
+                .Where(g => g.Id == gameId)
+                .FirstOrDefaultAsync();
         }
     }
 }

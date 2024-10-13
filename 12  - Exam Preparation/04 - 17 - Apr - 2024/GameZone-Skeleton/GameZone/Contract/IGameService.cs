@@ -1,4 +1,5 @@
-﻿using GameZone.Models;
+﻿using GameZone.Data.Models;
+using GameZone.Models;
 
 namespace GameZone.Contract
 {
@@ -20,5 +21,8 @@ namespace GameZone.Contract
         Task<bool> IsUserHaveSameGame(int gameId, string userId);
 
         Task JoinUserToGame(int gameId, string userId);
+        Task LeaveThisGame(int gameId, string userId);
+        Task<Game> GetGameByIdAsync(int gameId);
+        Task DeleteGameAsync(Game currGame);
     }
 }
