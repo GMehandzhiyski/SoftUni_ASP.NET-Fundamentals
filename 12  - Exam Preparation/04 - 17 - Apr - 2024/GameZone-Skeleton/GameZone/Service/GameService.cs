@@ -17,6 +17,52 @@ namespace GameZone.Service
             context = _context;
         }
 
+        public async Task JoinUserToGame(int gameId, string userId)
+        {
+            GamersGame newUserToGame = new GamersGame()
+            {
+                GameId = gameId,
+                GamerId = userId
+            };
+
+            await context.GamersGames.AddAsync(newUserToGame);
+            await context.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<GameMyZoneViewModel>> GetAllInMyZone(string ownerId)
+        { 
+            return await context.GamersGames
+                .Where(g => g.GamerId == ownerId)
+                .Select(g => new GameMyZoneViewModel()
+                {
+                    Id = g.Game.Id,
+                    Title = g.Game.Title,
+                    ImageUrl = g.Game.ImageUrl,
+                    Publisher = g.Game.Publisher.UserName,
+                    ReleasedOn = g.Game.ReleasedOn.ToString(DataFormatType),
+                    Genre = g.Game.Genre.Name
+                })
+                .ToListAsync();
+        }
+
+        public async Task<GameDetailsViewModel> GetDetailsGame(int id)
+        {
+            return await context.Games
+                .Where(x => x.Id == id)
+                .Select(x => new GameDetailsViewModel()
+                {
+                    Id = x.Id,
+                    Title = x.Title,
+                    Description = x.Description,
+                    ImageUrl = x.ImageUrl,
+                    Publisher = x.Publisher.UserName,
+                    ReleasedOn = x.ReleasedOn.ToString(DataFormatType),
+                    Genre = x.Genre.Name
+                })
+                .FirstOrDefaultAsync();
+
+        }
+
         public async Task EditGameAsync(int id,GameAddFormModel model,DateTime releaseOn)
         { 
             Game currGame  = await context.Games
@@ -25,7 +71,7 @@ namespace GameZone.Service
 
             if (currGame != null)
             {
-                //currGame.Id = id;
+                
                 currGame.Title = model.Title;
                 currGame.Description = model.Description;   
                 currGame.ImageUrl = model.ImageUrl;
@@ -109,6 +155,14 @@ namespace GameZone.Service
                     Name = g.Name,
                 })
                 .ToListAsync();
+        }
+
+        public async Task<bool> IsUserHaveSameGame(int gameId, string userId)
+        {
+            return await context.GamersGames
+                .AnyAsync(gg => gg.GameId == gameId
+                              && gg.GamerId == userId);
+
         }
     }
 }

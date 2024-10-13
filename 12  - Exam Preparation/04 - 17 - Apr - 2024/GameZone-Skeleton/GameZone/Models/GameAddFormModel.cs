@@ -10,6 +10,8 @@ namespace GameZone.Models
 {
     public class GameAddFormModel
     {
+        [Comment("Id")]
+        public int Id { get; set; }
 
         [Required(ErrorMessage = ErrorMessageTitle)]
         [Comment("Title")]

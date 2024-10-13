@@ -137,7 +137,7 @@ namespace GameZone.Controllers
 
         [HttpPost]
         public async Task<IActionResult> Edit(int id, GameAddFormModel model)
-        {
+        { 
             try
             {
                 if (ModelState.IsValid == false)
@@ -194,5 +194,70 @@ namespace GameZone.Controllers
             }
 
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Details(int id)
+        {
+            try
+            {
+                var currGame = await data.GetDetailsGame(id);
+
+                if (currGame == null)
+                {
+                    return RedirectToAction(nameof(All));
+                }
+
+                return View(currGame);
+            }
+            catch (Exception)
+            {
+
+                return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> MyZone()
+        {
+            try
+            {
+                var allGameInMyZone = await data.GetAllInMyZone(User.GetUserId());
+
+                return View(allGameInMyZone);
+            }
+            catch (Exception)
+            {
+
+                return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
+            }
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddToMyZone(int id)
+        {
+            try
+            {
+                bool isUserHaveSameGame = await data.IsUserHaveSameGame(id, User.GetUserId());
+
+                if (isUserHaveSameGame)
+                {
+                    return RedirectToAction(nameof(All));
+                }
+
+                await data.JoinUserToGame(id, User.GetUserId());
+
+                return RedirectToAction(nameof(MyZone));
+
+            }
+            catch (Exception)
+            {
+
+                return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
+            }
+        }
+
+  
+
     }
 }
