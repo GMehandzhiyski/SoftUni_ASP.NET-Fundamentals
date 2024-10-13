@@ -130,9 +130,69 @@ namespace GameZone.Controllers
             catch (Exception)
             {
 
-                throw;
+                return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
             }
             
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, GameAddFormModel model)
+        {
+            try
+            {
+                if (ModelState.IsValid == false)
+                {
+                    var genre = await data.GetGenresAsync();
+                    model.Genres = genre;
+                    return View(model);
+                }
+
+                bool isUserIsOwner = await data.IsUserIsOwner(id, User.GetUserId());
+
+                if (isUserIsOwner == false)
+                {
+                    return RedirectToAction(nameof(All));
+                }
+
+                bool isGenreIsValid = await data.IsGenreIsValidAsync(model.GenreId);
+
+                if (isGenreIsValid == false)
+                {
+                    var genre = await data.GetGenresAsync();
+                    model.Genres = genre;   
+                    ModelState.AddModelError("Genre", "The selected event type is invalid");
+                    return View(model);
+                }
+
+                DateTime releaseOn = DateTime.Now;
+                DateTime.TryParseExact(
+                    model.ReleasedOn,
+                    DataFormatType,
+                    CultureInfo.InvariantCulture,
+                    DateTimeStyles.None,
+                    out releaseOn);
+
+                if (releaseOn == DateTime.MinValue)
+                {
+                    var genre = await data.GetGenresAsync();
+                    model.Genres = genre;   
+                    ModelState.AddModelError(nameof(model.ReleasedOn), $"Invalid date! Format must be: {DataFormatType}");
+                    return View(model);
+                }
+
+                model.PublisherId = User.GetUserId();
+
+                await data.EditGameAsync(id, model, releaseOn);
+
+                return RedirectToAction(nameof(All));
+
+            }
+            catch (Exception)
+            {
+
+                return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
+            }
+
         }
     }
 }

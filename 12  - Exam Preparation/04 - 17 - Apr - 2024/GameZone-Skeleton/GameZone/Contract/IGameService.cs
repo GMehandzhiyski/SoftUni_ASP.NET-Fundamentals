@@ -12,5 +12,6 @@ namespace GameZone.Contract
         Task<IEnumerable<GameAllViewModel>> GetAllGamesAsync();
         Task<bool> IsUserIsOwner(int gameId, string userId);
         Task<GameAddFormModel> GetGamesAsync(int gameId);
+        Task EditGameAsync(int id, GameAddFormModel model, DateTime releaseOn);
     }
 }

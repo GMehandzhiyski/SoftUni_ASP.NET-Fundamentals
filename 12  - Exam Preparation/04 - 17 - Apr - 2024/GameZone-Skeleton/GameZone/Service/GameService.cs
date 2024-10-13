@@ -17,7 +17,25 @@ namespace GameZone.Service
             context = _context;
         }
 
+        public async Task EditGameAsync(int id,GameAddFormModel model,DateTime releaseOn)
+        { 
+            Game currGame  = await context.Games
+                .Where(g => g.Id == id)
+                .FirstOrDefaultAsync();
 
+            if (currGame != null)
+            {
+                //currGame.Id = id;
+                currGame.Title = model.Title;
+                currGame.Description = model.Description;   
+                currGame.ImageUrl = model.ImageUrl;
+                currGame.PublisherId = model.PublisherId;
+                currGame.ReleasedOn = releaseOn;
+                currGame.GenreId = model.GenreId;
+            }
+
+            await context.SaveChangesAsync();
+        }
         public async Task<IEnumerable<GameAllViewModel>> GetAllGamesAsync()
         {
             return await context.Games
