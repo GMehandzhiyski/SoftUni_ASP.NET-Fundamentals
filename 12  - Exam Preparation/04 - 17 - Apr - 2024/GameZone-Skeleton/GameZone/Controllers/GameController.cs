@@ -103,5 +103,36 @@ namespace GameZone.Controllers
             }
            
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {
+            try
+            {
+                bool isUserIsOwner = await data.IsUserIsOwner(id, User.GetUserId());
+
+                if (isUserIsOwner == false)
+                {
+                    return RedirectToAction(nameof(All));
+                }
+                
+               GameAddFormModel currGame = await data.GetGamesAsync(id);
+
+                if (currGame == null)
+                {
+                    return RedirectToAction(nameof(All));
+                }
+
+                currGame.Genres = await data.GetGenresAsync();
+
+                return View(currGame);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
+        }
     }
 }

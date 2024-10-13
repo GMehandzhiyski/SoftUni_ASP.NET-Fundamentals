@@ -50,6 +50,32 @@ namespace GameZone.Service
 
         }
 
+        public async Task<GameAddFormModel> GetGamesAsync(int gameId)
+        {
+            return await context.Games
+                    .Where(g => g.Id == gameId)
+                    .Select(g => new GameAddFormModel()
+                    {
+                        Title = g.Title,
+                        ImageUrl = g.ImageUrl,
+                        Description = g.Description,
+                        PublisherId = g.PublisherId,
+                        ReleasedOn = g.ReleasedOn.ToString(DataFormatType),
+                        GenreId = g.GenreId
+                    })
+                    .FirstOrDefaultAsync();
+
+        
+        }
+
+        public async Task<bool> IsUserIsOwner(int gameId, string userId)
+        {
+            return await context.Games
+                .AnyAsync(g => g.Id == gameId
+                               && g.PublisherId == userId);
+
+        }
+
         public async Task<bool> IsGenreIsValidAsync(int genreId)
         {
             return await context.Genres

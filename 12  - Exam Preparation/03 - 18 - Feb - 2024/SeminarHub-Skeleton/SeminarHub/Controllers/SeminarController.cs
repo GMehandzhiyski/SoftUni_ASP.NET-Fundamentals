@@ -84,7 +84,7 @@ namespace SeminarHub.Controllers
                 return RedirectToAction(nameof(All));
 
 
-                ; }
+          ; }
             catch (Exception)
             {
 
