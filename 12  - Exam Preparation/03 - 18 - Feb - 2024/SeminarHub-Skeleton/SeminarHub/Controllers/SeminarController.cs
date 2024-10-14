@@ -24,7 +24,6 @@ namespace SeminarHub.Controllers
         [HttpGet]
         public async Task<IActionResult> Add()
         {
-
             try
             {
                 AddFormModel model = new AddFormModel();
@@ -34,10 +33,8 @@ namespace SeminarHub.Controllers
             }
             catch (Exception)
             {
-
                 return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
             }
-
         }
 
         [HttpPost]
@@ -82,17 +79,11 @@ namespace SeminarHub.Controllers
 
                 await data.AddAsync(model, start, User.GetUserId());
                 return RedirectToAction(nameof(All));
-
-
-          ; }
+            }
             catch (Exception)
             {
-
                 return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
             }
-
-
-
         }
 
         [HttpGet]
@@ -106,14 +97,11 @@ namespace SeminarHub.Controllers
             }
             catch (Exception)
             {
-
                 return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
             }
-
         }
 
         [HttpPost]
-
         public async Task<IActionResult> Join(int id)
         {
             try
@@ -131,10 +119,8 @@ namespace SeminarHub.Controllers
             }
             catch (Exception)
             {
-
                 return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
             }
-
 
         }
 
@@ -148,11 +134,8 @@ namespace SeminarHub.Controllers
             }
             catch (Exception)
             {
-
                 return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
             }
-
-
         }
 
         [HttpPost]
@@ -166,14 +149,11 @@ namespace SeminarHub.Controllers
             }
             catch (Exception)
             {
-
                 return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
             }
-
         }
 
         [HttpGet]
-
         public async Task<IActionResult> Edit(int id)
         {
             try
@@ -198,13 +178,11 @@ namespace SeminarHub.Controllers
             }
             catch (Exception)
             {
-
                 return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
             }
         }
 
         [HttpPost]
-
         public async Task<IActionResult> Edit(int id, AddFormModel model)
         {
             try
@@ -259,11 +237,8 @@ namespace SeminarHub.Controllers
             }
             catch (Exception)
             {
-
                 return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
             }
-
-
         }
 
         [HttpGet]
@@ -285,7 +260,6 @@ namespace SeminarHub.Controllers
 
                 return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
             }
-           
         }
 
         [HttpGet]
