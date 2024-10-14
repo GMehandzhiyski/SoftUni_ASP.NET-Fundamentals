@@ -78,7 +78,8 @@ namespace GameZone.Controllers
                 }
 
                 await data.AddAsync(model, releasedOn, User.GetUserId());
-                return RedirectToAction("All");
+
+                return RedirectToAction(nameof(All));
 
             }
             catch (Exception)
