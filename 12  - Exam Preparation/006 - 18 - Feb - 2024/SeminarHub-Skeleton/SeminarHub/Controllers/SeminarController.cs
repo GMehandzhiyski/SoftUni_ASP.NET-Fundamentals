@@ -1,11 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.VisualBasic;
-using SeminarHub.Contract;
-using SeminarHub.Data.Models;
 using SeminarHub.Extensions;
 using SeminarHub.Models;
+using SeminarHub.Service.Contract;
 using System.Globalization;
 using static SeminarHub.Common.DateConstants;
 
@@ -27,7 +24,7 @@ namespace SeminarHub.Controllers
             try
             {
                 var model = new SeminarAddFormModel();
-                model.Categories = await data.GetCategoryAsync();
+                model.Categories = await data.GetCategoriesAsync();
                 return View(model);
             }
             catch (Exception)
@@ -44,16 +41,16 @@ namespace SeminarHub.Controllers
             {
                 if (ModelState.IsValid == false)
                 {
-                    var category = await data.GetCategoryAsync();
+                    ICollection<SeminarCategoryViewModel> category = await data.GetCategoriesAsync();
                     model.Categories = category;
                     return View(model); 
                 }
 
-                bool isCategoryIsValid = await data.IsCategoryIsValid(model.CategoryId);
+                bool isCategoryValid = await data.IsCategoryValid(model.CategoryId);
 
-                if (isCategoryIsValid == false)
+                if (isCategoryValid == false)
                 {
-                    var category = await data.GetCategoryAsync();
+                    ICollection<SeminarCategoryViewModel> category = await data.GetCategoriesAsync();
                     model.Categories = category;
                     ModelState.AddModelError("Category", "The selected event category is invalid");
                     return View(model);
@@ -69,7 +66,7 @@ namespace SeminarHub.Controllers
 
                 if (dateAndTime == DateTime.MinValue)
                 {
-                    var category = await data.GetCategoryAsync();
+                    ICollection<SeminarCategoryViewModel> category = await data.GetCategoriesAsync();
                     model.Categories = category;
                     ModelState.AddModelError(nameof(model.DateAndTime), $"Invalid date! Format must be: {DateFormatType}");
                     return View(model);
@@ -80,7 +77,6 @@ namespace SeminarHub.Controllers
             }
             catch (Exception)
             {
-
                 return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
             }
         }
@@ -90,15 +86,13 @@ namespace SeminarHub.Controllers
         {
             try
             {
-                var allSeminar = await data.GetAllSeminarsAsync();
-                return View(allSeminar);
+                ICollection<SeminarAllViewModel> allSeminars = await data.GetAllSeminarsAsync();
+                return View(allSeminars);
             }
             catch (Exception)
             {
-
                 return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
             }
-          
         }
 
         [HttpGet]
@@ -106,9 +100,9 @@ namespace SeminarHub.Controllers
         {
             try
             {
-                bool isUserIsOwner = await data.IsUserIsOwnerAsync(id, User.GetUserId());
+                bool isUserOwner = await data.IsUserOwnerAsync(id, User.GetUserId());
 
-                if (isUserIsOwner == false)
+                if (isUserOwner == false)
                 {
                     return RedirectToAction("All");
                 }
@@ -120,12 +114,11 @@ namespace SeminarHub.Controllers
                     return RedirectToAction("All");
                 }
 
-                model.Categories = await data.GetCategoryAsync();
+                model.Categories = await data.GetCategoriesAsync();
                 return View(model);
             }
             catch (Exception)
             {
-
                 return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
             }
         }
@@ -137,16 +130,16 @@ namespace SeminarHub.Controllers
             {
                 if (ModelState.IsValid == false)
                 {
-                    var category = await data.GetCategoryAsync();
+                    ICollection<SeminarCategoryViewModel> category = await data.GetCategoriesAsync();
                     model.Categories = category;
                     return View(model);
                 }
 
-                bool isCategoryIsValid = await data.IsCategoryIsValid(model.CategoryId);
+                bool isCategoryValid = await data.IsCategoryValid(model.CategoryId);
 
-                if (isCategoryIsValid == false)
+                if (isCategoryValid == false)
                 {
-                    var category = await data.GetCategoryAsync();
+                    ICollection<SeminarCategoryViewModel> category = await data.GetCategoriesAsync();
                     model.Categories = category;
                     ModelState.AddModelError("Category", "The selected event category is invalid");
                     return View(model);
@@ -162,12 +155,11 @@ namespace SeminarHub.Controllers
 
                 if (dateAndTime == DateTime.MinValue)
                 {
-                    var category = await data.GetCategoryAsync();
+                    ICollection<SeminarCategoryViewModel> category = await data.GetCategoriesAsync();
                     model.Categories = category;
                     ModelState.AddModelError(nameof(model.DateAndTime), $"Invalid date! Format must be: {DateFormatType}");
                     return View(model);
                 }
-
 
                 await data.EditSeminarAsync(id, model, dateAndTime);
 

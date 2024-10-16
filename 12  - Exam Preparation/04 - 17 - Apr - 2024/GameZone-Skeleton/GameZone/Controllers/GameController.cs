@@ -1,6 +1,6 @@
-﻿using GameZone.Contract;
-using GameZone.Extensions;
+﻿using GameZone.Extensions;
 using GameZone.Models;
+using GameZone.Service.Contract;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;

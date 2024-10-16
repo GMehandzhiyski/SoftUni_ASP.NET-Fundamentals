@@ -1,7 +1,7 @@
-﻿using GameZone.Contract;
-using GameZone.Data;
+﻿using GameZone.Data;
 using GameZone.Data.Models;
 using GameZone.Models;
+using GameZone.Service.Contract;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using static GameZone.Common.DateConstants;
@@ -26,6 +26,7 @@ namespace GameZone.Service
             if (allGamersWithThisGame != null)
             {
                 context.GamersGames.RemoveRange(allGamersWithThisGame);
+
             }
 
             context.Games.Remove(currGame);
@@ -106,9 +107,11 @@ namespace GameZone.Service
                 currGame.PublisherId = model.PublisherId;
                 currGame.ReleasedOn = releaseOn;
                 currGame.GenreId = model.GenreId;
+
+                await context.SaveChangesAsync();
             }
 
-            await context.SaveChangesAsync();
+            
         }
         public async Task<IEnumerable<GameAllViewModel>> GetAllGamesAsync()
         {
@@ -139,7 +142,6 @@ namespace GameZone.Service
 
             await context.Games.AddAsync(newGame);
             await context.SaveChangesAsync();
-
         }
 
         public async Task<GameAddFormModel> GetGamesAsync(int gameId)
@@ -156,8 +158,6 @@ namespace GameZone.Service
                         GenreId = g.GenreId
                     })
                     .FirstOrDefaultAsync();
-
-        
         }
 
         public async Task<bool> IsUserIsOwner(int gameId, string userId)
@@ -165,7 +165,6 @@ namespace GameZone.Service
             return await context.Games
                 .AnyAsync(g => g.Id == gameId
                                && g.PublisherId == userId);
-
         }
 
         public async Task<bool> IsGenreIsValidAsync(int genreId)
@@ -190,7 +189,6 @@ namespace GameZone.Service
             return await context.GamersGames
                 .AnyAsync(gg => gg.GameId == gameId
                               && gg.GamerId == userId);
-
         }
 
         public async Task<Game> GetGameByIdAsync(int gameId)

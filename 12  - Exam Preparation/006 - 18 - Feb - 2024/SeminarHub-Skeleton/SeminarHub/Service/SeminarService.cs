@@ -1,9 +1,8 @@
-﻿using Microsoft.Data.SqlClient;
-using Microsoft.EntityFrameworkCore;
-using SeminarHub.Contract;
+﻿using Microsoft.EntityFrameworkCore;
 using SeminarHub.Data;
 using SeminarHub.Data.Models;
 using SeminarHub.Models;
+using SeminarHub.Service.Contract;
 using static SeminarHub.Common.DateConstants;
 
 namespace SeminarHub.Service
@@ -19,8 +18,8 @@ namespace SeminarHub.Service
 
         public async Task EditSeminarAsync(int seminarId,SeminarAddFormModel model, DateTime dateAndTime)
         {
-            Seminar currSeminar = await context.Seminars
-                .Where(s => s.isDelete == false)
+            Seminar? currSeminar = await context.Seminars
+                .Where(s => s.IsDeleted == false)
                 .Where(s => s.Id == seminarId)
                 .FirstOrDefaultAsync();
 
@@ -36,9 +35,7 @@ namespace SeminarHub.Service
                 await context.SaveChangesAsync();
             }
 
-
         }
-
 
         public async Task AddSeminarAsync(SeminarAddFormModel model,DateTime dateAndTime,string creatorId)
         {
@@ -57,10 +54,10 @@ namespace SeminarHub.Service
             await context.SaveChangesAsync();
         }
 
-        public async Task<SeminarAddFormModel> GetSeminarAsync(int seminarId)
+        public async Task<SeminarAddFormModel?> GetSeminarAsync(int seminarId)
         {
             return await context.Seminars
-                .Where(s => s.isDelete == false)
+                .Where(s => s.IsDeleted == false)
                 .Where(s => s.Id == seminarId)
                 .Select(s => new SeminarAddFormModel()
                 {
@@ -74,10 +71,10 @@ namespace SeminarHub.Service
                 .FirstOrDefaultAsync();
         }
 
-        public async Task<IEnumerable<SeminarAllViewModel>> GetAllSeminarsAsync()
+        public async Task<ICollection<SeminarAllViewModel>> GetAllSeminarsAsync()
         {
             return await context.Seminars
-                .Where(s => s.isDelete == false)
+                .Where(s => s.IsDeleted == false)
                 .Select(s => new SeminarAllViewModel
                 {
                     Id= s.Id,
@@ -89,18 +86,16 @@ namespace SeminarHub.Service
                     Category = s.Category.Name
                 })
                 .ToListAsync();
-               
-
         }
 
-        public async Task<bool> IsUserIsOwnerAsync(int seminarId, string organizerId)
+        public async Task<bool> IsUserOwnerAsync(int seminarId, string organizerId)
         {
             return await context.Seminars
                 .AnyAsync(s => s.Id == seminarId
                                && s.OrganizerId == organizerId);
         }
 
-        public async Task<IEnumerable<SeminarCategoryViewModel>> GetCategoryAsync() 
+        public async Task<ICollection<SeminarCategoryViewModel>> GetCategoriesAsync() 
         {
             return await context.Categories
                 .Select(c => new SeminarCategoryViewModel()
@@ -111,7 +106,7 @@ namespace SeminarHub.Service
                 .ToListAsync();
         }
 
-        public async Task<bool> IsCategoryIsValid(int categoryId)
+        public async Task<bool> IsCategoryValid(int categoryId)
         {
             return await context.Categories
                 .AnyAsync(s => s.Id == categoryId);

@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using SeminarHub.Contract;
 using SeminarHub.Data;
 using SeminarHub.Service;
+using SeminarHub.Service.Contract;
 
 namespace SeminarHub
 {

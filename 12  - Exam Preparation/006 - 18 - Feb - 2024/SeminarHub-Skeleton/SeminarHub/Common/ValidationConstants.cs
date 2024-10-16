@@ -23,6 +23,5 @@ namespace SeminarHub.Common
         //Category
         public const int CategoryNameMinLenght = 3;
         public const int CategoryNameMaxLenght = 50;
-
     }
 }

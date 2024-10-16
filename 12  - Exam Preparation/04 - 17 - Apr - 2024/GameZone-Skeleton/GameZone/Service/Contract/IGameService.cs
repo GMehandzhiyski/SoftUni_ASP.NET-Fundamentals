@@ -1,7 +1,7 @@
 ﻿using GameZone.Data.Models;
 using GameZone.Models;
 
-namespace GameZone.Contract
+namespace GameZone.Service.Contract
 {
     public interface IGameService
     {

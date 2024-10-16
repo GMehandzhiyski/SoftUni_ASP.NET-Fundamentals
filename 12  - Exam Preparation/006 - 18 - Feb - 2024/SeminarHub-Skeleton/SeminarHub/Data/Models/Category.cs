@@ -15,7 +15,7 @@ namespace SeminarHub.Data.Models
         [MaxLength(CategoryNameMaxLenght)]
         public string Name { get; set; } = string.Empty;  
         
-        public IList<Seminar> Seminars { get; set; } = new List<Seminar>();
+        public ICollection<Seminar> Seminars { get; set; } = new List<Seminar>();
     }
 }
 

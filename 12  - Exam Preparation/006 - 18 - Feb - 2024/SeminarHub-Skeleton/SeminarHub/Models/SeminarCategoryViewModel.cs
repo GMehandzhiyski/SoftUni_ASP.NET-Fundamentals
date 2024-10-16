@@ -11,6 +11,5 @@ namespace SeminarHub.Models
 
         [Comment("Name")]
         public string Name { get; set; } = string.Empty;
-
     }
 }

@@ -54,12 +54,11 @@ namespace SeminarHub.Data.Models
         [ForeignKey(nameof(CategoryId))]
         public Category Category { get; set; } = null!;
 
-
         [Comment("SeminarParticipants Collection")]
         public ICollection<SeminarParticipant> SeminarsParticipants = new List<SeminarParticipant>();
 
         [Required]
         [Comment("Soft delete")]
-        public bool isDelete { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

@@ -14,7 +14,6 @@ namespace SeminarHub.Data.Models
         [Required]
         [Comment("Seminar")]
         [ForeignKey(nameof(SeminarId))]
-
         public Seminar Seminar { get; set; } = null!;
 
         [Required]
@@ -24,7 +23,6 @@ namespace SeminarHub.Data.Models
         [Required]
         [Comment("Participant")]
         [ForeignKey(nameof(ParticipantId))]
-
         public IdentityUser Participant { get; set; } = null!;
 
 

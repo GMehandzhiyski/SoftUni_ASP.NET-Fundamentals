@@ -59,7 +59,7 @@ namespace Homies.Service
             await context.EventParticipants.AddAsync(participant);
             await context.SaveChangesAsync();
         }
-        public async Task<EventDetailsViewModel> DetailsAsync(int id)
+        public async Task<EventDetailsViewModel?> DetailsAsync(int id)
         { 
             return await context.Events
                 .Where(e => e.Id == id)
@@ -79,7 +79,7 @@ namespace Homies.Service
 
         public async Task EditPostAsync(int eventId, EventAddViewModel viewModel, DateTime start, DateTime end)
         { 
-            Event currentModel = await context.Events
+            Event? currentModel = await context.Events
                 .Where(e => e.Id == eventId)
                 .FirstOrDefaultAsync();
 

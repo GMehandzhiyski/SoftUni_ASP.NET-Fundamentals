@@ -47,7 +47,7 @@ namespace SeminarHub.Models
         [Comment("CategoryId")]
         public int CategoryId { get; set; }
 
-        public IEnumerable<SeminarCategoryViewModel> Categories { get; set; } = new List<SeminarCategoryViewModel>();   
+        public ICollection<SeminarCategoryViewModel> Categories { get; set; } = new List<SeminarCategoryViewModel>();   
 
     }
 }

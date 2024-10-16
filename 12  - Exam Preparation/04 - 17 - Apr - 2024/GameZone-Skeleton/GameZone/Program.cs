@@ -1,6 +1,6 @@
-using GameZone.Contract;
 using GameZone.Data;
 using GameZone.Service;
+using GameZone.Service.Contract;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 

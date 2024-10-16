@@ -23,6 +23,5 @@
 
         //CategoryId
         public const string ErrorMessageCategoryId = "The {0} field is required";
-
     }
 }
