@@ -19,7 +19,7 @@
 
         //Duration
         public const string ErrorMessageDuration = "The {0} field is required";
-        public const string ErrorMessageDurationLength = "The {0} length is between {2} and {1}";
+        public const string ErrorMessageDurationLength = "The {0} length is between {1} and {2}";
 
         //CategoryId
         public const string ErrorMessageCategoryId = "The {0} field is required";

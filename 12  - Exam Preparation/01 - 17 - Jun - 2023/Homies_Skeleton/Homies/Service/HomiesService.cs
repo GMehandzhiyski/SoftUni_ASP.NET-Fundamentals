@@ -77,7 +77,7 @@ namespace Homies.Service
                 .FirstOrDefaultAsync();
         }
 
-        public async Task EditPostAsync(int eventId, AddViewModel viewModel, DateTime start, DateTime end)
+        public async Task EditPostAsync(int eventId, EventAddViewModel viewModel, DateTime start, DateTime end)
         { 
             Event currentModel = await context.Events
                 .Where(e => e.Id == eventId)
@@ -97,11 +97,11 @@ namespace Homies.Service
 
         }
 
-        public async Task<AddViewModel?> EditGetAsync(int Id)
+        public async Task<EventAddViewModel?> EditGetAsync(int Id)
         {
             return await context.Events
                 .Where(e => e.Id == Id)
-                .Select(e => new AddViewModel()
+                .Select(e => new EventAddViewModel()
                 { 
                     Name = e.Name,
                     Description = e.Description,    
@@ -114,7 +114,7 @@ namespace Homies.Service
 
         }
 
-        public async Task AddAsync(AddViewModel viewModel, DateTime end, DateTime start, string organiserID )
+        public async Task AddAsync(EventAddViewModel viewModel, DateTime end, DateTime start, string organiserID )
         {
 
             Event newEvent = new Event()

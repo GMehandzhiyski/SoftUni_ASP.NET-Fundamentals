@@ -11,22 +11,22 @@ namespace SeminarHub.Models
         [Required(ErrorMessage = ErrorMessageTopic)]
         [Comment("Topic")]
         [StringLength(SeminarTopicMaxLenght,
-                      MinimumLength = SeminarTopicMaxLenght,
+                      MinimumLength = SeminarTopicMinLenght,
                       ErrorMessage = ErrorMessageTopicLength)]
         public string Topic { get; set; } = string.Empty;
 
         [Required(ErrorMessage = ErrorMessageLecture)]
         [Comment("Lecturer")]
         [StringLength(SeminarLecturerMaxLenght,
-                      MinimumLength = SeminarLecturerMaxLenght,
-                      ErrorMessage = ErrorMessageLecture)]
+                      MinimumLength = SeminarLecturerMinLenght,
+                      ErrorMessage = ErrorMessageLectureLength)]
         public string Lecturer { get; set; } = string.Empty;
 
         [Required(ErrorMessage = ErrorMessageDetails)]
         [Comment("Details")]
         [StringLength(SeminarDetailsMaxLenght,
                       MinimumLength = SeminarDetailsMinLenght,
-                      ErrorMessage = ErrorMessageDetails)]
+                      ErrorMessage = ErrorMessageDetailsLength)]
         public string Details { get; set; } = string.Empty;
 
         [Comment("OrganiserId")]
@@ -38,9 +38,9 @@ namespace SeminarHub.Models
 
         [Required(ErrorMessage = ErrorMessageDuration)]
         [Comment("Duration")]
-        [StringLength(SeminarDurationMaxLenght,
-                        MinimumLength = SeminarDetailsMinLenght,
-                        ErrorMessage = ErrorMessageDurationLength)]
+        [Range(SeminarDetailsMinLenght,
+               SeminarDurationMaxLenght,
+               ErrorMessage = ErrorMessageDurationLength)]
         public int Duration { get; set; }
 
         [Required(ErrorMessage = ErrorMessageCategoryId)]

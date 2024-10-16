@@ -6,16 +6,16 @@ namespace Homies.Contract
     {
         Task<IEnumerable<EventViewModel>> GetAllEventAsync();
 
-        Task AddAsync(AddViewModel viewModel, DateTime end, DateTime start, string organiserID);
+        Task AddAsync(EventAddViewModel viewModel, DateTime end, DateTime start, string organiserID);
 
         Task<IEnumerable<EventTypeViewModel>> GetTypesAsync();
 
         Task<bool> IsTypeValid(int typeId);
 
         Task<bool> IsOrganiserEventOwnerAsync(int eventId, string userId);
-        Task<AddViewModel?> EditGetAsync(int Id);
+        Task<EventAddViewModel?> EditGetAsync(int Id);
 
-        Task EditPostAsync(int eventId, AddViewModel viewModel, DateTime start, DateTime end);
+        Task EditPostAsync(int eventId, EventAddViewModel viewModel, DateTime start, DateTime end);
         Task<EventDetailsViewModel> DetailsAsync(int id);
         Task JoinEvent(string helperId, int eventId);
         Task<bool> IsUserAlreadyJoined(string userId, int eventId);

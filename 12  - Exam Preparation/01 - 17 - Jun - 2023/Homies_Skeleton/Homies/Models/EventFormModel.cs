@@ -4,7 +4,7 @@ using static Homies.Common.ValidationError;
 
 namespace Homies.Models
 {
-    public class AddViewModel
+    public class EventAddViewModel
     {
         
         [Required(ErrorMessage = ErrorMessageName)]

@@ -20,21 +20,14 @@ namespace Homies.Controllers
             data = _data;
         }
 
-        [HttpGet]
-
-        public async Task<IActionResult> All()
-        {
-            var allEnevts = await data.GetAllEventAsync();
-
-            return View(allEnevts);
-        }
+       
 
         [HttpGet]
         public async Task<ActionResult> Add()
         {
             try
             {
-                var model = new AddViewModel();
+                var model = new EventAddViewModel();
                 model.Types = await data.GetTypesAsync();
 
                 return View(model);
@@ -48,7 +41,7 @@ namespace Homies.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add(AddViewModel viewModel)
+        public async Task<IActionResult> Add(EventAddViewModel viewModel)
         {
 
             DateTime start = DateTime.Now;
@@ -120,6 +113,14 @@ namespace Homies.Controllers
             }
         }
 
+        [HttpGet]
+
+        public async Task<IActionResult> All()
+        {
+            var allEnevts = await data.GetAllEventAsync();
+
+            return View(allEnevts);
+        }
 
         [HttpGet]
         public async Task<IActionResult> EditAsync(int id)
@@ -152,7 +153,7 @@ namespace Homies.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> EditAsync(int id, AddViewModel viewModel)
+        public async Task<IActionResult> EditAsync(int id, EventAddViewModel viewModel)
         {
             try
             {

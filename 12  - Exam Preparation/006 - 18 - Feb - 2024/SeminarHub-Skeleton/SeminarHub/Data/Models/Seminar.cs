@@ -34,7 +34,7 @@ namespace SeminarHub.Data.Models
         [Required]
         [Comment("OrganiserId")]
         [ForeignKey(nameof(OrganizerId))]
-        public IdentityUser Organiser { get; set; } = null!;
+        public IdentityUser Organizer { get; set; } = null!;
 
         [Required]
         [Comment("Data and Time")]
