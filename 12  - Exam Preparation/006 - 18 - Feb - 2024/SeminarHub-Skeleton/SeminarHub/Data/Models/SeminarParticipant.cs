@@ -9,7 +9,7 @@ namespace SeminarHub.Data.Models
     {
         [Required]
         [Comment("SeminarId")]
-        public string SeminarId { get; set; }   = string.Empty;
+        public int SeminarId { get; set; }
 
         [Required]
         [Comment("Seminar")]
