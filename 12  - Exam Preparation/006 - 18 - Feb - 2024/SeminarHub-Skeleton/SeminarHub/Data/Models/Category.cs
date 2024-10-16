@@ -19,4 +19,3 @@ namespace SeminarHub.Data.Models
     }
 }
 
-//•	Has Seminars – a collection of type Seminar
