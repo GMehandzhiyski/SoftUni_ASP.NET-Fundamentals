@@ -1,6 +1,6 @@
 ﻿namespace SeminarHub.Contract
 {
-    public interface ISeminarService
+    public interface ISeminarService 
     {
     }
 }

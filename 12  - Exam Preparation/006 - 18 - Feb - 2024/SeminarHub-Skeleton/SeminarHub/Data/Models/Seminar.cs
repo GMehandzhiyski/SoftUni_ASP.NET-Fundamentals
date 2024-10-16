@@ -57,5 +57,9 @@ namespace SeminarHub.Data.Models
 
         [Comment("SeminarParticipants Collection")]
         public ICollection<SeminarParticipant> SeminarsParticipants = new List<SeminarParticipant>();
+
+        [Required]
+        [Comment("Soft delete")]
+        public bool isDelete { get; set; }
     }
 }
