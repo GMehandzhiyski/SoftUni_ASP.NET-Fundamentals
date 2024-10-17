@@ -23,7 +23,7 @@ namespace GameZone.Data.Models
 
         [Required]
         [Comment("Gamer")]
-        [ForeignKey(nameof(Gamer))]
+        [ForeignKey(nameof(GamerId))]
         public IdentityUser Gamer { get; set; } = null!;
     }
 }
