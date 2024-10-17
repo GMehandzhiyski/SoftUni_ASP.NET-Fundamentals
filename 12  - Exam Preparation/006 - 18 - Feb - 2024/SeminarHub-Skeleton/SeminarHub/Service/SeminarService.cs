@@ -16,6 +16,38 @@ namespace SeminarHub.Service
             context = _context;
         }
 
+        public async Task DeleteSeminarAsync(int currSeminarId)
+        {
+            Seminar? deleteSeminar = context.Seminars
+                .Where(s => s.IsDeleted == false)
+                .Where(s => s.Id == currSeminarId)
+                .FirstOrDefault();
+
+            if (deleteSeminar != null)
+            {
+                deleteSeminar.IsDeleted = true;
+
+                await context.SaveChangesAsync();
+            }
+        }
+
+        public async Task<SeminarDeleteVIewModel?> GetSeminarForDeleting(int seminarId)
+        {
+            return await context.Seminars
+                .Where(s => s.IsDeleted == false)
+                .Where(s => s.Id == seminarId)
+                .Select(s => new SeminarDeleteVIewModel
+                {
+                    Id = s.Id,
+                    Topic = s.Topic,
+                    DateAndTime = s.DateAndTime,
+                    OrganizerId = s.OrganizerId
+                })
+                .FirstOrDefaultAsync();
+
+        }
+
+
         public async Task<SeminarDetailsViewModel?> GetDetailsAsync(int seminarId)
         {
             return await context.Seminars
