@@ -170,7 +170,7 @@ namespace SeminarHub.Service
 
         }
 
-        public async Task<DetailsViewModel> GetSeminarDetailsAsync(int seminarId)
+        public async Task<DetailsViewModel?> GetSeminarDetailsAsync(int seminarId)
         {
             return await context.Seminars
                 .Where(s => s.Id == seminarId)

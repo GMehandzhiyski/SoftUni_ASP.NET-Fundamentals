@@ -29,6 +29,7 @@ namespace SeminarHub.Service.Contract
         Task<bool> IsUserHaveSeminar(int seminarId, string userId);
 
         Task JoinUserToSeminar(int seminarId, string userId);
+
         Task LeaveSeminar(int seminarId, string userId);
 
     }

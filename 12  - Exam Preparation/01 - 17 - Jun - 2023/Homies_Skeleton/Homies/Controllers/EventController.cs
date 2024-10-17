@@ -79,7 +79,7 @@ namespace Homies.Controllers
                 {
                     var types = await data.GetTypesAsync();
                     viewModel.Types = types;
-                    ModelState.AddModelError(nameof(viewModel.Start), $"Invalid date! Format must be: {DateFormatType}");
+                    ModelState.AddModelError(nameof(viewModel.Start), $"Invalid date! Format must be: {DateFormatType}" );
                     viewModel.Start = string.Empty;
                     return View(viewModel);
                 }

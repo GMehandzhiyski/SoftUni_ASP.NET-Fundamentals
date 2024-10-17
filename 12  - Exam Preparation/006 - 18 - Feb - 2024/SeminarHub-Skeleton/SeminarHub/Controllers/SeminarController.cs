@@ -73,7 +73,7 @@ namespace SeminarHub.Controllers
 
                 await data.AddSeminarAsync(model, dateAndTime, User.GetUserId());
 
-                return RedirectToAction(nameof(Joined));
+                return RedirectToAction(nameof(All));
             }
             catch (Exception)
             {

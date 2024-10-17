@@ -265,7 +265,8 @@ namespace SeminarHub.Controllers
         [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
-            var currSeminar = await data.FindSeminarAsync(id);
+            Seminar currSeminar = await data.FindSeminarAsync(id);
+            //това е Entity model в базата
 
             if (currSeminar == null
                 && currSeminar.OrganizerId != User.GetUserId())
