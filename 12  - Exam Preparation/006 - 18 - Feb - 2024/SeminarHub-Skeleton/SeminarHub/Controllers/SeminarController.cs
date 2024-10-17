@@ -170,5 +170,12 @@ namespace SeminarHub.Controllers
                 return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
             }
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Details(int id)
+        {
+            SeminarDetailsViewModel model = await data.GetDetailsAsync(id);
+            return View(model);
+        }
     }
 }

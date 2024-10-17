@@ -17,5 +17,7 @@ namespace SeminarHub.Service.Contract
         Task<ICollection<SeminarAllViewModel>> GetAllSeminarsAsync();
 
         Task EditSeminarAsync(int seminarId, SeminarAddFormModel model, DateTime dateAndTime);
+
+        Task<SeminarDetailsViewModel?> GetDetailsAsync(int seminarId);
     }
 }
