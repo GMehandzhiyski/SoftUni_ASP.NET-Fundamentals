@@ -2,5 +2,6 @@
 {
     public class DateConstants
     {
+        public const string DateFormatType ="yyyy - MM - dd";
     }
 }
