@@ -16,11 +16,11 @@ namespace SeminarHub.Service
             context = _context;
         }
 
-        public async Task DeleteSeminarAsync(int currSeminarId)
+        public async Task DeleteSeminarAsync(Seminar currSeminar)
         {
             Seminar? deleteSeminar = context.Seminars
                 .Where(s => s.IsDeleted == false)
-                .Where(s => s.Id == currSeminarId)
+                .Where(s => s.Id == currSeminar.Id)
                 .FirstOrDefault();
 
             if (deleteSeminar != null)
@@ -67,14 +67,14 @@ namespace SeminarHub.Service
                 .FirstOrDefaultAsync();
         }
 
-        public async Task EditSeminarAsync(int seminarId,SeminarAddFormModel model, DateTime dateAndTime)
+        public async Task EditSeminarAsync(int seminarId, SeminarAddFormModel model, DateTime dateAndTime)
         {
             Seminar? currSeminar = await context.Seminars
                 .Where(s => s.IsDeleted == false)
                 .Where(s => s.Id == seminarId)
                 .FirstOrDefaultAsync();
 
-            if(currSeminar != null)
+            if (currSeminar != null)
             {
                 currSeminar.Topic = model.Topic;
                 currSeminar.Lecturer = model.Lecturer;
@@ -88,7 +88,7 @@ namespace SeminarHub.Service
 
         }
 
-        public async Task AddSeminarAsync(SeminarAddFormModel model,DateTime dateAndTime,string creatorId)
+        public async Task AddSeminarAsync(SeminarAddFormModel model, DateTime dateAndTime, string creatorId)
         {
             Seminar newSeminar = new Seminar()
             {
@@ -128,7 +128,7 @@ namespace SeminarHub.Service
                 .Where(s => s.IsDeleted == false)
                 .Select(s => new SeminarAllViewModel
                 {
-                    Id= s.Id,
+                    Id = s.Id,
                     Topic = s.Topic,
                     Lecturer = s.Lecturer,
                     Details = s.Details,
@@ -146,13 +146,13 @@ namespace SeminarHub.Service
                                && s.OrganizerId == organizerId);
         }
 
-        public async Task<ICollection<SeminarCategoryViewModel>> GetCategoriesAsync() 
+        public async Task<ICollection<SeminarCategoryViewModel>> GetCategoriesAsync()
         {
             return await context.Categories
                 .Select(c => new SeminarCategoryViewModel()
                 {
                     Id = c.Id,
-                    Name = c.Name,  
+                    Name = c.Name,
                 })
                 .ToListAsync();
         }
@@ -163,5 +163,59 @@ namespace SeminarHub.Service
                 .AnyAsync(s => s.Id == categoryId);
         }
 
+        public Task DeleteSeminarAsync(int currSeminarId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<ICollection<SeminarJoinedViewModel>> GetAllJoinedModels(string userId)
+        {
+            return await context.SeminarsParticipants
+                .Where(sp => sp.ParticipantId == userId)
+                .Where(s => s.Seminar.IsDeleted == false)
+                .Select(sp => new SeminarJoinedViewModel()
+                { 
+                    Id = sp.Seminar.Id,
+                    Topic = sp.Seminar.Topic,
+                    Lecturer = sp.Seminar.Lecturer,
+                    Organizer = sp.Seminar.Organizer.UserName,
+                    DateAndTime = sp.Seminar.DateAndTime.ToString(DateFormatType),
+                })
+                .ToListAsync();
+        }
+
+        public async Task<bool> IsUserHaveSeminar(int seminarId, string userId)
+        {
+            return await context.SeminarsParticipants
+                .AnyAsync(sp => sp.SeminarId == seminarId
+                                && sp.ParticipantId == userId);
+        }
+
+        public async Task JoinUserToSeminar(int seminarId, string userId)
+        {
+            SeminarParticipant newSeminarParticipant = new SeminarParticipant()
+            {
+                SeminarId = seminarId,
+                ParticipantId = userId
+            };
+
+            await context.SeminarsParticipants.AddAsync(newSeminarParticipant);
+            await context.SaveChangesAsync();   
+        }
+
+        public async Task LeaveSeminar(int seminarId,string userId)
+        {
+            SeminarParticipant? seminarParticipant = await context.SeminarsParticipants
+                .Where(sp => sp.SeminarId == seminarId
+                            && sp.ParticipantId == userId)
+                .FirstOrDefaultAsync();
+
+            if (seminarParticipant != null)
+            {
+                context.SeminarsParticipants.RemoveRange(seminarParticipant);
+                await context.SaveChangesAsync();
+            }
+        }
     }
 }
+

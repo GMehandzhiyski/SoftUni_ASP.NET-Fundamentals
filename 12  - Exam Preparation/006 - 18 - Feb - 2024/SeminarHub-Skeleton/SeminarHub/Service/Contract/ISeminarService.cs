@@ -1,5 +1,4 @@
-﻿using SeminarHub.Data.Models;
-using SeminarHub.Models;
+﻿using SeminarHub.Models;
 
 namespace SeminarHub.Service.Contract
 {
@@ -24,5 +23,13 @@ namespace SeminarHub.Service.Contract
         Task<SeminarDeleteVIewModel?> GetSeminarForDeleting(int seminarId);
 
         Task DeleteSeminarAsync(int currSeminarId);
+
+        Task<ICollection<SeminarJoinedViewModel>> GetAllJoinedModels(string userId);
+
+        Task<bool> IsUserHaveSeminar(int seminarId, string userId);
+
+        Task JoinUserToSeminar(int seminarId, string userId);
+        Task LeaveSeminar(int seminarId, string userId);
+
     }
 }

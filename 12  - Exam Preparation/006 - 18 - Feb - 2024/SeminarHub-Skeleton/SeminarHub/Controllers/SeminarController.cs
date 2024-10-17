@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using SeminarHub.Data.Models;
 using SeminarHub.Extensions;
 using SeminarHub.Models;
 using SeminarHub.Service.Contract;
@@ -30,7 +29,6 @@ namespace SeminarHub.Controllers
             }
             catch (Exception)
             {
-
                 return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
             }
         }
@@ -74,7 +72,8 @@ namespace SeminarHub.Controllers
                 }
 
                 await data.AddSeminarAsync(model, dateAndTime, User.GetUserId());
-                return RedirectToAction("Seminar", "Joined");
+
+                return RedirectToAction(nameof(Joined));
             }
             catch (Exception)
             {
@@ -116,6 +115,7 @@ namespace SeminarHub.Controllers
                 }
 
                 model.Categories = await data.GetCategoriesAsync();
+
                 return View(model);
             }
             catch (Exception)
@@ -221,25 +221,73 @@ namespace SeminarHub.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            SeminarDeleteVIewModel? currSeminar = await data.GetSeminarForDeleting(id);
-
-            if (currSeminar == null)
+            try
             {
+                SeminarDeleteVIewModel? currSeminar = await data.GetSeminarForDeleting(id);
+
+                if (currSeminar == null)
+                {
+                    return RedirectToAction(nameof(All));
+                }
+
+                if (currSeminar.OrganizerId != User.GetUserId())
+                {
+                    return RedirectToAction(nameof(All));
+                }
+
+                await data.DeleteSeminarAsync(currSeminar.Id);
+
                 return RedirectToAction(nameof(All));
             }
-
-            if (currSeminar.OrganizerId != User.GetUserId())
+            catch (Exception)
             {
-                return RedirectToAction(nameof(All));
+                return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
             }
-
-            await data.DeleteSeminarAsync(currSeminar.Id);
-
-            return RedirectToAction(nameof(All));
-
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Joined()
+        {
+            ICollection<SeminarJoinedViewModel> allModelsJoined = await data.GetAllJoinedModels(User.GetUserId());
+           
+            return View(allModelsJoined);
+        }
 
+        [HttpPost]
+        public async Task<IActionResult> Join(int id)
+        {
+            try
+            {
+                bool isUserHaveSeminar = await data.IsUserHaveSeminar(id, User.GetUserId());
 
+                if (isUserHaveSeminar)
+                {
+                    return RedirectToAction(nameof(Joined));
+                }
+
+                await data.JoinUserToSeminar(id, User.GetUserId());
+
+                return RedirectToAction(nameof(Joined));
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Leave(int id)
+        {
+            bool isUserHaveSeminar = await data.IsUserHaveSeminar(id, User.GetUserId());
+
+            if (!isUserHaveSeminar)
+            {
+                return RedirectToAction(nameof(Joined));
+            }
+
+            await data.LeaveSeminar(id, User.GetUserId());
+
+            return RedirectToAction(nameof(Joined));
+        }
     }
 }
