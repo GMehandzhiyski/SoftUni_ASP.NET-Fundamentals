@@ -23,7 +23,7 @@ namespace SeminarHub.Controllers
         {
             try
             {
-                var model = new SeminarAddFormModel();
+                SeminarAddFormModel model = new SeminarAddFormModel();
                 model.Categories = await data.GetCategoriesAsync();
                 return View(model);
             }

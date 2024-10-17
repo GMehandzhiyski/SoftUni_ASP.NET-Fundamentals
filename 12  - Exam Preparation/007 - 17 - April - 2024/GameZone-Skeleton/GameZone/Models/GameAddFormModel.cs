@@ -39,6 +39,6 @@ namespace GameZone.Models
         [Comment("GenreId")]
         public int GenreId { get; set; }
 
-      
+        public ICollection<GameGenreViewModel> Genres { get; set; }  = new List<GameGenreViewModel>();
     }
 }
