@@ -1,4 +1,6 @@
 using GameZone.Data;
+using GameZone.Service;
+using GameZone.Service.Contract;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,6 +17,8 @@ namespace GameZone
             builder.Services.AddDbContext<GameZoneDbContext>(options =>
                 options.UseSqlServer(connectionString));
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+            builder.Services.AddScoped<IGameService, GameService>();
 
             builder.Services.AddDefaultIdentity<IdentityUser>(options =>
             {
