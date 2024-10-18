@@ -201,17 +201,96 @@ namespace GameZone.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpGet]
         public async Task<IActionResult> AddToMyZone(int id)
         {
             try
             {
-                bool isUserHaveGame = await data.IsUserHaveGame(id, User.GetUserId);
+                bool isUserHaveGame = await data.IsUserHaveGame(id, User.GetUserId());
+                if (isUserHaveGame)
+                {
+                    return RedirectToAction(nameof(MyZone));
+                }
+
+                await data.AddGameToMyZone(id, User.GetUserId());
+
+                return RedirectToAction(nameof(MyZone));
+
             }
             catch (Exception)
             {
+                return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
+            }
+        }
 
-                throw;
+        [HttpGet]
+        public async Task<IActionResult> StrikeOut(int id)
+        {
+            try
+            {
+                bool isUserHaveGame = await data.IsUserHaveGame(id, User.GetUserId());
+                if (isUserHaveGame == false)
+                {
+                    return RedirectToAction(nameof(MyZone));
+                }
+
+                await data.RemoveGameFromMyZone(id, User.GetUserId());
+
+                return RedirectToAction(nameof(MyZone));
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            try
+            {
+                GameDeleteViewModel? gameDelete = await data.GetGameForDelete(id);
+                if (gameDelete == null)
+                {
+                    return RedirectToAction(nameof(All));
+                }
+
+                if (gameDelete.Publisher != User.GetUserName())
+                {
+                    return RedirectToAction(nameof(All));
+                }
+
+                return View(gameDelete);
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            try
+            {
+                GameDeleteViewModel? gameDelete = await data.GetGameForDelete(id);
+                if (gameDelete == null)
+                {
+                    return RedirectToAction(nameof(All));
+                }
+
+                if (gameDelete.Publisher != User.GetUserName())
+                {
+                    return RedirectToAction(nameof(All));
+                }
+
+                await data.DeleteGameAsync(gameDelete.Id);
+
+                return RedirectToAction(nameof(All));
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
             }
         }
     }

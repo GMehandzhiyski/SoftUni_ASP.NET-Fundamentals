@@ -16,8 +16,63 @@ namespace GameZone.Service
             context = _context;
         }
 
-        public async Task<ICollection<GameMyZoneViewModel>> GetMyZoneGames(string userId)
+        public async Task DeleteGameAsync(int gameId)
+        {
+            Game? gameDelete = await context.Games
+                .Where(g => g.IsDelete == false)
+                .Where(s => s.Id == gameId)
+                .FirstOrDefaultAsync();
+
+            if (gameDelete != null)
+            {
+                gameDelete.IsDelete = true;
+
+                await context.SaveChangesAsync();
+            }
+        }
+
+        public async Task<GameDeleteViewModel?> GetGameForDelete(int gameId)
+        {
+            return await context.Games
+                .Where(g => g.IsDelete == false)
+                .Where(g => g.Id == gameId)
+                .Select(g => new GameDeleteViewModel()
+                {
+                    Id = g.Id,
+                    Title = g.Title,
+                    Publisher = g.Publisher.UserName,
+                })
+                .FirstOrDefaultAsync();
+        }
+
+        public async Task RemoveGameFromMyZone(int gameId, string userId)
         { 
+            GamerGame? gamerGame = await context.GamerGames
+                .Where(gg => gg.GameId == gameId
+                             && gg.GamerId == userId)
+                .FirstOrDefaultAsync();
+
+            if (gamerGame != null)
+            {
+                context.GamerGames.Remove(gamerGame);
+                await context.SaveChangesAsync();   
+            }
+        }
+
+        public async Task AddGameToMyZone(int gameId, string userId)
+        {
+            GamerGame newGamerGame = new GamerGame()
+            {
+                GameId = gameId,
+                GamerId = userId
+            };
+
+            await context.GamerGames.AddAsync(newGamerGame);
+            await context.SaveChangesAsync();
+        }
+
+        public async Task<ICollection<GameMyZoneViewModel>> GetMyZoneGames(string userId)
+        {
             return await context.GamerGames
                 .Where(gg => gg.GamerId == userId)
                 .Where(gg => gg.Game.IsDelete == false)
@@ -40,18 +95,18 @@ namespace GameZone.Service
                 .Where(g => g.Id == gameId)
                 .Select(g => new GameDetailsViewModel()
                 {
-                   Id = g.Id,
-                   Title = g.Title,
-                   Description  = g.Description,
-                   ImageUrl = g.ImageUrl,
-                   Publisher = g.Publisher.UserName,
-                   ReleasedOn  = g.ReleasedOn.ToString(DateFormatType),
-                   Genre = g.Genre.Name,
+                    Id = g.Id,
+                    Title = g.Title,
+                    Description = g.Description,
+                    ImageUrl = g.ImageUrl,
+                    Publisher = g.Publisher.UserName,
+                    ReleasedOn = g.ReleasedOn.ToString(DateFormatType),
+                    Genre = g.Genre.Name,
                 })
                 .FirstOrDefaultAsync();
         }
 
-        public async Task EditGameAsync(int gameId,GameAddFormModel model, DateTime releaseOn)
+        public async Task EditGameAsync(int gameId, GameAddFormModel model, DateTime releaseOn)
         {
             Game? cuurGame = await context.Games
                 .Where(g => g.IsDelete == false)
@@ -59,9 +114,9 @@ namespace GameZone.Service
                 .FirstOrDefaultAsync();
 
             if (cuurGame != null)
-            {   
+            {
                 cuurGame.Title = model.Title;
-                cuurGame.Description = model.Description;   
+                cuurGame.Description = model.Description;
                 cuurGame.ImageUrl = model.ImageUrl;
                 cuurGame.ReleasedOn = releaseOn;
                 cuurGame.GenreId = model.GenreId;
@@ -94,18 +149,18 @@ namespace GameZone.Service
             return await context.Games
                 .Where(g => g.IsDelete == false)
                 .Select(g => new GameAllViewModel()
-                { 
-                   Id = g.Id,
-                   Title = g.Title,
-                   ImageUrl = g.ImageUrl,
-                   Publisher = g.Publisher.UserName,
-                   ReleasedOn = g.ReleasedOn.ToString(DateFormatType),
-                   Genre = g.Genre.Name
+                {
+                    Id = g.Id,
+                    Title = g.Title,
+                    ImageUrl = g.ImageUrl,
+                    Publisher = g.Publisher.UserName,
+                    ReleasedOn = g.ReleasedOn.ToString(DateFormatType),
+                    Genre = g.Genre.Name
                 })
                 .ToListAsync();
         }
 
-        public async Task AddGameAsync(GameAddFormModel model,DateTime releaseOn, string userId)
+        public async Task AddGameAsync(GameAddFormModel model, DateTime releaseOn, string userId)
         {
             Game newGame = new Game()
             {
@@ -121,13 +176,13 @@ namespace GameZone.Service
             await context.SaveChangesAsync();
         }
 
-        public async Task<ICollection<GameGenreViewModel>>GetGenresAsync()
+        public async Task<ICollection<GameGenreViewModel>> GetGenresAsync()
         {
             return await context.Genres
                 .Select(g => new GameGenreViewModel()
                 {
                     Id = g.Id,
-                    Name = g.Name,  
+                    Name = g.Name,
                 })
                 .ToListAsync();
         }
@@ -145,5 +200,13 @@ namespace GameZone.Service
                 .AnyAsync(g => g.Id == gameId
                             && g.PublisherId == userId);
         }
+
+        public async Task<bool> IsUserHaveGame(int gameId, string userId)
+        {
+            return await context.GamerGames
+                .AnyAsync(gg => gg.GameId == gameId
+                                && gg.GamerId == userId);
+        }
+
     }
 }

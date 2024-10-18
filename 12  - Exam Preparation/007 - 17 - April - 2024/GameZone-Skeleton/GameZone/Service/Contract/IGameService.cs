@@ -19,8 +19,17 @@ namespace GameZone.Service.Contract
         Task EditGameAsync(int gameId, GameAddFormModel model, DateTime releaseOn);
 
         Task<GameDetailsViewModel?> GetDetailsAsync(int gameId);
+
         Task<ICollection<GameMyZoneViewModel>> GetMyZoneGames(string userId);
 
+        Task<bool> IsUserHaveGame(int gameId, string userId);
 
+        Task AddGameToMyZone(int gameId, string userId);
+
+        Task RemoveGameFromMyZone(int gameId, string userId);
+
+        Task<GameDeleteViewModel?> GetGameForDelete(int gameId);
+
+        Task DeleteGameAsync(int gameId);
     }
 }
