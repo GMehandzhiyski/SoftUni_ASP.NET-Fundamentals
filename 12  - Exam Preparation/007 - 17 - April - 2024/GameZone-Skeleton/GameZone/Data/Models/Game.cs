@@ -49,5 +49,8 @@ namespace GameZone.Data.Models
 
         [Comment("Collection of GamerGame")]
         public ICollection<GamerGame> GamersGames { get; set; } = new List<GamerGame>();
+
+        [Comment("Soft Delete")]
+        public bool IsDelete { get; set; }  
     }
 }

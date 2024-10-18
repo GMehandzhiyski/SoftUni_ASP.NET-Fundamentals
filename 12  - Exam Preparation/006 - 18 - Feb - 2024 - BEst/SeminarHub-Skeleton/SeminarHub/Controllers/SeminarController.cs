@@ -39,9 +39,8 @@ namespace SeminarHub.Controllers
             try
             {
                 if (ModelState.IsValid == false)
-                {
-                    ICollection<SeminarCategoryViewModel> category = await data.GetCategoriesAsync();
-                    model.Categories = category;
+                {   
+                    model.Categories = await data.GetCategoriesAsync();
                     return View(model); 
                 }
 
@@ -49,8 +48,7 @@ namespace SeminarHub.Controllers
 
                 if (isCategoryValid == false)
                 {
-                    ICollection<SeminarCategoryViewModel> category = await data.GetCategoriesAsync();
-                    model.Categories = category;
+                    model.Categories = await data.GetCategoriesAsync();
                     ModelState.AddModelError("Category", "The selected event category is invalid");
                     return View(model);
                 }
