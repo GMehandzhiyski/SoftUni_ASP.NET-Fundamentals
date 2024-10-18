@@ -16,5 +16,11 @@ namespace GameZone.Service.Contract
 
         Task<bool> IsUserOwner(int gameId, string userId);
 
+        Task EditGameAsync(int gameId, GameAddFormModel model, DateTime releaseOn);
+
+        Task<GameDetailsViewModel?> GetDetailsAsync(int gameId);
+        Task<ICollection<GameMyZoneViewModel>> GetMyZoneGames(string userId);
+
+
     }
 }

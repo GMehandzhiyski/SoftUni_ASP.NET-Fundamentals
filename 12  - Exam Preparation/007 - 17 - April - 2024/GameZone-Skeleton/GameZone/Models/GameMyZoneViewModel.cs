@@ -2,7 +2,7 @@
 
 namespace GameZone.Models
 {
-    public class GameAllViewModel
+    public class GameMyZoneViewModel
     {
         [Comment("Id")]
         public int Id { get; set; }
@@ -21,7 +21,5 @@ namespace GameZone.Models
 
         [Comment("Genre")]
         public string Genre { get; set; } = string.Empty;
-
-
     }
 }

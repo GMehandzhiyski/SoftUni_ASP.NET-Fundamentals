@@ -1,8 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
-using static GameZone.Common.ValidationErrors;
 using static GameZone.Common.ValidationConstants;
-using SQLitePCL;
+using static GameZone.Common.ValidationErrors;
 
 namespace GameZone.Models
 {

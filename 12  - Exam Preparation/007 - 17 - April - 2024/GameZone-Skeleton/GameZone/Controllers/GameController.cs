@@ -5,6 +5,7 @@ using GameZone.Service.Contract;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Globalization;
+using System.Runtime.InteropServices;
 using static GameZone.Common.DateConstants;
 
 namespace GameZone.Controllers
@@ -109,7 +110,7 @@ namespace GameZone.Controllers
                 GameAddFormModel? model = await data.GetGameEditAsync(id);
                 if (model == null)
                 {
-                    return RedirectToAction(nameof(All));   
+                    return RedirectToAction(nameof(All));
                 }
 
                 model.Genres = await data.GetGenresAsync();
@@ -119,7 +120,6 @@ namespace GameZone.Controllers
             catch (Exception)
             {
                 return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
-
             }
         }
 
@@ -143,8 +143,70 @@ namespace GameZone.Controllers
                 }
 
                 DateTime releaseOn = DateTime.Now;
+                DateTime.TryParseExact(
+                    model.ReleasedOn,
+                    DateFormatType,
+                    CultureInfo.InvariantCulture,
+                    DateTimeStyles.None,
+                    out releaseOn);
 
+                if (releaseOn == DateTime.MinValue)
+                {
+                    model.Genres = await data.GetGenresAsync();
+                    ModelState.AddModelError(nameof(model.ReleasedOn), $"Invalid date! Format must be: {DateFormatType}");
+                    return View(model);
+                }
 
+                await data.EditGameAsync(id, model, releaseOn);
+
+                return RedirectToAction(nameof(All));
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Details(int id)
+        {
+            try
+            {
+                GameDetailsViewModel? model = await data.GetDetailsAsync(id);
+                if (model == null)
+                {
+                    return RedirectToAction(nameof(All));
+                }
+
+                return View(model);
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> MyZone()
+        {
+            try
+            {
+                ICollection<GameMyZoneViewModel> model = await data.GetMyZoneGames(User.GetUserId());
+
+                return View(model);
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, "An error occurred while processing your request.");
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddToMyZone(int id)
+        {
+            try
+            {
+                bool isUserHaveGame = await data.IsUserHaveGame(id, User.GetUserId);
             }
             catch (Exception)
             {
