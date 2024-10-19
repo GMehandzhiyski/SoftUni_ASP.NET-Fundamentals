@@ -45,7 +45,6 @@ namespace SeminarHub.Controllers
                 }
 
                 bool isCategoryValid = await data.IsCategoryValid(model.CategoryId);
-
                 if (isCategoryValid == false)
                 {
                     model.Categories = await data.GetCategoriesAsync();
@@ -63,8 +62,7 @@ namespace SeminarHub.Controllers
 
                 if (dateAndTime == DateTime.MinValue)
                 {
-                    ICollection<SeminarCategoryViewModel> category = await data.GetCategoriesAsync();
-                    model.Categories = category;
+                    model.Categories = await data.GetCategoriesAsync();
                     ModelState.AddModelError(nameof(model.DateAndTime), $"Invalid date! Format must be: {DateFormatType}");
                     return View(model);
                 }
@@ -99,14 +97,12 @@ namespace SeminarHub.Controllers
             try
             {
                 bool isUserOwner = await data.IsUserOwnerAsync(id, User.GetUserId());
-
                 if (isUserOwner == false)
                 {
                      return RedirectToAction(nameof(All));
                 }
 
                 SeminarAddFormModel model = await data.GetSeminarAsync(id);
-
                 if (model == null)
                 {
                     return RedirectToAction(nameof(All));
@@ -129,17 +125,14 @@ namespace SeminarHub.Controllers
             {
                 if (ModelState.IsValid == false)
                 {
-                    ICollection<SeminarCategoryViewModel> category = await data.GetCategoriesAsync();
-                    model.Categories = category;
+                    model.Categories = await data.GetCategoriesAsync();
                     return View(model);
                 }
 
                 bool isCategoryValid = await data.IsCategoryValid(model.CategoryId);
-
                 if (isCategoryValid == false)
                 {
-                    ICollection<SeminarCategoryViewModel> category = await data.GetCategoriesAsync();
-                    model.Categories = category;
+                    model.Categories = await data.GetCategoriesAsync();
                     ModelState.AddModelError("Category", "The selected event category is invalid");
                     return View(model);
                 }
@@ -154,8 +147,7 @@ namespace SeminarHub.Controllers
 
                 if (dateAndTime == DateTime.MinValue)
                 {
-                    ICollection<SeminarCategoryViewModel> category = await data.GetCategoriesAsync();
-                    model.Categories = category;
+                    model.Categories = await data.GetCategoriesAsync();
                     ModelState.AddModelError(nameof(model.DateAndTime), $"Invalid date! Format must be: {DateFormatType}");
                     return View(model);
                 }
@@ -222,7 +214,6 @@ namespace SeminarHub.Controllers
             try
             {
                 SeminarDeleteVIewModel? currSeminar = await data.GetSeminarForDeleting(id);
-
                 if (currSeminar == null)
                 {
                     return RedirectToAction(nameof(All));
