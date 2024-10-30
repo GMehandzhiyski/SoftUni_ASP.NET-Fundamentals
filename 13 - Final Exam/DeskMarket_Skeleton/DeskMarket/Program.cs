@@ -1,4 +1,6 @@
 using DeskMarket.Data;
+using DeskMarket.Service;
+using DeskMarket.Service.Contract;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,6 +17,8 @@ namespace DeskMarket
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(connectionString));
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+            builder.Services.AddScoped<IDeskService, DeskService>();
 
             builder.Services.AddDefaultIdentity<IdentityUser>(options =>
             {

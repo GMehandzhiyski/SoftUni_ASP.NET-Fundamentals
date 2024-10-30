@@ -12,8 +12,8 @@
         public const int ProductDescriptionMaxLenght = 250;
 
         //Price
-        public const decimal ProductPriceMinLenght = 1.00m;
-        public const decimal ProductPriceMaxLenght = 3000.00m;
+        public const double ProductPriceMinLenght = 1.00;
+        public const double ProductPriceMaxLenght = 3000.00;
 
         //Category
         //Name

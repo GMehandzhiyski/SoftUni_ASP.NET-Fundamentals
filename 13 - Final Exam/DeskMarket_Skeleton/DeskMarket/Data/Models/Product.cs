@@ -15,12 +15,12 @@ namespace DeskMarket.Data.Models
         [Required]
         [Comment("ProductName")]
         [MaxLength(ProductProductNameMaxLenght)]
-        private string ProductName { get; set; } = string.Empty;
+        public string ProductName { get; set; } = string.Empty;
 
         [Required]
         [Comment("Description")]
         [MaxLength(ProductDescriptionMaxLenght)]
-        private string Description { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
 
         [Required]
         [Comment("Price")]

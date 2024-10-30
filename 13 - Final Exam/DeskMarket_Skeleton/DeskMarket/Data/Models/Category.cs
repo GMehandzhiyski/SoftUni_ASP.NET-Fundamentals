@@ -19,5 +19,3 @@ namespace DeskMarket.Data.Models
         public ICollection<Product> Products { get; set; } = new List<Product>();
     }
 }
-
-//•	Has Products – a collection of type Product

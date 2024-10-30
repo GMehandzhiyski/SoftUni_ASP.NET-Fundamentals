@@ -1,4 +1,6 @@
-﻿@* @{
+﻿@model DeskDeleteViewModel
+
+@{
     ViewData["Title"] = "Delete Product";
     var today = DateTime.Now.ToString("dd-MM-yyyy");
 }
@@ -17,7 +19,7 @@
                 <p class="text-danger mt-3">Are you sure you want to delete @(Model.ProductName)?</p>
             </div>
             <div class="card-footer">
-                <form asp-action="Delete" method="post">
+                <form asp-action="DeleteConfirmed" method="post">
                     <input type="hidden" asp-for="Id" />
                     <input type="hidden" asp-for="ProductName" />
                     <input type="hidden" asp-for="SellerId" />
@@ -27,4 +29,4 @@
             </div>
         </div>
     </div>
-</div> *@
+</div>
